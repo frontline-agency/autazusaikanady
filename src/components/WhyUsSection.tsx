@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { 
@@ -12,7 +12,15 @@ import {
 
 const WhyUsSection = () => {
   const ref = useRef(null);
+  const containerRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   const reasons = [
     {
@@ -47,48 +55,120 @@ const WhyUsSection = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        duration: 0.5
+      }
+    }
+  };
+
   return (
-    <section className="py-20 bg-background" ref={ref}>
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-background relative overflow-hidden" ref={containerRef}>
+      {/* Parallax Background Pattern */}
+      <motion.div 
+        style={{ y: backgroundY }}
+        className="absolute inset-0 opacity-5"
+      >
+        <div className="absolute inset-0" style={{
+          backgroundImage: "radial-gradient(circle at 25px 25px, hsl(var(--usa-navy)) 2px, transparent 0)",
+          backgroundSize: "50px 50px"
+        }} />
+      </motion.div>
+
+      <div className="container mx-auto px-4 relative" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-usa-red font-semibold uppercase tracking-wider">Dlaczego my?</span>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2">
+          <motion.span 
+            initial={{ opacity: 0, letterSpacing: "0.5em" }}
+            animate={isInView ? { opacity: 1, letterSpacing: "0.1em" } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-usa-red font-semibold uppercase tracking-wider inline-block"
+          >
+            Dlaczego my?
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2"
+          >
             Dlaczego warto wybrać naszą firmę?
-          </h2>
+          </motion.h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {reasons.map((reason, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
-              className="group relative bg-card p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-transparent hover:border-usa-red/20"
+              variants={cardVariants}
+              whileHover={{ 
+                y: -10, 
+                scale: 1.02,
+                transition: { duration: 0.3 }
+              }}
+              className="group relative bg-card p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-transparent hover:border-usa-red/20 cursor-default"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-usa-red/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              {/* Animated gradient background */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                className="absolute inset-0 bg-gradient-to-br from-usa-red/10 via-transparent to-usa-navy/10 rounded-2xl"
+              />
               
               <div className="relative">
-                <div className="w-14 h-14 bg-usa-navy rounded-xl flex items-center justify-center mb-4 group-hover:bg-usa-red transition-colors">
+                <motion.div 
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-14 h-14 bg-usa-navy rounded-xl flex items-center justify-center mb-4 group-hover:bg-usa-red transition-colors duration-300"
+                >
                   <reason.icon className="w-7 h-7 text-primary-foreground" />
-                </div>
+                </motion.div>
                 
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
+                <motion.h3 
+                  className="font-heading font-semibold text-lg text-foreground mb-3 group-hover:text-usa-red transition-colors"
+                >
                   {reason.title}
-                </h3>
+                </motion.h3>
                 
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {reason.description}
                 </p>
               </div>
+
+              {/* Corner accent */}
+              <motion.div
+                initial={{ scale: 0 }}
+                whileHover={{ scale: 1 }}
+                className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-usa-red/20 to-transparent rounded-tr-2xl rounded-bl-full"
+              />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
