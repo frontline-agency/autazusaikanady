@@ -1,5 +1,6 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Phone, ArrowRight, CheckCircle, Star, Eye } from "lucide-react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { Phone, ArrowRight, CheckCircle, Star, Eye, ChevronDown } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import heroCarUsa from "@/assets/hero-car-usa.webp";
@@ -165,6 +166,25 @@ const HeroSection = () => {
           </span>
         </motion.div>
       </motion.div>
+
+      {/* Scroll indicator - animated car */}
+      <div className="absolute bottom-8 left-0 right-0 z-[6] flex flex-col items-center gap-3">
+        <motion.div
+          animate={{ x: ["-100%", "100%"] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="text-3xl"
+        >
+          🏎️
+        </motion.div>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-1"
+        >
+          <span className="text-primary-foreground/50 text-xs font-medium tracking-widest uppercase">Przewiń</span>
+          <ChevronDown className="w-5 h-5 text-primary-foreground/50" />
+        </motion.div>
+      </div>
 
     </section>
   );
