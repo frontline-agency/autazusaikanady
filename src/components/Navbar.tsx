@@ -24,7 +24,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <a href="#home" className="flex items-center">
-              <img src={logo} alt="AUTA z Ameryki USA" className="h-12 w-auto" />
+              <img src={logo} alt="AUTA z Ameryki USA" className="w-[180px] h-auto" />
             </a>
 
             {/* Desktop Navigation */}
