@@ -1,17 +1,17 @@
 const MarqueeBand = () => {
   return (
-    <div className="bg-usa-navy py-6 overflow-hidden select-none">
+    <div className="bg-background py-8 overflow-hidden select-none">
       <div
         className="flex whitespace-nowrap will-change-transform"
-        style={{ animation: "marquee-scroll 30s linear infinite" }}
+        style={{ animation: "marquee-scroll 15s linear infinite" }}
       >
         {[...Array(8)].map((_, i) => (
           <span
             key={i}
-            className="font-heading font-black text-primary-foreground tracking-tighter shrink-0 px-6"
-            style={{ fontSize: "clamp(60px, 10vw, 140px)", lineHeight: 1 }}
+            className="font-heading font-black text-usa-navy tracking-tighter shrink-0 px-6"
+            style={{ fontSize: "clamp(90px, 15vw, 210px)", lineHeight: 1 }}
           >
-            IMPORTUJEMY AUTA PROSTO Z USA •
+            Zaoszczędź nawet do 40% wartości auta •
           </span>
         ))}
       </div>
