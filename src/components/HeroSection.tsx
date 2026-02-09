@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Phone, ArrowRight, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
-import mustangHero from "@/assets/mustang-hero.webp";
+import heroCarUsa from "@/assets/hero-car-usa.webp";
 import zakupWCiemno from "@/assets/zakup-w-ciemno.png";
 import ttvLogo from "@/assets/ttv-logo.png";
 
@@ -13,191 +13,173 @@ const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
-  const bigTextY = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
-  const carY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const marqueeX = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
 
   return (
     <section
       id="home"
       ref={ref}
-      className="relative min-h-screen bg-usa-navy overflow-hidden flex items-center"
+      className="relative min-h-screen bg-usa-navy overflow-hidden"
     >
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-usa-navy/60 via-usa-navy/40 to-usa-navy/80 z-[2]" />
-
-      {/* Giant scrolling background text */}
+      {/* Scrolling marquee text - behind everything */}
       <motion.div
-        style={{ y: bigTextY }}
-        className="absolute inset-0 flex items-end z-[1] pointer-events-none select-none overflow-hidden"
+        style={{ x: marqueeX }}
+        className="absolute inset-0 flex items-center z-[1] pointer-events-none select-none"
       >
-        <h2 className="font-heading font-black text-[12vw] md:text-[14vw] lg:text-[16vw] leading-none text-white/10 whitespace-nowrap tracking-tighter translate-y-[15%]">
-          WYCHODZENIA
+        <h2 className="font-heading font-black text-[18vw] leading-none text-white/[0.07] whitespace-nowrap tracking-tighter">
+          AUTA Z AMERYKI USA • IMPORT SAMOCHODÓW • AUTA Z AMERYKI USA • IMPORT SAMOCHODÓW •
         </h2>
       </motion.div>
 
-      {/* Car image - sits between big text and content */}
+      {/* Central car image */}
       <motion.div
-        style={{ y: carY }}
-        initial={{ opacity: 0, x: 80 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="absolute right-0 bottom-0 w-[55%] md:w-[50%] lg:w-[45%] z-[3] pointer-events-none"
+        style={{ scale: imageScale, y: imageY }}
+        className="absolute inset-0 z-[2] flex items-center justify-center"
       >
-        <img
-          src={mustangHero}
-          alt="Ford Mustang GT350 - Import z USA"
-          className="w-full h-auto drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
-        />
-        {/* Floating badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.2, type: "spring" }}
-          className="absolute bottom-[15%] left-[5%] bg-usa-red text-primary-foreground px-5 py-3 rounded-xl shadow-2xl"
-        >
-          <span className="font-heading font-bold text-2xl">-40%</span>
-          <span className="block text-sm">oszczędności</span>
-        </motion.div>
+        <div className="relative w-full h-full">
+          <img
+            src={heroCarUsa}
+            alt="Muscle car na amerykańskiej autostradzie"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark vignette overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--usa-navy))] via-[hsl(var(--usa-navy)/0.3)] to-[hsl(var(--usa-navy)/0.5)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--usa-navy)/0.7)] via-transparent to-[hsl(var(--usa-navy)/0.7)]" />
+        </div>
       </motion.div>
 
-      {/* Main content */}
+      {/* Main content overlay */}
       <motion.div
-        style={{ y: textY, opacity }}
-        className="container mx-auto px-4 relative z-[5] pt-32 pb-24"
+        style={{ opacity: contentOpacity, y: contentY }}
+        className="relative z-[5] min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32 pb-24"
       >
-        <div className="max-w-2xl">
-          {/* TV Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="flex items-center gap-4 mb-8"
-          >
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-              <img src={ttvLogo} alt="TTV" className="h-8 w-auto" />
-              <span className="text-sm font-medium text-primary-foreground">
-                Znasz nas z telewizji!
-              </span>
-            </div>
-            <img
-              src={zakupWCiemno}
-              alt="Zakup w ciemno"
-              className="h-14 w-auto"
-            />
-          </motion.div>
-
-          {/* Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-[1.05] mb-6"
-          >
-            Auta z USA i Kanady
-            <span className="block text-usa-red mt-1">
-              Import samochodów
+        {/* TV Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex items-center gap-4 mb-8"
+        >
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-5 py-2.5 border border-white/10">
+            <img src={ttvLogo} alt="TTV" className="h-7 w-auto" />
+            <span className="text-sm font-medium text-primary-foreground">
+              Znasz nas z telewizji!
             </span>
-            ze Stanów
-          </motion.h1>
+          </div>
+          <img
+            src={zakupWCiemno}
+            alt="Zakup w ciemno"
+            className="h-12 w-auto"
+          />
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="text-lg md:text-xl text-primary-foreground/75 mb-8 max-w-xl"
-          >
-            Zaoszczędź nawet do{" "}
-            <strong className="text-usa-red">40%</strong> wartości auta.
-            Zajmujemy się wszystkim – od licytacji po rejestrację.
-          </motion.p>
+        {/* Main heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.4 }}
+          className="font-heading text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground leading-[0.95] mb-6 max-w-5xl"
+        >
+          Importujemy auta
+          <span className="block text-usa-red mt-2">prosto z USA</span>
+        </motion.h1>
 
-          {/* Benefits */}
-          <ul className="space-y-2.5 mb-10">
-            {[
-              "Oszczędność do 40% wartości auta",
-              "Import w zaledwie 30 dni",
-              "Pełna transparentność kosztów",
-              "Twarze programu TV Zakup w ciemno",
-            ].map((b, i) => (
-              <motion.li
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7 }}
+          className="text-lg md:text-xl text-primary-foreground/70 mb-10 max-w-2xl"
+        >
+          Zaoszczędź nawet do <strong className="text-usa-red">40%</strong>{" "}
+          wartości auta. Zajmujemy się wszystkim – od licytacji po rejestrację.
+        </motion.p>
+
+        {/* Benefits row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10"
+        >
+          {[
+            "Oszczędność do 40%",
+            "Import w 30 dni",
+            "Pełna transparentność",
+            "Znani z TV",
+          ].map((b, i) => (
+            <span
+              key={i}
+              className="flex items-center gap-2 text-primary-foreground/90 text-sm md:text-base"
+            >
+              <CheckCircle className="w-4 h-4 text-usa-red flex-shrink-0" />
+              {b}
+            </span>
+          ))}
+        </motion.div>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1 }}
+          className="flex flex-col sm:flex-row gap-4 mb-12"
+        >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              asChild
+              size="lg"
+              className="bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-semibold text-lg px-8 shadow-glow-red"
+            >
+              <a href="tel:+48502441033" className="flex items-center gap-2">
+                <Phone className="w-5 h-5" />
+                Zadzwoń teraz
+              </a>
+            </Button>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-lg"
+            >
+              <a href="#about" className="flex items-center gap-2">
+                Dowiedz się więcej
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </Button>
+          </motion.div>
+        </motion.div>
+
+        {/* Trust bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="flex items-center gap-4"
+        >
+          <div className="flex items-center gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Star
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 + i * 0.1 }}
-                className="flex items-center gap-3 text-primary-foreground"
-              >
-                <CheckCircle className="w-5 h-5 text-usa-red flex-shrink-0" />
-                <span>{b}</span>
-              </motion.li>
+                className="w-4 h-4 fill-yellow-400 text-yellow-400"
+              />
             ))}
-          </ul>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                asChild
-                size="lg"
-                className="bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-semibold text-lg px-8 shadow-glow-red"
-              >
-                <a href="tel:+48502441033" className="flex items-center gap-2">
-                  <Phone className="w-5 h-5" />
-                  Zadzwoń teraz
-                </a>
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-lg"
-              >
-                <a href="#about" className="flex items-center gap-2">
-                  Dowiedz się więcej
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-              </Button>
-            </motion.div>
-          </motion.div>
-
-          {/* Trust */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="flex items-center gap-6 mt-10 pt-8 border-t border-primary-foreground/20"
-          >
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                />
-              ))}
-            </div>
-            <span className="text-primary-foreground/80">
-              Zaufało nam ponad{" "}
-              <strong className="text-primary-foreground">500+</strong> klientów
-            </span>
-          </motion.div>
-        </div>
+          </div>
+          <span className="text-primary-foreground/70 text-sm">
+            Zaufało nam ponad{" "}
+            <strong className="text-primary-foreground">500+</strong> klientów
+          </span>
+        </motion.div>
       </motion.div>
 
       {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 right-0 z-[6]">
-        <svg
-          viewBox="0 0 1440 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
             fill="hsl(var(--background))"
