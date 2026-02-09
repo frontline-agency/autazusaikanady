@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Phone, ArrowRight, CheckCircle, Star } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle, Star, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import heroCarUsa from "@/assets/hero-car-usa.webp";
@@ -63,7 +63,7 @@ const HeroSection = () => {
           <img
             src={zakupWCiemno}
             alt="Zakup w ciemno"
-            className="h-16 w-auto"
+            className="h-24 w-auto"
           />
         </motion.div>
 
@@ -72,10 +72,9 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground uppercase leading-[0.95] mb-6 max-w-5xl"
+          className="font-heading text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground uppercase leading-[0.95] mb-6 max-w-6xl"
         >
-          IMPORTUJEMY AUTA
-          <span className="block text-usa-red mt-2">PROSTO Z USA</span>
+          IMPORTUJEMY AUTA PROSTO Z USA
         </motion.h1>
 
         <motion.p
@@ -115,17 +114,18 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="flex flex-col sm:flex-row gap-4 mb-12"
+          className="flex flex-col sm:flex-row gap-5 mb-12"
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               asChild
               size="lg"
-              className="bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-semibold text-lg px-8 shadow-glow-red"
+              className="bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-bold text-xl px-10 py-6 shadow-glow-red group relative overflow-hidden"
             >
-              <a href="tel:+48502441033" className="flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                Zadzwoń teraz
+              <a href="/pojazdy" className="flex items-center gap-3">
+                <Eye className="w-6 h-6 transition-transform duration-300 group-hover:rotate-12" />
+                <span className="relative z-10">Zobacz aukcje</span>
+                <span className="absolute inset-0 bg-primary-foreground/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               </a>
             </Button>
           </motion.div>
@@ -133,12 +133,12 @@ const HeroSection = () => {
             <Button
               asChild
               size="lg"
-              variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-lg"
+              className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 font-bold text-xl px-10 py-6 group relative overflow-hidden"
             >
-              <a href="#about" className="flex items-center gap-2">
-                Dowiedz się więcej
-                <ArrowRight className="w-5 h-5" />
+              <a href="/kontakt" className="flex items-center gap-3">
+                <Phone className="w-6 h-6 transition-transform duration-300 group-hover:-rotate-12" />
+                <span className="relative z-10">Kontakt</span>
+                <span className="absolute inset-0 bg-primary-foreground/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               </a>
             </Button>
           </motion.div>
