@@ -33,7 +33,7 @@ const HeroSection = () => {
           }}
         >
           {[...Array(8)].map((_, i) => (
-            <span key={i} className="font-heading font-black text-white/[0.07] tracking-tighter shrink-0 px-4" style={{ fontSize: "clamp(100px, 15vw, 250px)", lineHeight: 1 }}>
+            <span key={i} className="font-heading font-black text-white/20 tracking-tighter shrink-0 px-4" style={{ fontSize: "clamp(100px, 15vw, 250px)", lineHeight: 1 }}>
               IMPORTUJEMY AUTA PROSTO Z USA •
             </span>
           ))}
