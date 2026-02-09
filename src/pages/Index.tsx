@@ -13,6 +13,7 @@ import ServicesSection from "@/components/ServicesSection";
 import BlogSection from "@/components/BlogSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import ScrollingCar from "@/components/ScrollingCar";
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
       {/* <MarqueeBand /> */}
       <AboutSection />
       <TestimonialsSection />
+      <ScrollingCar />
       <WhyUsSection />
       <ProcessSection />
       <CostsSection />
