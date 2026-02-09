@@ -16,13 +16,13 @@ const ScrollingCar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Car moves from -20% to 100% of viewport width based on scroll
-  const translateX = -20 + scrollProgress * 120;
+  // Car moves faster: from -30% to 130% of viewport width
+  const translateX = -30 + scrollProgress * 160;
 
   return (
     <div className="w-full overflow-hidden pointer-events-none py-4">
       <div
-        className="w-[220px] md:w-[320px] transition-none"
+        className="w-[320px] md:w-[500px] transition-none"
         style={{
           transform: `translateX(${translateX}vw) scaleX(-1)`,
           willChange: "transform",
