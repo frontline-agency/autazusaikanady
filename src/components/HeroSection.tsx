@@ -52,18 +52,18 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex items-center gap-4 mb-8"
+          className="flex items-center gap-5 mb-10"
         >
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-5 py-2.5 border border-white/10">
-            <img src={ttvLogo} alt="TTV" className="h-7 w-auto" />
-            <span className="text-sm font-medium text-primary-foreground">
+          <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-full px-7 py-4 border border-white/10">
+            <img src={ttvLogo} alt="TTV" className="h-10 w-auto" />
+            <span className="text-lg font-bold text-primary-foreground">
               Znasz nas z telewizji!
             </span>
           </div>
           <img
             src={zakupWCiemno}
             alt="Zakup w ciemno"
-            className="h-12 w-auto"
+            className="h-16 w-auto"
           />
         </motion.div>
 
@@ -72,19 +72,19 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground leading-[0.95] mb-6 max-w-5xl"
+          className="font-heading text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground uppercase leading-[0.95] mb-6 max-w-5xl"
         >
-          Importujemy auta
-          <span className="block text-usa-red mt-2">prosto z USA</span>
+          IMPORTUJEMY AUTA
+          <span className="block text-usa-red mt-2">PROSTO Z USA</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="text-lg md:text-xl text-primary-foreground/70 mb-10 max-w-2xl"
+          className="text-lg md:text-xl text-primary-foreground font-bold mb-10 max-w-2xl"
         >
-          Zaoszczędź nawet do <strong className="text-usa-red">40%</strong>{" "}
+          Zaoszczędź nawet do <span className="text-usa-red">40%</span>{" "}
           wartości auta. Zajmujemy się wszystkim – od licytacji po rejestrację.
         </motion.p>
 
@@ -99,7 +99,6 @@ const HeroSection = () => {
             "Oszczędność do 40%",
             "Import w 30 dni",
             "Pełna transparentność",
-            "Znani z TV",
           ].map((b, i) => (
             <span
               key={i}
