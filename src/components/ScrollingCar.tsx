@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import carCutout from "@/assets/mustang-scrolling.svg";
+import carCutout from "@/assets/mustang-scrolling.webp";
 
 const ScrollingCar = () => {
   const containerRef = useRef<HTMLDivElement>(null);
