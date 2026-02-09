@@ -3,7 +3,7 @@ import { Phone, ArrowRight, CheckCircle, Star, Eye } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
-import heroHighway from "@/assets/hero-highway.webp";
+import heroCarUsa from "@/assets/hero-car-usa.webp";
 import zakupWCiemno from "@/assets/zakup-w-ciemno.png";
 import ttvLogo from "@/assets/ttv-logo.png";
 
@@ -33,7 +33,7 @@ const HeroSection = () => {
       >
         <div className="relative w-full h-full">
           <img
-            src={heroHighway}
+            src={heroCarUsa}
             alt="Muscle car na amerykańskiej autostradzie"
             className="w-full h-full object-cover"
           />
