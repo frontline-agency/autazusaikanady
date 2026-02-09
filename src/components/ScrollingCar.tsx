@@ -1,28 +1,37 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import carCutout from "@/assets/mustang-scrolling.svg";
 
 const ScrollingCar = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
-      setScrollProgress(progress);
+      const el = containerRef.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Progress: 0 when entering viewport from bottom, 1 when leaving from top
+      const total = viewportHeight + rect.height;
+      const current = viewportHeight - rect.top;
+      const p = Math.max(0, Math.min(1, current / total));
+      setProgress(p);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Car moves faster: from -30% to 130% of viewport width
-  const translateX = -30 + scrollProgress * 160;
+  // Move from left edge (-20vw) to right edge (100vw) while in viewport
+  const translateX = -20 + progress * 120;
 
   return (
-    <div className="w-full overflow-hidden pointer-events-none py-4">
+    <div ref={containerRef} className="w-full overflow-hidden pointer-events-none py-8">
       <div
-        className="w-[320px] md:w-[500px] transition-none"
+        className="w-[320px] md:w-[500px]"
         style={{
           transform: `translateX(${translateX}vw) scaleX(-1)`,
           willChange: "transform",
