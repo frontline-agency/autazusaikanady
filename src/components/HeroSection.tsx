@@ -26,17 +26,13 @@ const HeroSection = () => {
     >
       {/* Infinite horizontal marquee text */}
       <div className="absolute inset-0 flex items-center z-[1] pointer-events-none select-none overflow-hidden">
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="flex whitespace-nowrap"
-        >
-          {[...Array(4)].map((_, i) => (
+        <div className="animate-marquee flex whitespace-nowrap">
+          {[...Array(6)].map((_, i) => (
             <span key={i} className="font-heading font-black text-white/[0.07] tracking-tighter mx-4" style={{ fontSize: "clamp(100px, 15vw, 250px)", lineHeight: 1 }}>
               IMPORTUJEMY AUTA PROSTO Z USA •
             </span>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Central car image */}
