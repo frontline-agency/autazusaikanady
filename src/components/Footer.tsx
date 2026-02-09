@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -7,9 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="font-heading font-bold text-xl mb-4">
-              AUTA z Ameryki <span className="text-usa-red">USA</span>
-            </h3>
+            <img src={logo} alt="AUTA z Ameryki USA" className="h-14 w-auto mb-4 brightness-0 invert" />
             <p className="text-primary-foreground/70 text-sm mb-4">
               Import samochodów z USA i Kanady. Profesjonalnie, bezpiecznie i z pełną transparentnością kosztów.
             </p>
