@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import carCutout from "@/assets/car-cutout.png";
+import carCutout from "@/assets/mustang-scrolling.svg";
 
 const ScrollingCar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
