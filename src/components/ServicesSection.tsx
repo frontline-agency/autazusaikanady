@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ShoppingCart, Ship, Wrench, FileCheck, ArrowRight } from "lucide-react";
-import carsBanner from "@/assets/cars-banner.webp";
+import carsServices from "@/assets/cars-services.webp";
 
 const ServicesSection = () => {
   const ref = useRef(null);
@@ -163,7 +163,7 @@ const ServicesSection = () => {
                 initial={{ scale: 1.2 }}
                 animate={isInView ? { scale: 1 } : {}}
                 transition={{ duration: 1 }}
-                src={carsBanner}
+                src={carsServices}
                 alt="Samochody z USA - Ford Mustang, Mercedes"
                 className="w-full h-auto"
               />
