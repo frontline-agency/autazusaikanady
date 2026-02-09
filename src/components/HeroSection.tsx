@@ -13,7 +13,6 @@ const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  const marqueeX = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
@@ -25,15 +24,20 @@ const HeroSection = () => {
       ref={ref}
       className="relative min-h-screen bg-usa-navy overflow-hidden"
     >
-      {/* Scrolling marquee text - behind everything */}
-      <motion.div
-        style={{ x: marqueeX }}
-        className="absolute inset-0 flex items-center z-[1] pointer-events-none select-none"
-      >
-        <h2 className="font-heading font-black text-[18vw] leading-none text-white/[0.07] whitespace-nowrap tracking-tighter">
-          AUTA Z AMERYKI USA • IMPORT SAMOCHODÓW • AUTA Z AMERYKI USA • IMPORT SAMOCHODÓW •
-        </h2>
-      </motion.div>
+      {/* Infinite horizontal marquee text */}
+      <div className="absolute inset-0 flex items-center z-[1] pointer-events-none select-none overflow-hidden">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="flex whitespace-nowrap"
+        >
+          {[...Array(4)].map((_, i) => (
+            <span key={i} className="font-heading font-black text-white/[0.07] tracking-tighter mx-4" style={{ fontSize: "clamp(100px, 15vw, 250px)", lineHeight: 1 }}>
+              IMPORTUJEMY AUTA PROSTO Z USA •
+            </span>
+          ))}
+        </motion.div>
+      </div>
 
       {/* Central car image */}
       <motion.div
