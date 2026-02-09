@@ -138,7 +138,7 @@ const AuctionsSection = () => {
                 whileHover={{ scale: 1.1 }}
                 src={platform.logo}
                 alt={platform.name}
-                className="h-10 md:h-12 w-auto object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
+                className="h-10 md:h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
               />
             </motion.div>
           ))}
