@@ -25,7 +25,7 @@ const HeroSection = () => {
       className="relative min-h-screen bg-usa-navy overflow-hidden"
     >
       {/* Infinite horizontal marquee text */}
-      <div className="absolute inset-0 flex items-center z-[4] pointer-events-none select-none overflow-hidden">
+      <div className="absolute inset-0 flex items-center z-[10] pointer-events-none select-none overflow-hidden">
         <div
           className="flex whitespace-nowrap will-change-transform"
           style={{
@@ -33,7 +33,7 @@ const HeroSection = () => {
           }}
         >
           {[...Array(8)].map((_, i) => (
-            <span key={i} className="font-heading font-black text-white/15 tracking-tighter shrink-0 px-4" style={{ fontSize: "clamp(100px, 15vw, 250px)", lineHeight: 1 }}>
+            <span key={i} className="font-heading font-black text-white/20 tracking-tighter shrink-0 px-4" style={{ fontSize: "clamp(100px, 15vw, 250px)", lineHeight: 1, textShadow: "0 0 40px rgba(255,255,255,0.1)" }}>
               IMPORTUJEMY AUTA PROSTO Z USA •
             </span>
           ))}
