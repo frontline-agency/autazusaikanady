@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ShoppingCart, Ship, Wrench, FileCheck, ArrowRight } from "lucide-react";
 import carsServices from "@/assets/cars-services.webp";
-
+import carCutout from "@/assets/car-cutout.png";
 const ServicesSection = () => {
   const ref = useRef(null);
   const containerRef = useRef(null);
@@ -188,14 +188,15 @@ const ServicesSection = () => {
               <span className="block text-sm">od licytacji do Polski</span>
             </motion.div>
 
-            {/* Floating accent */}
-            <motion.div
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-4 -left-4 bg-primary-foreground text-usa-navy px-4 py-2 rounded-lg shadow-lg"
-            >
-              <span className="text-sm font-semibold">🚗 Premium Quality</span>
-            </motion.div>
+            {/* Car cutout pinned to right edge */}
+            <motion.img
+              initial={{ opacity: 0, x: 100 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
+              src={carCutout}
+              alt="Amerykański muscle car"
+              className="absolute -bottom-4 -right-12 w-[60%] h-auto object-contain drop-shadow-2xl"
+            />
           </motion.div>
         </div>
       </div>
