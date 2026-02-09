@@ -31,16 +31,16 @@ const ScrollingCar = () => {
   return (
     <div ref={containerRef} className="w-full overflow-hidden pointer-events-none py-8">
       <div
-        className="w-[450px] md:w-[700px]"
         style={{
-          transform: `translateX(${translateX}vw) scaleX(-1)`,
+          width: "40vw",
+          transform: `translateX(${translateX}vw)`,
           willChange: "transform",
         }}
       >
         <img
           src={carCutout}
           alt=""
-          className="w-full h-auto drop-shadow-xl"
+          className="w-full h-auto"
           aria-hidden="true"
         />
       </div>
