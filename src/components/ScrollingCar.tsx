@@ -31,7 +31,7 @@ const ScrollingCar = () => {
   return (
     <div ref={containerRef} className="w-full overflow-hidden pointer-events-none py-8">
       <div
-        className="w-[320px] md:w-[500px]"
+        className="w-[450px] md:w-[700px]"
         style={{
           transform: `translateX(${translateX}vw) scaleX(-1)`,
           willChange: "transform",
