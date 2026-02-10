@@ -29,7 +29,7 @@ const ScrollingCar = () => {
   const translateX = -20 + progress * 120;
 
   return (
-    <div ref={containerRef} className="w-full overflow-hidden pointer-events-none py-8">
+    <div ref={containerRef} className="w-full overflow-hidden pointer-events-none py-12">
       <div
         style={{
           width: "60vw",
