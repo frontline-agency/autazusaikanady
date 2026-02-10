@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="h-px bg-border" />
       <nav className="bg-background sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <a href="#home" className="flex items-center">
               <img src={logo} alt="AUTA z Ameryki USA" className="w-[180px] h-auto" />
@@ -44,11 +44,10 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center gap-4">
               <Button
                 asChild
-                className="bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-semibold"
+                className="bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-bold uppercase tracking-wide text-[18px] px-8 py-3 h-auto"
               >
-                <a href="tel:+48502441033" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  Zadzwoń teraz
+                <a href="#contact">
+                  SKONTAKTUJ SIĘ
                 </a>
               </Button>
             </div>
@@ -78,11 +77,10 @@ const Navbar = () => {
               ))}
               <Button
                 asChild
-                className="w-full mt-4 bg-usa-red hover:bg-usa-red/90 text-primary-foreground"
+                className="w-full mt-4 bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-bold uppercase tracking-wide text-[18px] h-auto py-3"
               >
-                <a href="tel:+48502441033" className="flex items-center justify-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  Zadzwoń teraz
+                <a href="#contact" className="flex items-center justify-center">
+                  SKONTAKTUJ SIĘ
                 </a>
               </Button>
             </div>
