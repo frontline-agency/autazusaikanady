@@ -101,8 +101,8 @@ const ServicesSection = () => {
           </motion.p>
         </motion.div>
 
-        <div>
-          <div className="lg:w-1/2 relative">
+        <div className="relative">
+          <div className="lg:w-1/2">
             {/* Services List with Parallax */}
             <motion.div 
               style={{ x: listX }}
@@ -147,21 +147,21 @@ const ServicesSection = () => {
                 </motion.div>
               ))}
             </motion.div>
-            {/* Car cutout - 80vw, sticking out from right edge */}
-            <motion.div
-              style={{ y: imageY }}
-              initial={{ opacity: 0, x: 300 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.3, duration: 1, type: "spring", stiffness: 50 }}
-              className="hidden lg:block absolute -right-[45%] top-1/2 -translate-y-1/2 w-[80vw]"
-            >
-              <motion.img
-                src={carCutout}
-                alt="Amerykański muscle car"
-                className="w-full h-auto object-contain"
-              />
-            </motion.div>
           </div>
+
+          {/* Car cutout - 80vw, sticking out from right edge, centered vertically */}
+          <motion.div
+            initial={{ opacity: 0, x: 300 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.3, duration: 1, type: "spring", stiffness: 50 }}
+            className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-[55%] w-[80vw]"
+          >
+            <motion.img
+              src={carCutout}
+              alt="Amerykański muscle car"
+              className="w-full h-auto object-contain"
+            />
+          </motion.div>
         </div>
       </div>
     </section>
