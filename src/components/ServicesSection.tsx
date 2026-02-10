@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ShoppingCart, Ship, Wrench, FileCheck, ArrowRight } from "lucide-react";
 
-import carCutout from "@/assets/mustang-cutout.png";
+import carCutout from "@/assets/mustang-services.webp";
 const ServicesSection = () => {
   const ref = useRef(null);
   const containerRef = useRef(null);
@@ -147,21 +147,18 @@ const ServicesSection = () => {
             ))}
           </motion.div>
 
-          {/* Car cutout with Parallax */}
+          {/* Car cutout - pinned to right edge */}
           <motion.div
-            style={{ y: imageY, scale: imageScale }}
-            initial={{ opacity: 0, x: 50 }}
+            style={{ y: imageY }}
+            initial={{ opacity: 0, x: 200 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="relative flex items-center justify-center"
+            transition={{ delay: 0.3, duration: 1, type: "spring", stiffness: 50 }}
+            className="relative -mr-16 lg:-mr-24"
           >
             <motion.img
-              initial={{ opacity: 0, x: 100 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
               src={carCutout}
               alt="Amerykański muscle car"
-              className="w-full h-auto object-contain drop-shadow-2xl -scale-x-100"
+              className="w-full h-auto object-contain drop-shadow-2xl"
             />
           </motion.div>
         </div>
