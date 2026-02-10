@@ -122,8 +122,8 @@ const ServicesSection = () => {
                 className="flex gap-4 p-4 bg-card rounded-xl shadow-sm transition-all duration-300 group cursor-pointer"
               >
                 <motion.div 
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
                   className="w-12 h-12 bg-usa-navy rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-usa-red transition-colors duration-300"
                 >
                   <service.icon className="w-6 h-6 text-primary-foreground" />

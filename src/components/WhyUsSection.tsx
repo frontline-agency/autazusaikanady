@@ -142,8 +142,8 @@ const WhyUsSection = () => {
               
               <div className="relative">
                 <motion.div 
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
                   className="w-14 h-14 bg-usa-navy rounded-xl flex items-center justify-center mb-4 group-hover:bg-usa-red transition-colors duration-300"
                 >
                   <reason.icon className="w-7 h-7 text-primary-foreground" />
