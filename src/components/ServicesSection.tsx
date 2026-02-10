@@ -101,59 +101,61 @@ const ServicesSection = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Services List with Parallax */}
-          <motion.div 
-            style={{ x: listX }}
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="space-y-4"
-          >
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ 
-                  x: 10, 
-                  scale: 1.02,
-                  boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)"
-                }}
-                className="flex gap-4 p-4 bg-card rounded-xl shadow-sm transition-all duration-300 group cursor-pointer"
-              >
-                <motion.div 
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-12 h-12 bg-usa-navy rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-usa-red transition-colors duration-300"
-                >
-                  <service.icon className="w-6 h-6 text-primary-foreground" />
-                </motion.div>
-                <div className="flex-grow">
-                  <h3 className="font-heading font-semibold text-foreground group-hover:text-usa-red transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {service.description}
-                  </p>
-                </div>
+        <div className="relative">
+          <div className="lg:w-1/2">
+            {/* Services List with Parallax */}
+            <motion.div 
+              style={{ x: listX }}
+              variants={containerVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="space-y-4"
+            >
+              {services.map((service, index) => (
                 <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  whileHover={{ opacity: 1, x: 0 }}
-                  className="flex-shrink-0 self-center"
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ 
+                    x: 10, 
+                    scale: 1.02,
+                    boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)"
+                  }}
+                  className="flex gap-4 p-4 bg-card rounded-xl shadow-sm transition-all duration-300 group cursor-pointer"
                 >
-                  <ArrowRight className="w-5 h-5 text-usa-red" />
+                  <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-12 h-12 bg-usa-navy rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-usa-red transition-colors duration-300"
+                  >
+                    <service.icon className="w-6 h-6 text-primary-foreground" />
+                  </motion.div>
+                  <div className="flex-grow">
+                    <h3 className="font-heading font-semibold text-foreground group-hover:text-usa-red transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {service.description}
+                    </p>
+                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    whileHover={{ opacity: 1, x: 0 }}
+                    className="flex-shrink-0 self-center"
+                  >
+                    <ArrowRight className="w-5 h-5 text-usa-red" />
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </motion.div>
+          </div>
 
-          {/* Car cutout - pinned to right edge */}
+          {/* Car cutout - 80vw, sticking out from right edge */}
           <motion.div
             style={{ y: imageY }}
-            initial={{ opacity: 0, x: 200 }}
+            initial={{ opacity: 0, x: 300 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3, duration: 1, type: "spring", stiffness: 50 }}
-            className="relative -mr-16 lg:-mr-24"
+            className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[80vw] translate-x-[45%]"
           >
             <motion.img
               src={carCutout}
