@@ -154,7 +154,7 @@ const ServicesSection = () => {
             initial={{ opacity: 0, x: 300 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3, duration: 1, type: "spring", stiffness: 50 }}
-            className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-[55%] w-[80vw]"
+            className="hidden lg:block absolute top-[40%] -translate-y-1/2 left-[55%] w-[80vw]"
           >
             <motion.img
               src={carCutout}
