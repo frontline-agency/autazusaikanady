@@ -41,7 +41,7 @@ const CTASection = () => {
                 <a href="/kontakt" className="flex items-center gap-3">
                   <Mail className="w-6 h-6 transition-transform duration-300 group-hover:-rotate-12 relative z-10" />
                   <span className="relative z-10">NAPISZ DO NAS</span>
-                  <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                  <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
                 </a>
               </Button>
             </motion.div>

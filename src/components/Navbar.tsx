@@ -48,7 +48,7 @@ const Navbar = () => {
               >
                 <a href="#contact">
                   <span className="relative z-10">SKONTAKTUJ SIĘ</span>
-                  <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                  <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
                 </a>
               </Button>
             </div>
@@ -82,7 +82,7 @@ const Navbar = () => {
               >
                 <a href="#contact" className="flex items-center justify-center">
                   <span className="relative z-10">SKONTAKTUJ SIĘ</span>
-                  <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                  <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
                 </a>
               </Button>
             </div>

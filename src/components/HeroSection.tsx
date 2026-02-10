@@ -125,7 +125,7 @@ const HeroSection = () => {
             >
               <a href="/pojazdy">
                 <span className="relative z-10">ZOBACZ AUKCJE</span>
-                <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
               </a>
             </Button>
           </motion.div>
