@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ShoppingCart, Ship, Wrench, FileCheck, ArrowRight } from "lucide-react";
-import carsServices from "@/assets/cars-services.webp";
+
 import carCutout from "@/assets/mustang-cutout.png";
 const ServicesSection = () => {
   const ref = useRef(null);
@@ -147,55 +147,21 @@ const ServicesSection = () => {
             ))}
           </motion.div>
 
-          {/* Image with Parallax */}
+          {/* Car cutout with Parallax */}
           <motion.div
             style={{ y: imageY, scale: imageScale }}
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="relative"
+            className="relative flex items-center justify-center"
           >
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              className="bg-usa-navy rounded-2xl overflow-hidden shadow-2xl"
-            >
-              <motion.img
-                initial={{ scale: 1.2 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ duration: 1 }}
-                src={carsServices}
-                alt="Samochody z USA - Ford Mustang, Mercedes"
-                className="w-full h-auto"
-              />
-              
-              {/* Overlay gradient */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="absolute inset-0 bg-gradient-to-t from-usa-navy/50 to-transparent"
-              />
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
-              animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
-              transition={{ delay: 0.6, type: "spring" }}
-              whileHover={{ scale: 1.1, rotate: -5 }}
-              className="absolute -bottom-4 -right-4 bg-usa-red text-primary-foreground px-6 py-3 rounded-xl shadow-lg"
-            >
-              <span className="font-heading font-bold text-lg">30 dni</span>
-              <span className="block text-sm">od licytacji do Polski</span>
-            </motion.div>
-
-            {/* Car cutout pinned to right edge */}
             <motion.img
               initial={{ opacity: 0, x: 100 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
               src={carCutout}
               alt="Amerykański muscle car"
-              className="absolute -bottom-4 -right-12 w-[60%] h-auto object-contain drop-shadow-2xl"
+              className="w-full h-auto object-contain drop-shadow-2xl -scale-x-100"
             />
           </motion.div>
         </div>
