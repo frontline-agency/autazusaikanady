@@ -158,7 +158,7 @@ const ServicesSection = () => {
             <motion.img
               src={carCutout}
               alt="Amerykański muscle car"
-              className="w-full h-auto object-contain drop-shadow-2xl"
+              className="w-full h-auto object-contain"
             />
           </motion.div>
         </div>
