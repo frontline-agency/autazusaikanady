@@ -9,17 +9,6 @@ import { blogPosts } from "@/data/blogPosts";
 
 const estimateReadTime = (content: string) => Math.max(3, Math.ceil(content.split(/\s+/).length / 200));
 
-const renderMarkdown = (text: string) => {
-  return text
-    .replace(/^## (.+)/gm, '<h2>$1</h2>')
-    .replace(/^### (.+)/gm, '<h3>$1</h3>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/^- (.+)/gm, '<li>$1</li>')
-    .replace(/(<li>[\s\S]*?<\/li>[\n]*)+/g, (match) => `<ul>${match}</ul>`)
-    .replace(/\n{2,}/g, '</p><p>')
-    .replace(/^(?!<[hulo])/gm, (match) => match ? `<p>${match}` : '');
-};
-
 const BlogPost = () => {
   const { slug } = useParams();
   const postIndex = blogPosts.findIndex((p) => p.slug === slug);
@@ -31,38 +20,38 @@ const BlogPost = () => {
   const nextPost = postIndex < blogPosts.length - 1 ? blogPosts[postIndex + 1] : null;
   const readTime = estimateReadTime(post.content);
 
-  // Split content into sections for image insertion
+  // Split content into sections by h2 headers
   const sections = post.content.split(/\n(?=##\s)/);
 
-  // Determine image placement: after sections 1 and 3 (or last if fewer sections)
-  const imageSlots = [
-    { sectionIndex: 1, imageIndex: 1 },
-    { sectionIndex: Math.min(3, sections.length - 1), imageIndex: 2 },
-  ];
+  // Distribute images evenly across sections
+  const getImageForSection = (sectionIndex: number): { src: string; alt: string } | null => {
+    if (sectionIndex === 0) return null; // skip first section (intro)
+    // Place image 1 after section 1, image 2 after section ~middle
+    if (sectionIndex === 1 && post.images[1]) return post.images[1];
+    const midPoint = Math.max(2, Math.floor(sections.length / 2));
+    if (sectionIndex === midPoint && post.images[2]) return post.images[2];
+    return null;
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <TopBar />
       <Navbar />
 
-      {/* Hero banner with parallax effect */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      {/* Hero banner */}
+      <section className="relative h-[50vh] min-h-[380px] overflow-hidden">
         <motion.div
-          initial={{ scale: 1.1 }}
+          initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <img
-            src={post.images[0].src}
-            alt={post.images[0].alt}
-            className="w-full h-full object-cover"
-          />
+          <img src={post.images[0].src} alt={post.images[0].alt} className="w-full h-full object-cover" />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--usa-navy))] via-[hsl(var(--usa-navy)/0.6)] to-[hsl(var(--usa-navy)/0.2)]" />
-        
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--usa-navy))] via-[hsl(var(--usa-navy)/0.6)] to-[hsl(var(--usa-navy)/0.15)]" />
+
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-          <div className="container mx-auto max-w-4xl">
+          <div className="container mx-auto max-w-5xl">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
               <Link to="/blog" className="inline-flex items-center gap-1.5 text-usa-red text-sm font-semibold hover:underline mb-4 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-1.5">
                 <ArrowLeft className="w-3.5 h-3.5" /> Wróć do bloga
@@ -91,7 +80,7 @@ const BlogPost = () => {
 
       {/* Keywords bar */}
       <div className="bg-muted border-b border-border">
-        <div className="container mx-auto max-w-4xl px-4 py-3">
+        <div className="container mx-auto max-w-5xl px-4 py-3">
           <div className="flex items-center gap-2 flex-wrap">
             <Tag className="w-3.5 h-3.5 text-muted-foreground" />
             {post.keywords.map((kw) => (
@@ -104,70 +93,58 @@ const BlogPost = () => {
       </div>
 
       {/* Article content */}
-      <article className="py-12">
+      <article className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             {/* Lead paragraph */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 border-l-4 border-usa-red pl-6 italic"
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-12 border-l-4 border-usa-red pl-6 italic"
             >
               {post.excerpt}
             </motion.p>
 
-            {sections.map((section, i) => (
-              <div key={i}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.5 }}
-                  className="prose prose-lg max-w-none
-                    prose-headings:font-heading prose-headings:text-foreground prose-headings:font-bold
-                    prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border
-                    prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                    prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-5
-                    prose-strong:text-foreground prose-strong:font-semibold
-                    prose-li:text-muted-foreground prose-li:leading-relaxed
-                    prose-ul:mb-5 prose-ol:mb-5
-                    prose-ul:pl-6 prose-li:mb-1"
-                  dangerouslySetInnerHTML={{ __html: renderMarkdown(section) }}
-                />
+            {sections.map((section, i) => {
+              const image = getImageForSection(i);
+              return (
+                <div key={i}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.5 }}
+                    className="blog-content"
+                    dangerouslySetInnerHTML={{ __html: renderSectionHtml(section) }}
+                  />
 
-                {/* Insert images at designated spots */}
-                {imageSlots.map(({ sectionIndex, imageIndex }) =>
-                  i === sectionIndex && post.images[imageIndex] ? (
+                  {image && (
                     <motion.figure
-                      key={imageIndex}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.6 }}
-                      className="my-10 rounded-2xl overflow-hidden shadow-xl group"
+                      transition={{ duration: 0.5 }}
+                      className="my-10 md:my-14 rounded-2xl overflow-hidden shadow-lg"
                     >
-                      <div className="relative overflow-hidden">
-                        <img
-                          src={post.images[imageIndex].src}
-                          alt={post.images[imageIndex].alt}
-                          className="w-full h-auto group-hover:scale-105 transition-transform duration-700"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      </div>
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-auto"
+                        loading="lazy"
+                      />
                       <figcaption className="text-sm text-muted-foreground px-5 py-3 bg-muted/50 border-t border-border flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-usa-red flex-shrink-0" />
-                        {post.images[imageIndex].alt}
+                        <span className="w-1.5 h-1.5 rounded-full bg-usa-red flex-shrink-0" />
+                        {image.alt}
                       </figcaption>
                     </motion.figure>
-                  ) : null
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              );
+            })}
 
             {/* Divider */}
-            <div className="my-12 flex items-center gap-4">
+            <div className="my-14 flex items-center gap-4">
               <div className="flex-1 h-px bg-border" />
               <div className="flex gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-usa-red" />
@@ -219,29 +196,19 @@ const BlogPost = () => {
             {/* Post navigation */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
               {prevPost ? (
-                <Link
-                  to={`/blog/${prevPost.slug}`}
-                  className="group p-5 rounded-xl border border-border hover:border-usa-red/30 hover:bg-muted/50 transition-all"
-                >
+                <Link to={`/blog/${prevPost.slug}`} className="group p-5 rounded-xl border border-border hover:border-usa-red/30 hover:bg-muted/50 transition-all">
                   <span className="text-xs text-muted-foreground uppercase tracking-wider flex items-center gap-1 mb-2">
                     <ArrowLeft className="w-3 h-3" /> Poprzedni wpis
                   </span>
-                  <span className="text-sm font-semibold text-foreground group-hover:text-usa-red transition-colors line-clamp-2">
-                    {prevPost.title}
-                  </span>
+                  <span className="text-sm font-semibold text-foreground group-hover:text-usa-red transition-colors line-clamp-2">{prevPost.title}</span>
                 </Link>
               ) : <div />}
               {nextPost ? (
-                <Link
-                  to={`/blog/${nextPost.slug}`}
-                  className="group p-5 rounded-xl border border-border hover:border-usa-red/30 hover:bg-muted/50 transition-all text-right md:col-start-2"
-                >
+                <Link to={`/blog/${nextPost.slug}`} className="group p-5 rounded-xl border border-border hover:border-usa-red/30 hover:bg-muted/50 transition-all text-right md:col-start-2">
                   <span className="text-xs text-muted-foreground uppercase tracking-wider flex items-center justify-end gap-1 mb-2">
                     Następny wpis <ArrowRight className="w-3 h-3" />
                   </span>
-                  <span className="text-sm font-semibold text-foreground group-hover:text-usa-red transition-colors line-clamp-2">
-                    {nextPost.title}
-                  </span>
+                  <span className="text-sm font-semibold text-foreground group-hover:text-usa-red transition-colors line-clamp-2">{nextPost.title}</span>
                 </Link>
               ) : <div />}
             </div>
@@ -254,24 +221,11 @@ const BlogPost = () => {
                   .filter((_, idx) => idx !== postIndex)
                   .slice(0, 4)
                   .map((related) => (
-                    <Link
-                      key={related.slug}
-                      to={`/blog/${related.slug}`}
-                      className="group flex gap-4 p-3 rounded-xl hover:bg-muted/50 transition-colors"
-                    >
-                      <img
-                        src={related.image}
-                        alt={related.title}
-                        className="w-20 h-20 rounded-lg object-cover flex-shrink-0 group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
+                    <Link key={related.slug} to={`/blog/${related.slug}`} className="group flex gap-4 p-3 rounded-xl hover:bg-muted/50 transition-colors">
+                      <img src={related.image} alt={related.title} className="w-20 h-20 rounded-lg object-cover flex-shrink-0 group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                       <div className="min-w-0">
-                        <h4 className="text-sm font-semibold text-foreground group-hover:text-usa-red transition-colors line-clamp-2">
-                          {related.title}
-                        </h4>
-                        <span className="text-xs text-muted-foreground mt-1 block">
-                          {new Date(related.date).toLocaleDateString("pl-PL")}
-                        </span>
+                        <h4 className="text-sm font-semibold text-foreground group-hover:text-usa-red transition-colors line-clamp-2">{related.title}</h4>
+                        <span className="text-xs text-muted-foreground mt-1 block">{new Date(related.date).toLocaleDateString("pl-PL")}</span>
                       </div>
                     </Link>
                   ))}
@@ -285,5 +239,35 @@ const BlogPost = () => {
     </div>
   );
 };
+
+/** Render a markdown section to clean HTML with proper headings and paragraphs */
+function renderSectionHtml(section: string): string {
+  const lines = section.split('\n');
+  let html = '';
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+
+    if (trimmed.startsWith('### ')) {
+      html += `<h3>${trimmed.slice(4)}</h3>`;
+    } else if (trimmed.startsWith('## ')) {
+      html += `<h2>${trimmed.slice(3)}</h2>`;
+    } else if (trimmed.startsWith('- ')) {
+      html += `<li>${applyInline(trimmed.slice(2))}</li>`;
+    } else {
+      html += `<p>${applyInline(trimmed)}</p>`;
+    }
+  }
+
+  // Wrap consecutive <li> in <ul>
+  html = html.replace(/(<li>[\s\S]*?<\/li>)+/g, (match) => `<ul>${match}</ul>`);
+
+  return html;
+}
+
+function applyInline(text: string): string {
+  return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
 
 export default BlogPost;
