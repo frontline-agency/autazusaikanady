@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { Phone, ArrowRight, CheckCircle, Star, Eye } from "lucide-react";
+import { CheckCircle, Star } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
@@ -121,12 +121,11 @@ const HeroSection = () => {
             <Button
               asChild
               size="lg"
-              className="bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-bold text-xl px-10 py-6 uppercase tracking-wide shadow-glow-red group relative overflow-hidden"
+              className="bg-usa-red hover:bg-usa-red text-primary-foreground font-bold text-xl px-8 py-6 uppercase tracking-wide shadow-glow-red group relative overflow-hidden"
             >
-              <a href="/pojazdy" className="flex items-center gap-3">
-                <Eye className="w-6 h-6 transition-transform duration-300 group-hover:rotate-12" />
+              <a href="/pojazdy">
                 <span className="relative z-10">ZOBACZ AUKCJE</span>
-                <span className="absolute inset-0 bg-primary-foreground/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               </a>
             </Button>
           </motion.div>
@@ -134,10 +133,9 @@ const HeroSection = () => {
             <Button
               asChild
               size="lg"
-              className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 font-bold text-xl px-10 py-6 uppercase tracking-wide group relative overflow-hidden"
+              className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 font-bold text-xl px-8 py-6 uppercase tracking-wide group relative overflow-hidden"
             >
-              <a href="/kontakt" className="flex items-center gap-3">
-                <Phone className="w-6 h-6 transition-transform duration-300 group-hover:-rotate-12" />
+              <a href="/kontakt">
                 <span className="relative z-10">KONTAKT</span>
                 <span className="absolute inset-0 bg-primary-foreground/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               </a>
