@@ -78,7 +78,7 @@ const SavingsSection = () => {
             className="bg-usa-navy text-primary-foreground p-6 rounded-2xl text-center"
           >
             <PiggyBank className="w-10 h-10 mx-auto mb-3 text-usa-red" />
-            <span className="font-heading font-bold text-3xl block">100 000+ zł</span>
+            <span className="font-heading font-bold text-3xl block">5 mln+ zł</span>
             <span className="text-primary-foreground/70">Zaoszczędzili nasi klienci</span>
           </motion.div>
         </div>
