@@ -44,10 +44,11 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center gap-4">
               <Button
                 asChild
-                className="bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-bold uppercase tracking-wide text-[18px] px-8 py-3 h-auto"
+                className="bg-usa-red hover:bg-usa-red text-primary-foreground font-bold uppercase tracking-wide text-[18px] px-8 py-3 h-auto group relative overflow-hidden"
               >
                 <a href="#contact">
-                  SKONTAKTUJ SIĘ
+                  <span className="relative z-10">SKONTAKTUJ SIĘ</span>
+                  <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                 </a>
               </Button>
             </div>
@@ -77,10 +78,11 @@ const Navbar = () => {
               ))}
               <Button
                 asChild
-                className="w-full mt-4 bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-bold uppercase tracking-wide text-[18px] h-auto py-3"
+                className="w-full mt-4 bg-usa-red hover:bg-usa-red text-primary-foreground font-bold uppercase tracking-wide text-[18px] h-auto py-3 group relative overflow-hidden"
               >
                 <a href="#contact" className="flex items-center justify-center">
-                  SKONTAKTUJ SIĘ
+                  <span className="relative z-10">SKONTAKTUJ SIĘ</span>
+                  <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                 </a>
               </Button>
             </div>
