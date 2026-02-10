@@ -1,11 +1,24 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, ArrowLeft, ArrowRight, Phone } from "lucide-react";
+import { Calendar, ArrowLeft, ArrowRight, Phone, Clock, User, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/data/blogPosts";
+
+const estimateReadTime = (content: string) => Math.max(3, Math.ceil(content.split(/\s+/).length / 200));
+
+const renderMarkdown = (text: string) => {
+  return text
+    .replace(/^## (.+)/gm, '<h2>$1</h2>')
+    .replace(/^### (.+)/gm, '<h3>$1</h3>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/^- (.+)/gm, '<li>$1</li>')
+    .replace(/(<li>[\s\S]*?<\/li>[\n]*)+/g, (match) => `<ul>${match}</ul>`)
+    .replace(/\n{2,}/g, '</p><p>')
+    .replace(/^(?!<[hulo])/gm, (match) => match ? `<p>${match}` : '');
+};
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -16,135 +29,253 @@ const BlogPost = () => {
 
   const prevPost = postIndex > 0 ? blogPosts[postIndex - 1] : null;
   const nextPost = postIndex < blogPosts.length - 1 ? blogPosts[postIndex + 1] : null;
+  const readTime = estimateReadTime(post.content);
 
   // Split content into sections for image insertion
   const sections = post.content.split(/\n(?=##\s)/);
 
+  // Determine image placement: after sections 1 and 3 (or last if fewer sections)
+  const imageSlots = [
+    { sectionIndex: 1, imageIndex: 1 },
+    { sectionIndex: Math.min(3, sections.length - 1), imageIndex: 2 },
+  ];
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <TopBar />
       <Navbar />
 
-      {/* Hero banner */}
-      <section className="relative h-[40vh] min-h-[300px] overflow-hidden">
-        <img
-          src={post.images[0].src}
-          alt={post.images[0].alt}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--usa-navy))] via-[hsl(var(--usa-navy)/0.5)] to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-8">
-          <div className="container mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <Link to="/blog" className="text-usa-red text-sm font-semibold hover:underline mb-3 inline-flex items-center gap-1">
-                <ArrowLeft className="w-3 h-3" /> Blog
+      {/* Hero banner with parallax effect */}
+      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+        <motion.div
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="absolute inset-0"
+        >
+          <img
+            src={post.images[0].src}
+            alt={post.images[0].alt}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--usa-navy))] via-[hsl(var(--usa-navy)/0.6)] to-[hsl(var(--usa-navy)/0.2)]" />
+        
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+          <div className="container mx-auto max-w-4xl">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
+              <Link to="/blog" className="inline-flex items-center gap-1.5 text-usa-red text-sm font-semibold hover:underline mb-4 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-1.5">
+                <ArrowLeft className="w-3.5 h-3.5" /> Wróć do bloga
               </Link>
               <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold text-primary-foreground max-w-4xl leading-tight">
                 {post.title}
               </h1>
-              <div className="flex items-center gap-2 text-primary-foreground/70 mt-4 text-sm">
-                <Calendar className="w-4 h-4" />
-                <time dateTime={post.date}>{new Date(post.date).toLocaleDateString("pl-PL", { year: "numeric", month: "long", day: "numeric" })}</time>
+              <div className="flex flex-wrap items-center gap-4 mt-5 text-primary-foreground/70 text-sm">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4" />
+                  <time dateTime={post.date}>{new Date(post.date).toLocaleDateString("pl-PL", { year: "numeric", month: "long", day: "numeric" })}</time>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-4 h-4" />
+                  {readTime} min czytania
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <User className="w-4 h-4" />
+                  Auta z Ameryki USA
+                </span>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
+      {/* Keywords bar */}
+      <div className="bg-muted border-b border-border">
+        <div className="container mx-auto max-w-4xl px-4 py-3">
+          <div className="flex items-center gap-2 flex-wrap">
+            <Tag className="w-3.5 h-3.5 text-muted-foreground" />
+            {post.keywords.map((kw) => (
+              <span key={kw} className="text-xs bg-background text-muted-foreground rounded-full px-3 py-1 border border-border">
+                {kw}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Article content */}
-      <article className="py-12 bg-background">
+      <article className="py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
+            {/* Lead paragraph */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 border-l-4 border-usa-red pl-6 italic"
+            >
+              {post.excerpt}
+            </motion.p>
+
             {sections.map((section, i) => (
               <div key={i}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
+                  viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.5 }}
                   className="prose prose-lg max-w-none
                     prose-headings:font-heading prose-headings:text-foreground prose-headings:font-bold
-                    prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-10 prose-h2:mb-4
+                    prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border
                     prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                    prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4
-                    prose-strong:text-foreground
-                    prose-li:text-muted-foreground
-                    prose-ul:mb-4 prose-ol:mb-4"
-                  dangerouslySetInnerHTML={{
-                    __html: section
-                      .replace(/^## (.+)/gm, '<h2>$1</h2>')
-                      .replace(/^### (.+)/gm, '<h3>$1</h3>')
-                      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                      .replace(/^- (.+)/gm, '<li>$1</li>')
-                      .replace(/(<li>.*<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
-                      .replace(/\n{2,}/g, '</p><p>')
-                      .replace(/^(?!<[hulo])/gm, (match) => match ? `<p>${match}` : '')
-                  }}
+                    prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-5
+                    prose-strong:text-foreground prose-strong:font-semibold
+                    prose-li:text-muted-foreground prose-li:leading-relaxed
+                    prose-ul:mb-5 prose-ol:mb-5
+                    prose-ul:pl-6 prose-li:mb-1"
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(section) }}
                 />
-                {/* Insert image after 1st and 3rd sections */}
-                {(i === 1 || i === 3) && post.images[i === 1 ? 1 : 2] && (
-                  <motion.figure
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="my-8 rounded-xl overflow-hidden shadow-lg"
-                  >
-                    <img
-                      src={post.images[i === 1 ? 1 : 2].src}
-                      alt={post.images[i === 1 ? 1 : 2].alt}
-                      className="w-full h-auto"
-                      loading="lazy"
-                    />
-                    <figcaption className="text-sm text-muted-foreground p-3 bg-muted text-center">
-                      {post.images[i === 1 ? 1 : 2].alt}
-                    </figcaption>
-                  </motion.figure>
+
+                {/* Insert images at designated spots */}
+                {imageSlots.map(({ sectionIndex, imageIndex }) =>
+                  i === sectionIndex && post.images[imageIndex] ? (
+                    <motion.figure
+                      key={imageIndex}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.6 }}
+                      className="my-10 rounded-2xl overflow-hidden shadow-xl group"
+                    >
+                      <div className="relative overflow-hidden">
+                        <img
+                          src={post.images[imageIndex].src}
+                          alt={post.images[imageIndex].alt}
+                          className="w-full h-auto group-hover:scale-105 transition-transform duration-700"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      </div>
+                      <figcaption className="text-sm text-muted-foreground px-5 py-3 bg-muted/50 border-t border-border flex items-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-usa-red flex-shrink-0" />
+                        {post.images[imageIndex].alt}
+                      </figcaption>
+                    </motion.figure>
+                  ) : null
                 )}
               </div>
             ))}
+
+            {/* Divider */}
+            <div className="my-12 flex items-center gap-4">
+              <div className="flex-1 h-px bg-border" />
+              <div className="flex gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-usa-red" />
+                <span className="w-2 h-2 rounded-full bg-usa-navy" />
+                <span className="w-2 h-2 rounded-full bg-usa-red" />
+              </div>
+              <div className="flex-1 h-px bg-border" />
+            </div>
 
             {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 bg-usa-navy rounded-2xl p-8 text-center"
+              className="bg-usa-navy rounded-2xl p-8 md:p-10 text-center relative overflow-hidden"
             >
-              <h3 className="font-heading text-2xl font-bold text-primary-foreground mb-3">
-                Zainteresowany importem auta z USA?
-              </h3>
-              <p className="text-primary-foreground/70 mb-6">
-                Skontaktuj się z nami i otrzymaj bezpłatną wycenę. Zajmujemy się wszystkim – od licytacji po rejestrację.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="bg-usa-red hover:bg-usa-red text-primary-foreground font-bold uppercase tracking-wide group relative overflow-hidden">
-                  <a href="/kontakt">
-                    <span className="relative z-10">SKONTAKTUJ SIĘ</span>
-                    <span className="absolute inset-0 bg-[hsl(var(--usa-navy)/0.5)] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-                  </a>
-                </Button>
-                <Button asChild variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
-                  <a href="tel:+48502441033" className="flex items-center gap-2">
-                    <Phone className="w-4 h-4" /> +48 502 441 033
-                  </a>
-                </Button>
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: `radial-gradient(circle at 20% 50%, hsl(var(--usa-red)) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(var(--usa-red)) 0%, transparent 50%)`
+                }} />
+              </div>
+              <div className="relative z-10">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground mb-3">
+                  Zainteresowany importem auta z USA?
+                </h3>
+                <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto">
+                  Skontaktuj się z nami i otrzymaj bezpłatną wycenę. Zajmujemy się wszystkim – od licytacji po rejestrację.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button asChild size="lg" className="bg-usa-red hover:bg-usa-red text-primary-foreground font-bold uppercase tracking-wide text-lg px-8 py-6 group relative overflow-hidden">
+                      <a href="/kontakt">
+                        <span className="relative z-10">SKONTAKTUJ SIĘ</span>
+                        <span className="absolute inset-0 bg-[hsl(var(--usa-navy)/0.5)] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+                      </a>
+                    </Button>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button asChild size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-6">
+                      <a href="tel:+48502441033" className="flex items-center gap-2">
+                        <Phone className="w-5 h-5" /> +48 502 441 033
+                      </a>
+                    </Button>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
 
-            {/* Navigation */}
-            <div className="mt-12 flex justify-between items-start gap-4">
+            {/* Post navigation */}
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
               {prevPost ? (
-                <Link to={`/blog/${prevPost.slug}`} className="flex items-start gap-2 text-usa-red hover:underline text-sm max-w-[45%]">
-                  <ArrowLeft className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span className="line-clamp-2">{prevPost.title}</span>
+                <Link
+                  to={`/blog/${prevPost.slug}`}
+                  className="group p-5 rounded-xl border border-border hover:border-usa-red/30 hover:bg-muted/50 transition-all"
+                >
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider flex items-center gap-1 mb-2">
+                    <ArrowLeft className="w-3 h-3" /> Poprzedni wpis
+                  </span>
+                  <span className="text-sm font-semibold text-foreground group-hover:text-usa-red transition-colors line-clamp-2">
+                    {prevPost.title}
+                  </span>
                 </Link>
               ) : <div />}
               {nextPost ? (
-                <Link to={`/blog/${nextPost.slug}`} className="flex items-start gap-2 text-usa-red hover:underline text-sm text-right max-w-[45%]">
-                  <span className="line-clamp-2">{nextPost.title}</span>
-                  <ArrowRight className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <Link
+                  to={`/blog/${nextPost.slug}`}
+                  className="group p-5 rounded-xl border border-border hover:border-usa-red/30 hover:bg-muted/50 transition-all text-right md:col-start-2"
+                >
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider flex items-center justify-end gap-1 mb-2">
+                    Następny wpis <ArrowRight className="w-3 h-3" />
+                  </span>
+                  <span className="text-sm font-semibold text-foreground group-hover:text-usa-red transition-colors line-clamp-2">
+                    {nextPost.title}
+                  </span>
                 </Link>
               ) : <div />}
+            </div>
+
+            {/* Related posts */}
+            <div className="mt-16">
+              <h3 className="font-heading text-xl font-bold text-foreground mb-6">Inne artykuły, które mogą Cię zainteresować</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {blogPosts
+                  .filter((_, idx) => idx !== postIndex)
+                  .slice(0, 4)
+                  .map((related) => (
+                    <Link
+                      key={related.slug}
+                      to={`/blog/${related.slug}`}
+                      className="group flex gap-4 p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                    >
+                      <img
+                        src={related.image}
+                        alt={related.title}
+                        className="w-20 h-20 rounded-lg object-cover flex-shrink-0 group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="min-w-0">
+                        <h4 className="text-sm font-semibold text-foreground group-hover:text-usa-red transition-colors line-clamp-2">
+                          {related.title}
+                        </h4>
+                        <span className="text-xs text-muted-foreground mt-1 block">
+                          {new Date(related.date).toLocaleDateString("pl-PL")}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
             </div>
           </div>
         </div>
