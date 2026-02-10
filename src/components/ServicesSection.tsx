@@ -149,12 +149,12 @@ const ServicesSection = () => {
             </motion.div>
           </div>
 
-          {/* Car cutout - 80vw, sticking out from right edge, centered vertically */}
+          {/* Car cutout - centered vertically relative to parent */}
           <motion.div
             initial={{ opacity: 0, x: 300 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3, duration: 1, type: "spring", stiffness: 50 }}
-            className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-[55%] w-[70vw]"
+            className="hidden lg:flex absolute inset-y-0 left-[55%] w-[70vw] items-center"
           >
             <motion.img
               src={carCutout}
