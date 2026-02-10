@@ -129,8 +129,8 @@ const AboutSection = () => {
                   className="bg-card p-4 rounded-xl shadow-md text-center cursor-default"
                 >
                   <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
                   >
                     <stat.icon className="w-8 h-8 text-usa-red mx-auto mb-2" />
                   </motion.div>

@@ -160,7 +160,7 @@ const HeroSection = () => {
           </div>
           <span className="text-primary-foreground/70 text-sm">
             Zaufało nam ponad{" "}
-            <strong className="text-primary-foreground">500+</strong> klientów
+            <strong className="text-primary-foreground">100+</strong> klientów
           </span>
         </motion.div>
       </motion.div>
