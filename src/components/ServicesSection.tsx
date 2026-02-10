@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ShoppingCart, Ship, Wrench, FileCheck, ArrowRight } from "lucide-react";
 
-import carCutout from "@/assets/mustang-services.webp";
+import carCutout from "@/assets/mustang-services.png";
 const ServicesSection = () => {
   const ref = useRef(null);
   const containerRef = useRef(null);
