@@ -30,12 +30,13 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-lg mb-4">Szybkie linki</h4>
             <ul className="space-y-2">
               {[
-                { name: "Strona główna", href: "#home" },
-                { name: "O nas", href: "#about" },
-                { name: "Usługi", href: "#vehicles" },
-                { name: "Opłaty", href: "#costs" },
-                { name: "Blog", href: "#blog" },
-                { name: "Kontakt", href: "#contact" },
+                { name: "Strona główna", href: "/" },
+                { name: "O nas", href: "/o-nas" },
+                { name: "Pojazdy", href: "/pojazdy" },
+                { name: "Opłaty", href: "/oplaty" },
+                { name: "Oszczędności", href: "/oszczednosci" },
+                { name: "Blog", href: "/blog" },
+                { name: "Kontakt", href: "/kontakt" },
               ].map((link) => (
                 <li key={link.name}>
                   <a

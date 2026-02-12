@@ -7,12 +7,12 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Strona główna", href: "#home" },
-    { name: "O nas", href: "#about" },
-    { name: "Pojazdy", href: "#vehicles" },
+    { name: "Strona główna", href: "/" },
+    { name: "O nas", href: "/o-nas" },
+    { name: "Pojazdy", href: "/pojazdy" },
     { name: "Opłaty", href: "/oplaty" },
     { name: "Oszczędności", href: "/oszczednosci" },
-    { name: "Blog", href: "#blog" },
+    { name: "Blog", href: "/blog" },
     { name: "Kontakt", href: "/kontakt" },
   ];
 
@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <a href="#home" className="flex items-center">
+            <a href="/" className="flex items-center">
               <img src={logo} alt="AUTA z Ameryki USA" className="w-[180px] h-auto" />
             </a>
 
@@ -46,7 +46,7 @@ const Navbar = () => {
                 asChild
                 className="bg-usa-red hover:bg-usa-red text-primary-foreground font-bold uppercase tracking-wide text-[18px] px-8 py-3 h-auto group relative overflow-hidden"
               >
-                <a href="#contact">
+                <a href="/kontakt">
                   <span className="relative z-10">SKONTAKTUJ SIĘ</span>
                   <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
                 </a>
@@ -80,7 +80,7 @@ const Navbar = () => {
                 asChild
                 className="w-full mt-4 bg-usa-red hover:bg-usa-red text-primary-foreground font-bold uppercase tracking-wide text-[18px] h-auto py-3 group relative overflow-hidden"
               >
-                <a href="#contact" className="flex items-center justify-center">
+                <a href="/kontakt" className="flex items-center justify-center">
                   <span className="relative z-10">SKONTAKTUJ SIĘ</span>
                   <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
                 </a>
