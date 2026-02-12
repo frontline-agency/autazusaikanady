@@ -13,7 +13,7 @@ const Navbar = () => {
     { name: "Opłaty", href: "/oplaty" },
     { name: "Oszczędności", href: "/oszczednosci" },
     { name: "Blog", href: "#blog" },
-    { name: "Kontakt", href: "#contact" },
+    { name: "Kontakt", href: "/kontakt" },
   ];
 
   return (
