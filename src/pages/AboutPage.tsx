@@ -207,7 +207,7 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 bg-usa-navy relative overflow-hidden">
+      <section className="py-20 bg-usa-navy relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -234,7 +234,7 @@ const AboutPage = () => {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   to="/kontakt"
-                  className="inline-flex items-center gap-3 bg-usa-red text-primary-foreground font-bold text-xl px-10 py-6 rounded-lg uppercase tracking-wide shadow-glow-red group relative overflow-hidden"
+                  className="inline-flex items-center gap-3 bg-usa-red text-primary-foreground font-bold text-lg px-8 py-4 rounded-lg uppercase tracking-wide shadow-glow-red group relative overflow-hidden"
                 >
                   <Mail className="w-6 h-6 relative z-10 transition-transform duration-300 group-hover:-rotate-12" />
                   <span className="relative z-10">NAPISZ DO NAS</span>
@@ -244,7 +244,7 @@ const AboutPage = () => {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <a
                   href="tel:+48502441033"
-                  className="inline-flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 font-bold text-xl px-10 py-6 rounded-lg uppercase tracking-wide group relative overflow-hidden"
+                  className="inline-flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 font-bold text-lg px-8 py-4 rounded-lg uppercase tracking-wide group relative overflow-hidden"
                 >
                   <Phone className="w-6 h-6 transition-transform duration-300 group-hover:rotate-12" />
                   <span className="relative z-10">ZADZWOŃ</span>
