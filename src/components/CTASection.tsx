@@ -68,17 +68,8 @@ const CTASection = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="bg-primary-foreground/5 backdrop-blur-sm rounded-xl p-6 border border-primary-foreground/10"
             >
-              <h3 className="font-heading font-semibold text-lg text-primary-foreground mb-2">Paweł Mroczkowski</h3>
+              <h3 className="font-heading font-semibold text-lg text-primary-foreground mb-2">Zadzwoń do nas</h3>
               <a href="tel:+48502441033" className="text-usa-red hover:underline">+48 502 441 033</a>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="bg-primary-foreground/5 backdrop-blur-sm rounded-xl p-6 border border-primary-foreground/10"
-            >
-              <h3 className="font-heading font-semibold text-lg text-primary-foreground mb-2">Łukasz</h3>
-              <a href="tel:+48508604634" className="text-usa-red hover:underline">+48 508 604 634</a>
             </motion.div>
           </div>
         </motion.div>

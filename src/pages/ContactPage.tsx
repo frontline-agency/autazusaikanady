@@ -32,19 +32,19 @@ const ContactPage = () => {
     {
       icon: Phone,
       label: "Telefon",
-      value: "+48 500 600 700",
-      href: "tel:+48500600700",
+      value: "+48 502 441 033",
+      href: "tel:+48502441033",
     },
     {
       icon: Mail,
       label: "E-mail",
-      value: "kontakt@autazusaikanady.pl",
-      href: "mailto:kontakt@autazusaikanady.pl",
+      value: "autazamerykiusa@gmail.com",
+      href: "mailto:autazamerykiusa@gmail.com",
     },
     {
       icon: MapPin,
       label: "Adres",
-      value: "Polska — obsługujemy klientów z całego kraju",
+      value: "Chmielewo 16, 06-100 Pułtusk",
       href: null,
     },
     {
@@ -151,7 +151,7 @@ const ContactPage = () => {
                   Wolisz rozmawiać? Zadzwoń bezpośrednio lub napisz na WhatsApp.
                 </p>
                 <a
-                  href="tel:+48500600700"
+                  href="tel:+48502441033"
                   className="inline-flex items-center gap-2 bg-usa-red text-primary-foreground font-bold text-sm px-5 py-2.5 rounded-lg uppercase tracking-wide hover:scale-105 transition-transform group relative overflow-hidden"
                 >
                   <span className="relative z-10">Zadzwoń teraz</span>
