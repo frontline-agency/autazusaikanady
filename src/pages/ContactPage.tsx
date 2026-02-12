@@ -169,12 +169,7 @@ const ContactPage = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="lg:col-span-3"
             >
-              <div className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden">
-                <div className="bg-usa-navy p-5">
-                  <h3 className="font-heading font-bold text-lg text-primary-foreground text-center">
-                    Wyślij zapytanie
-                  </h3>
-                </div>
+              <div className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden max-w-[450px] mx-auto">
                 <div className="p-1">
                   <iframe
                     src="https://link.systemicdigitals.com/widget/form/nhKwH5USALdxbH7lZeXz"
