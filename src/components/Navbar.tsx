@@ -10,7 +10,7 @@ const Navbar = () => {
     { name: "Strona główna", href: "#home" },
     { name: "O nas", href: "#about" },
     { name: "Pojazdy", href: "#vehicles" },
-    { name: "Opłaty", href: "#costs" },
+    { name: "Opłaty", href: "/oplaty" },
     { name: "Oszczędności", href: "#savings" },
     { name: "Blog", href: "#blog" },
     { name: "Kontakt", href: "#contact" },
