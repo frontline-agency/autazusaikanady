@@ -11,7 +11,7 @@ const Navbar = () => {
     { name: "O nas", href: "#about" },
     { name: "Pojazdy", href: "#vehicles" },
     { name: "Opłaty", href: "/oplaty" },
-    { name: "Oszczędności", href: "#savings" },
+    { name: "Oszczędności", href: "/oszczednosci" },
     { name: "Blog", href: "#blog" },
     { name: "Kontakt", href: "#contact" },
   ];
