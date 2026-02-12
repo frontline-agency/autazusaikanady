@@ -25,11 +25,18 @@ const BlogPost = () => {
 
   // Distribute images evenly across sections
   const getImageForSection = (sectionIndex: number): { src: string; alt: string } | null => {
-    if (sectionIndex === 0) return null; // skip first section (intro)
-    // Place image 1 after section 1, image 2 after section ~middle
-    if (sectionIndex === 1 && post.images[1]) return post.images[1];
-    const midPoint = Math.max(2, Math.floor(sections.length / 2));
-    if (sectionIndex === midPoint && post.images[2]) return post.images[2];
+    if (sectionIndex === 0) return null;
+    const totalImages = post.images.length;
+    const contentSections = sections.length - 1; // exclude intro
+    if (totalImages <= 1 || contentSections <= 0) return null;
+    
+    // Distribute images 1..N evenly across content sections
+    const extraImages = post.images.slice(1);
+    const spacing = Math.max(1, Math.floor(contentSections / extraImages.length));
+    const imageIndex = Math.floor((sectionIndex - 1) / spacing);
+    if ((sectionIndex - 1) % spacing === spacing - 1 && imageIndex < extraImages.length) {
+      return extraImages[imageIndex];
+    }
     return null;
   };
 
@@ -183,9 +190,11 @@ const BlogPost = () => {
                     </Button>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button asChild size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-6">
+                    <Button asChild size="lg" className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 font-bold uppercase tracking-wide text-lg px-8 py-6 group relative overflow-hidden">
                       <a href="tel:+48502441033" className="flex items-center gap-2">
-                        <Phone className="w-5 h-5" /> +48 502 441 033
+                        <Phone className="w-5 h-5 relative z-10" />
+                        <span className="relative z-10">+48 502 441 033</span>
+                        <span className="absolute inset-0 bg-primary-foreground/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                       </a>
                     </Button>
                   </motion.div>

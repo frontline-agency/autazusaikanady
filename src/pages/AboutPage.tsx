@@ -145,8 +145,8 @@ const AboutPage = () => {
                   whileHover={{ scale: 1.05 }}
                   className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-10 flex items-center justify-center gap-10 w-full max-w-md"
                 >
-                  <img src={ttvLogo} alt="Logo TTV" className="h-28 w-auto" />
-                  <img src={zakupWCiemno} alt="Logo programu Zakup w ciemno" className="h-36 w-auto" />
+                  <img src={ttvLogo} alt="Logo TTV" className="h-16 md:h-28 w-auto" />
+                  <img src={zakupWCiemno} alt="Logo programu Zakup w ciemno" className="h-20 md:h-36 w-auto" />
                 </motion.div>
                 <div className="flex items-center gap-2 text-primary-foreground/60 text-sm">
                   <Star className="w-4 h-4 text-usa-red" />

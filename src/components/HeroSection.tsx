@@ -73,7 +73,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground uppercase leading-[0.95] mb-6 max-w-6xl"
+          className="font-heading text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground uppercase leading-[0.95] mb-6 max-w-6xl"
         >
           IMPORTUJEMY AUTA PROSTO Z USA
         </motion.h1>

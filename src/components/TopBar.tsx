@@ -4,7 +4,7 @@ const TopBar = () => {
   return (
     <div className="bg-usa-dark text-primary-foreground py-2">
       <div className="container mx-auto px-4 flex justify-between items-center text-sm">
-        <div className="flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-2">
           <a href="mailto:autazamerykiusa@gmail.com" className="flex items-center gap-2 hover:text-usa-red transition-colors">
             <Mail className="w-4 h-4 text-usa-red" />
             <span>autazamerykiusa@gmail.com</span>
