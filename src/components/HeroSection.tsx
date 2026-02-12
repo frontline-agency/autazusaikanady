@@ -56,15 +56,15 @@ const HeroSection = () => {
           className="flex items-center gap-5 mb-10"
         >
           <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-full px-7 py-4 border border-white/10">
-            <img src={ttvLogo} alt="TTV" className="h-10 w-auto" />
-            <span className="text-lg font-bold text-primary-foreground">
+            <img src={ttvLogo} alt="TTV" className="h-7 sm:h-10 w-auto" />
+            <span className="text-sm sm:text-lg font-bold text-primary-foreground">
               Znasz nas z telewizji!
             </span>
           </div>
           <img
             src={zakupWCiemno}
             alt="Zakup w ciemno"
-            className="h-24 w-auto"
+            className="h-14 sm:h-24 w-auto"
           />
         </motion.div>
 
@@ -73,7 +73,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="font-heading text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground uppercase leading-[0.95] mb-6 max-w-6xl"
+          className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground uppercase leading-[0.95] mb-6 max-w-6xl"
         >
           IMPORTUJEMY AUTA PROSTO Z USA
         </motion.h1>
