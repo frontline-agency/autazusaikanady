@@ -222,19 +222,16 @@ const AboutPage = () => {
             <p className="text-primary-foreground/70 max-w-xl mx-auto mb-8 text-lg">
               Skontaktuj się z nami i dowiedz się, jak bezpiecznie sprowadzić wymarzone auto z USA lub Kanady
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/kontakt"
-                className="inline-flex items-center justify-center gap-2 bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-bold uppercase tracking-wide px-8 py-4 rounded-lg transition-colors text-lg"
-              >
-                NAPISZ DO NAS
-              </Link>
-              <Link
-                to="/"
-                className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground/30 hover:border-primary-foreground text-primary-foreground font-bold uppercase tracking-wide px-8 py-4 rounded-lg transition-colors"
-              >
-                STRONA GŁÓWNA
-              </Link>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/kontakt"
+                  className="inline-flex items-center justify-center bg-usa-red text-primary-foreground font-bold uppercase tracking-wide text-xl px-10 py-6 rounded-lg group relative overflow-hidden"
+                >
+                  <span className="relative z-10">NAPISZ DO NAS</span>
+                  <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>
