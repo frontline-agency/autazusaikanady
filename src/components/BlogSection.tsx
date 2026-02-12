@@ -53,12 +53,12 @@ const BlogSection = () => {
         </motion.div>
 
         {/* Slider */}
-        <div className="relative">
+        <div className="relative px-12 md:px-14">
           {/* Navigation arrows */}
           <button
             onClick={prev}
             disabled={current === 0}
-            className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background shadow-lg flex items-center justify-center text-foreground hover:bg-usa-red hover:text-primary-foreground transition-colors disabled:opacity-30 disabled:hover:bg-background disabled:hover:text-foreground"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background shadow-lg flex items-center justify-center text-foreground hover:bg-usa-red hover:text-primary-foreground transition-colors disabled:opacity-30 disabled:hover:bg-background disabled:hover:text-foreground"
             aria-label="Poprzedni wpis"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -66,7 +66,7 @@ const BlogSection = () => {
           <button
             onClick={next}
             disabled={current >= maxIndex}
-            className="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background shadow-lg flex items-center justify-center text-foreground hover:bg-usa-red hover:text-primary-foreground transition-colors disabled:opacity-30 disabled:hover:bg-background disabled:hover:text-foreground"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background shadow-lg flex items-center justify-center text-foreground hover:bg-usa-red hover:text-primary-foreground transition-colors disabled:opacity-30 disabled:hover:bg-background disabled:hover:text-foreground"
             aria-label="Następny wpis"
           >
             <ChevronRight className="w-5 h-5" />
@@ -74,8 +74,8 @@ const BlogSection = () => {
 
           <div className="overflow-hidden">
             <motion.div
-              className="flex gap-6"
-              animate={{ x: `-${current * (100 / visibleCount + (6 * 4) / (visibleCount * 16))}%` }}
+              className="flex"
+              animate={{ x: `-${current * (100 / blogPosts.length)}%` }}
               transition={{ type: "spring", stiffness: 200, damping: 30 }}
               style={{ width: `${(blogPosts.length / visibleCount) * 100}%` }}
             >
@@ -85,8 +85,8 @@ const BlogSection = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.1 + index * 0.05, duration: 0.6 }}
-                  className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group"
-                  style={{ width: `${100 / blogPosts.length * visibleCount - 2}%`, flexShrink: 0 }}
+                  className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group px-3"
+                  style={{ width: `${100 / blogPosts.length}%`, flexShrink: 0 }}
                 >
                   <Link to={`/blog/${post.slug}`}>
                     <div className="relative h-48 overflow-hidden">
