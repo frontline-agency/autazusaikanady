@@ -20,7 +20,7 @@ const AboutSection = () => {
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
 
   const stats = [
-    { icon: Users, value: "500+", label: "Zadowolonych klientów" },
+    { icon: Users, value: "100+", label: "Zadowolonych klientów" },
     { icon: Award, value: "10+", label: "Lat doświadczenia" },
     { icon: Shield, value: "100%", label: "Bezpieczeństwo transakcji" },
     { icon: TrendingUp, value: "40%", label: "Oszczędności" },
