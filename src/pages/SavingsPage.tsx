@@ -83,7 +83,7 @@ const whySavings = [
   {
     icon: BarChart3,
     title: "Korzystny kurs dolara",
-    desc: "Przy kursie USD/PLN na poziomie 3,90–4,10 zł import z USA jest szczególnie opłacalny. Nawet niewielki spadek kursu dolara przekłada się na tysiące złotych oszczędności przy droższych pojazdach.",
+    desc: "Aktualny kurs dolara to ok. 3,60 zł, co czyni import z USA wyjątkowo opłacalnym. Nawet niewielki spadek kursu dolara przekłada się na tysiące złotych oszczędności przy droższych pojazdach.",
   },
   {
     icon: Calculator,
