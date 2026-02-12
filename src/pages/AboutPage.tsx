@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Award, Users, Shield, TrendingUp, Star, Tv, Heart, ArrowLeft } from "lucide-react";
+import { Award, Users, Shield, TrendingUp, Star, Tv, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -140,13 +140,13 @@ const AboutPage = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col items-center gap-8">
+              <div className="flex flex-col items-center gap-6">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center gap-6 w-full max-w-sm"
+                  className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-10 flex items-center justify-center gap-10 w-full max-w-md"
                 >
-                  <img src={ttvLogo} alt="Logo TTV" className="h-16 w-auto" />
-                  <img src={zakupWCiemno} alt="Logo programu Zakup w ciemno" className="h-24 w-auto" />
+                  <img src={ttvLogo} alt="Logo TTV" className="h-28 w-auto" />
+                  <img src={zakupWCiemno} alt="Logo programu Zakup w ciemno" className="h-36 w-auto" />
                 </motion.div>
                 <div className="flex items-center gap-2 text-primary-foreground/60 text-sm">
                   <Star className="w-4 h-4 text-usa-red" />
@@ -206,13 +206,37 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Back link */}
-      <section className="pb-16 bg-background">
-        <div className="container mx-auto px-4 text-center">
-          <Link to="/" className="inline-flex items-center gap-2 text-usa-red font-semibold hover:underline">
-            <ArrowLeft className="w-4 h-4" />
-            Wróć na stronę główną
-          </Link>
+      {/* CTA Section */}
+      <section className="py-20 bg-usa-navy relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--usa-navy))] to-[hsl(var(--usa-navy)/0.85)]" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+              Gotowy na auto z Ameryki?
+            </h2>
+            <p className="text-primary-foreground/70 max-w-xl mx-auto mb-8 text-lg">
+              Skontaktuj się z nami i dowiedz się, jak bezpiecznie sprowadzić wymarzone auto z USA lub Kanady
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/kontakt"
+                className="inline-flex items-center justify-center gap-2 bg-usa-red hover:bg-usa-red/90 text-primary-foreground font-bold uppercase tracking-wide px-8 py-4 rounded-lg transition-colors text-lg"
+              >
+                NAPISZ DO NAS
+              </Link>
+              <Link
+                to="/"
+                className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground/30 hover:border-primary-foreground text-primary-foreground font-bold uppercase tracking-wide px-8 py-4 rounded-lg transition-colors"
+              >
+                STRONA GŁÓWNA
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
