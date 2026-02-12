@@ -207,7 +207,7 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-usa-navy relative overflow-hidden">
+      <section className="py-12 bg-usa-navy relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
