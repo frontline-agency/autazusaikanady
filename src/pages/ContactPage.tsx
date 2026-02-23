@@ -20,7 +20,7 @@ const ContactPage = () => {
   useEffect(() => {
     // Load external form embed script
     const script = document.createElement("script");
-    script.src = "https://link.systemicdigitals.com/js/form_embed.js";
+    script.src = "https://opinie.autazamerykiusa.pl/js/form_embed.js";
     script.async = true;
     document.body.appendChild(script);
     return () => {
@@ -172,7 +172,7 @@ const ContactPage = () => {
               <div className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden max-w-[450px] mx-auto">
                 <div className="p-1">
                   <iframe
-                    src="https://link.systemicdigitals.com/widget/form/nhKwH5USALdxbH7lZeXz"
+                    src="https://opinie.autazamerykiusa.pl/widget/form/nhKwH5USALdxbH7lZeXz"
                     style={{
                       width: "100%",
                       height: "600px",
