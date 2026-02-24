@@ -1,35 +1,56 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { TrendingDown, Calculator, PiggyBank, BadgePercent } from "lucide-react";
+import { TrendingDown, Calculator, PiggyBank } from "lucide-react";
+
+const savingsExamples = [
+  {
+    car: "Ford Mustang 2.3 EcoBoost (2018–2021)",
+    engine: "2.3 Turbo, 310 KM",
+    auctionUsd: "4 000 – 7 500 USD",
+    plPrice: "85 000 – 120 000 zł",
+    note: "Bardzo chodliwy model – szybka sprzedaż",
+  },
+  {
+    car: "Dodge Challenger 3.6 V6 (2017–2020)",
+    engine: "3.6 V6, 305 KM",
+    auctionUsd: "5 000 – 8 000 USD",
+    plPrice: "95 000 – 130 000 zł",
+    note: "Bardzo popularny wśród młodszych klientów",
+  },
+  {
+    car: "Tesla Model 3 (2019–2022)",
+    engine: "Elektryczny, 283–346 KM",
+    auctionUsd: "8 000 – 13 000 USD",
+    plPrice: "110 000 – 160 000 zł",
+    note: "Duże zainteresowanie, uwaga na baterię",
+  },
+  {
+    car: "BMW 330i G20 (2019–2021)",
+    engine: "2.0 Turbo, 258 KM",
+    auctionUsd: "6 000 – 10 000 USD",
+    plPrice: "110 000 – 150 000 zł",
+    note: "Premium, łatwo sprzedać",
+  },
+  {
+    car: "Audi A4 B9 (2018–2021)",
+    engine: "2.0 TFSI, 252 KM",
+    auctionUsd: "5 000 – 8 500 USD",
+    plPrice: "95 000 – 135 000 zł",
+    note: "",
+  },
+  {
+    car: "Jeep Grand Cherokee (2018–2021)",
+    engine: "3.6 V6, 295 KM",
+    auctionUsd: "6 000 – 11 000 USD",
+    plPrice: "100 000 – 150 000 zł",
+    note: "",
+  },
+];
 
 const SavingsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const savingsExamples = [
-    {
-      car: "BMW X5 2020",
-      europePrice: "250 000 zł",
-      usaPrice: "160 000 zł",
-      savings: "90 000 zł",
-      percent: "36%",
-    },
-    {
-      car: "Ford Mustang GT 2021",
-      europePrice: "220 000 zł",
-      usaPrice: "140 000 zł",
-      savings: "80 000 zł",
-      percent: "36%",
-    },
-    {
-      car: "Mercedes GLE 2019",
-      europePrice: "280 000 zł",
-      usaPrice: "175 000 zł",
-      savings: "105 000 zł",
-      percent: "38%",
-    },
-  ];
 
   return (
     <section id="savings" className="py-20 bg-background" ref={ref}>
@@ -92,29 +113,33 @@ const SavingsSection = () => {
         >
           <div className="bg-usa-navy p-4">
             <h3 className="font-heading font-semibold text-lg text-primary-foreground text-center">
-              Przykładowe oszczędności (ceny orientacyjne)
+              Wygrana aukcja USA vs. cena zarejestrowanego auta w Polsce
             </h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-muted">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">Samochód</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-foreground">Cena w Europie</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-foreground">Cena z USA (z kosztami)</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-usa-red">Oszczędność</th>
+                  <th className="px-5 py-4 text-left text-sm font-semibold text-foreground">Samochód</th>
+                  <th className="px-5 py-4 text-left text-sm font-semibold text-foreground hidden md:table-cell">Silnik</th>
+                  <th className="px-5 py-4 text-center text-sm font-semibold text-foreground">Wygrana aukcja</th>
+                  <th className="px-5 py-4 text-center text-sm font-semibold text-usa-red">Zarejestrowany w PL</th>
                 </tr>
               </thead>
               <tbody>
-                {savingsExamples.map((example, index) => (
-                  <tr key={index} className="border-t hover:bg-muted/50 transition-colors">
-                    <td className="px-6 py-4 font-semibold text-foreground">{example.car}</td>
-                    <td className="px-6 py-4 text-center text-muted-foreground">{example.europePrice}</td>
-                    <td className="px-6 py-4 text-center text-muted-foreground">{example.usaPrice}</td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="inline-flex items-center gap-2 bg-usa-red/10 text-usa-red px-3 py-1 rounded-full font-semibold">
-                        <BadgePercent className="w-4 h-4" />
-                        {example.savings} ({example.percent})
+                {savingsExamples.map((ex, i) => (
+                  <tr key={i} className="border-t border-border hover:bg-muted/50 transition-colors">
+                    <td className="px-5 py-4 font-semibold text-foreground">
+                      <span>{ex.car}</span>
+                      {ex.note && (
+                        <span className="block text-xs text-muted-foreground mt-1">{ex.note}</span>
+                      )}
+                    </td>
+                    <td className="px-5 py-4 text-muted-foreground text-sm hidden md:table-cell">{ex.engine}</td>
+                    <td className="px-5 py-4 text-center text-muted-foreground font-medium">{ex.auctionUsd}</td>
+                    <td className="px-5 py-4 text-center">
+                      <span className="inline-flex items-center gap-1.5 bg-usa-red/10 text-usa-red px-3 py-1 rounded-full font-semibold text-sm">
+                        {ex.plPrice}
                       </span>
                     </td>
                   </tr>
