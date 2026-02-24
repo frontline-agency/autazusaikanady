@@ -87,8 +87,8 @@ const whySavings = [
   },
   {
     icon: Calculator,
-    title: "Optymalizacja podatkowa przez Niemcy",
-    desc: "Odprawiając auto w Niemczech płacisz 19% VAT zamiast 23% w Polsce. Przy aucie o wartości celnej 100 000 zł oszczędzasz ok. 4 000 zł tylko na różnicy VAT.",
+    title: "Optymalizacja podatkowa przez Holandię",
+    desc: "Odprawiając auto w Holandii płacisz 20% VAT zamiast 23% w Polsce. Przy aucie o wartości celnej 100 000 zł oszczędzasz ok. 3 000 zł tylko na różnicy VAT.",
   },
   {
     icon: Car,
@@ -175,9 +175,9 @@ const SavingsPage = () => {
               className="bg-usa-red text-primary-foreground p-8 rounded-2xl text-center"
             >
               <Calculator className="w-10 h-10 mx-auto mb-3" />
-              <span className="font-heading font-bold text-4xl block">19% VAT</span>
+              <span className="font-heading font-bold text-4xl block">20% VAT</span>
               <span className="text-primary-foreground/80 mt-1 block">
-                Zamiast 23% (przez Niemcy)
+                Zamiast 23% (przez Holandię)
               </span>
             </motion.div>
             <motion.div
@@ -261,8 +261,8 @@ const SavingsPage = () => {
               Przykładowe oszczędności
             </h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Ceny orientacyjne uwzględniające transport, cło, VAT (19% przez
-              Niemcy) i akcyzę
+              Ceny orientacyjne uwzględniające transport, cło, VAT (20% przez
+              Holandię) i akcyzę
             </p>
           </motion.div>
 
@@ -367,9 +367,9 @@ const SavingsPage = () => {
                   "Transport lądowy z New Jersey czy Houston do portu to 250–400 $, ale z Montany czy Dakoty nawet 800–1 000 $.",
               },
               {
-                tip: "Odprawiaj celnie przez Niemcy",
+                tip: "Odprawiaj celnie przez Holandię",
                 detail:
-                  "Dzięki 19% VAT zamiast 23% w Polsce oszczędzasz 4% wartości celnej auta. Przy droższych pojazdach to konkretne tysiące złotych.",
+                  "Dzięki 20% VAT zamiast 23% w Polsce oszczędzasz 3% wartości celnej auta. Przy droższych pojazdach to konkretne tysiące złotych.",
               },
               {
                 tip: "Rozważ pojazdy zabytkowe (25+ lat)",

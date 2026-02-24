@@ -45,7 +45,7 @@ const ProcessSection = () => {
       icon: Ship,
       step: "4",
       title: "Transport",
-      description: "Transport pojazdu z placu aukcyjnego do portu, a następnie fracht do Niemiec i transport do Polski.",
+      description: "Transport pojazdu z placu aukcyjnego do portu, a następnie fracht do Holandii i transport do Polski.",
     },
     {
       icon: Wrench,

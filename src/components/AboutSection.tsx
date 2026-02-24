@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Award, Users, Shield, TrendingUp } from "lucide-react";
 import zakupWCiemno from "@/assets/zakup-w-ciemno.png";
 import ttvLogo from "@/assets/ttv-logo.png";
+import ownersPhoto from "@/assets/owners-photo.jpeg";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -108,6 +109,21 @@ const AboutSection = () => {
               >
                 Paweł i Ola Mroczkowscy – twarze programu telewizyjnego <strong>„Zakup w ciemno"</strong> na TTV
               </motion.p>
+            </motion.div>
+
+            {/* Owners Photo */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.6, duration: 0.7 }}
+              className="mt-8 rounded-2xl overflow-hidden shadow-lg"
+            >
+              <img
+                src={ownersPhoto}
+                alt="Paweł i Ola Mroczkowscy – właściciele firmy Auta z Ameryki USA"
+                className="w-full h-auto object-cover rounded-2xl"
+                loading="lazy"
+              />
             </motion.div>
 
             {/* Stats Grid */}
