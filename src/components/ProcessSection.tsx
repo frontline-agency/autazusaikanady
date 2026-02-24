@@ -209,9 +209,9 @@ const ProcessSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       download
-                      className="inline-flex items-center gap-2 mt-4 bg-usa-red text-primary-foreground text-sm font-semibold px-4 py-2 rounded-lg transition-opacity hover:opacity-90"
+                      className="inline-flex items-center gap-1.5 mt-3 text-usa-red text-xs hover:underline"
                     >
-                      <Download className="w-4 h-4" />
+                      <Download className="w-3 h-3" />
                       Pobierz umowę
                     </a>
                   )}
