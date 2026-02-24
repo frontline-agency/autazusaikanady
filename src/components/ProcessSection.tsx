@@ -7,7 +7,8 @@ import {
   Wallet, 
   Ship, 
   Wrench, 
-  Car 
+  Car,
+  Download
 } from "lucide-react";
 
 const ProcessSection = () => {
@@ -176,23 +177,14 @@ const ProcessSection = () => {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-                className="relative group"
+                className="relative"
               >
-                <div className="bg-primary-foreground/5 backdrop-blur-sm rounded-2xl p-6 text-center h-full border border-primary-foreground/10 hover:border-usa-red/50 transition-all duration-300 hover:bg-primary-foreground/10">
+                <div className="bg-primary-foreground/5 backdrop-blur-sm rounded-2xl p-6 text-center h-full border border-primary-foreground/10">
                   {/* Step Number */}
                   <div className="relative inline-block mb-4">
-                    <motion.div 
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                      className="w-16 h-16 bg-usa-red rounded-full flex items-center justify-center mx-auto shadow-glow-red group-hover:shadow-[0_0_60px_rgba(220,38,38,0.5)] transition-shadow"
-                    >
+                    <div className="w-16 h-16 bg-usa-red rounded-full flex items-center justify-center mx-auto shadow-glow-red">
                       <step.icon className="w-8 h-8 text-primary-foreground" />
-                    </motion.div>
+                    </div>
                     <motion.span 
                       initial={{ scale: 0 }}
                       animate={isInView ? { scale: 1 } : {}}
@@ -203,12 +195,26 @@ const ProcessSection = () => {
                     </motion.span>
                   </div>
 
-                  <h3 className="font-heading font-semibold text-lg text-primary-foreground mb-2 group-hover:text-usa-red transition-colors">
+                  <h3 className="font-heading font-semibold text-lg text-primary-foreground mb-2">
                     {step.title}
                   </h3>
                   <p className="text-primary-foreground/70 text-sm">
                     {step.description}
                   </p>
+
+                  {/* Download button for step 2 */}
+                  {step.step === "2" && (
+                    <a
+                      href="/documents/Umowa-Importu-Auta.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download
+                      className="inline-flex items-center gap-2 mt-4 bg-usa-red text-primary-foreground text-sm font-semibold px-4 py-2 rounded-lg transition-opacity hover:opacity-90"
+                    >
+                      <Download className="w-4 h-4" />
+                      Pobierz umowę
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
