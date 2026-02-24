@@ -29,28 +29,28 @@ const savingsExamples = [
     engine: "2.3 Turbo, 310 KM",
     auctionUsd: "4 000 – 7 500 USD",
     plPrice: "85 000 – 120 000 zł",
-    note: "💡 Bardzo chodliwy model – szybka sprzedaż",
+    note: "Bardzo chodliwy model – szybka sprzedaż",
   },
   {
     car: "Dodge Challenger 3.6 V6 (2017–2020)",
     engine: "3.6 V6, 305 KM",
     auctionUsd: "5 000 – 8 000 USD",
     plPrice: "95 000 – 130 000 zł",
-    note: "🔥 Bardzo popularny wśród młodszych klientów",
+    note: "Bardzo popularny wśród młodszych klientów",
   },
   {
     car: "Tesla Model 3 (2019–2022)",
     engine: "Elektryczny, 283–346 KM",
     auctionUsd: "8 000 – 13 000 USD",
     plPrice: "110 000 – 160 000 zł",
-    note: "⚡ Duże zainteresowanie, uwaga na baterię",
+    note: "Duże zainteresowanie, uwaga na baterię",
   },
   {
     car: "BMW 330i G20 (2019–2021)",
     engine: "2.0 Turbo, 258 KM",
     auctionUsd: "6 000 – 10 000 USD",
     plPrice: "110 000 – 150 000 zł",
-    note: "💼 Premium, łatwo sprzedać",
+    note: "Premium, łatwo sprzedać",
   },
   {
     car: "Audi A4 B9 (2018–2021)",
@@ -322,7 +322,7 @@ const SavingsPage = () => {
               * Ceny orientacyjne, uzależnione od stanu pojazdu, przebiegu i kursu
               dolara. Skontaktuj się po dokładną wycenę.
               <br />
-              🔍 Do każdego auta oferujemy <strong>darmowy raport CARFAX i AutoCheck</strong> – pełna historia pojazdu bez dodatkowych kosztów.
+              Do każdego auta oferujemy <strong>darmowy raport CARFAX i AutoCheck</strong> – pełna historia pojazdu bez dodatkowych kosztów.
             </div>
           </motion.div>
         </div>
