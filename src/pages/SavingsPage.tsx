@@ -25,52 +25,46 @@ const fadeUp = {
 
 const savingsExamples = [
   {
-    car: "Ford Mustang GT 2021",
-    engine: "5.0 V8, 450 KM",
-    europePrice: "220 000 zł",
-    usaPrice: "140 000 zł",
-    savings: "80 000 zł",
-    percent: "36%",
+    car: "Ford Mustang 2.3 EcoBoost (2018–2021)",
+    engine: "2.3 Turbo, 310 KM",
+    auctionUsd: "4 000 – 7 500 USD",
+    plPrice: "85 000 – 120 000 zł",
+    note: "💡 Bardzo chodliwy model – szybka sprzedaż",
   },
   {
-    car: "BMW X5 xDrive40i 2020",
-    engine: "3.0 R6 Turbo, 340 KM",
-    europePrice: "250 000 zł",
-    usaPrice: "160 000 zł",
-    savings: "90 000 zł",
-    percent: "36%",
+    car: "Dodge Challenger 3.6 V6 (2017–2020)",
+    engine: "3.6 V6, 305 KM",
+    auctionUsd: "5 000 – 8 000 USD",
+    plPrice: "95 000 – 130 000 zł",
+    note: "🔥 Bardzo popularny wśród młodszych klientów",
   },
   {
-    car: "Mercedes GLE 350 2019",
-    engine: "2.0 R4 Turbo, 255 KM",
-    europePrice: "280 000 zł",
-    usaPrice: "175 000 zł",
-    savings: "105 000 zł",
-    percent: "38%",
+    car: "Tesla Model 3 (2019–2022)",
+    engine: "Elektryczny, 283–346 KM",
+    auctionUsd: "8 000 – 13 000 USD",
+    plPrice: "110 000 – 160 000 zł",
+    note: "⚡ Duże zainteresowanie, uwaga na baterię",
   },
   {
-    car: "Dodge Challenger R/T 2022",
-    engine: "5.7 HEMI V8, 375 KM",
-    europePrice: "200 000 zł",
-    usaPrice: "125 000 zł",
-    savings: "75 000 zł",
-    percent: "38%",
+    car: "BMW 330i G20 (2019–2021)",
+    engine: "2.0 Turbo, 258 KM",
+    auctionUsd: "6 000 – 10 000 USD",
+    plPrice: "110 000 – 150 000 zł",
+    note: "💼 Premium, łatwo sprzedać",
   },
   {
-    car: "Chevrolet Camaro SS 2021",
-    engine: "6.2 V8, 455 KM",
-    europePrice: "230 000 zł",
-    usaPrice: "145 000 zł",
-    savings: "85 000 zł",
-    percent: "37%",
+    car: "Audi A4 B9 (2018–2021)",
+    engine: "2.0 TFSI, 252 KM",
+    auctionUsd: "5 000 – 8 500 USD",
+    plPrice: "95 000 – 135 000 zł",
+    note: "",
   },
   {
-    car: "Jeep Grand Cherokee 2020",
+    car: "Jeep Grand Cherokee (2018–2021)",
     engine: "3.6 V6, 295 KM",
-    europePrice: "190 000 zł",
-    usaPrice: "120 000 zł",
-    savings: "70 000 zł",
-    percent: "37%",
+    auctionUsd: "6 000 – 11 000 USD",
+    plPrice: "100 000 – 150 000 zł",
+    note: "",
   },
 ];
 
@@ -275,7 +269,7 @@ const SavingsPage = () => {
           >
             <div className="bg-usa-navy p-4">
               <h3 className="font-heading font-semibold text-lg text-primary-foreground text-center">
-                Cena w Europie vs. cena z USA (z wszystkimi kosztami)
+                Wygrana aukcja USA vs. cena zarejestrowanego auta w Polsce
               </h3>
             </div>
             <div className="overflow-x-auto">
@@ -289,13 +283,10 @@ const SavingsPage = () => {
                       Silnik
                     </th>
                     <th className="px-5 py-4 text-center text-sm font-semibold text-foreground">
-                      Europa
-                    </th>
-                    <th className="px-5 py-4 text-center text-sm font-semibold text-foreground">
-                      Z USA
+                      Wygrana aukcja
                     </th>
                     <th className="px-5 py-4 text-center text-sm font-semibold text-usa-red">
-                      Oszczędność
+                      Zarejestrowany w PL
                     </th>
                   </tr>
                 </thead>
@@ -306,21 +297,20 @@ const SavingsPage = () => {
                       className="border-t border-border hover:bg-muted/50 transition-colors"
                     >
                       <td className="px-5 py-4 font-semibold text-foreground">
-                        {ex.car}
+                        <span>{ex.car}</span>
+                        {ex.note && (
+                          <span className="block text-xs text-muted-foreground mt-1">{ex.note}</span>
+                        )}
                       </td>
                       <td className="px-5 py-4 text-muted-foreground text-sm hidden md:table-cell">
                         {ex.engine}
                       </td>
-                      <td className="px-5 py-4 text-center text-muted-foreground">
-                        {ex.europePrice}
-                      </td>
-                      <td className="px-5 py-4 text-center text-muted-foreground">
-                        {ex.usaPrice}
+                      <td className="px-5 py-4 text-center text-muted-foreground font-medium">
+                        {ex.auctionUsd}
                       </td>
                       <td className="px-5 py-4 text-center">
                         <span className="inline-flex items-center gap-1.5 bg-usa-red/10 text-usa-red px-3 py-1 rounded-full font-semibold text-sm">
-                          <BadgePercent className="w-4 h-4" />
-                          {ex.savings} ({ex.percent})
+                          {ex.plPrice}
                         </span>
                       </td>
                     </tr>
