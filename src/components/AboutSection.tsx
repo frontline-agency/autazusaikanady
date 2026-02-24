@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Award, Users, Shield, TrendingUp } from "lucide-react";
+import { Award, Users, Shield } from "lucide-react";
 import zakupWCiemno from "@/assets/zakup-w-ciemno.png";
 import ttvLogo from "@/assets/ttv-logo.png";
 import ownersPhoto from "@/assets/owners-photo.jpeg";
@@ -20,12 +20,6 @@ const AboutSection = () => {
   const textY = useTransform(scrollYProgress, [0, 1], [50, -50]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
 
-  const stats = [
-    { icon: Users, value: "100+", label: "Zadowolonych klientów" },
-    { icon: Award, value: "10+", label: "Lat doświadczenia" },
-    { icon: Shield, value: "100%", label: "Bezpieczeństwo transakcji" },
-    { icon: TrendingUp, value: "40%", label: "Oszczędności" },
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -126,42 +120,6 @@ const AboutSection = () => {
               />
             </motion.div>
 
-            {/* Stats Grid */}
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="grid grid-cols-2 gap-4 mt-8"
-            >
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -5,
-                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
-                  }}
-                  className="bg-card p-4 rounded-xl shadow-md text-center cursor-default"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <stat.icon className="w-8 h-8 text-usa-red mx-auto mb-2" />
-                  </motion.div>
-                  <motion.span 
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: 0.4 + index * 0.1, type: "spring" }}
-                    className="block font-heading font-bold text-2xl text-primary"
-                  >
-                    {stat.value}
-                  </motion.span>
-                  <span className="text-sm text-muted-foreground">{stat.label}</span>
-                </motion.div>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* Right - Text Content */}
