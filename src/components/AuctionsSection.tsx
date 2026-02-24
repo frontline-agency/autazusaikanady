@@ -161,7 +161,7 @@ const AuctionsSection = () => {
               transition={{ delay: 1, duration: 0.6 }}
               className="text-primary-foreground"
             >
-              Ford, Dodge, Chevrolet, BMW, Audi, Mercedes, Porsche, Jeep
+              Ford, Dodge, Chevrolet, BMW, Audi, Mercedes, Porsche, Jeep, Toyota, Lexus, Cadillac, GMC, RAM, Tesla, Infiniti, Acura, Lincoln, Chrysler
             </motion.strong>
           </motion.p>
         </motion.div>
@@ -180,24 +180,24 @@ const AuctionsSection = () => {
           >
             {[...Array(2)].map((_, setIndex) => (
               <div key={setIndex} className="flex gap-8">
-                <span>FORD</span>
-                <span>•</span>
-                <span>DODGE</span>
-                <span>•</span>
-                <span>CHEVROLET</span>
-                <span>•</span>
-                <span>BMW</span>
-                <span>•</span>
-                <span>AUDI</span>
-                <span>•</span>
-                <span>MERCEDES</span>
-                <span>•</span>
-                <span>PORSCHE</span>
-                <span>•</span>
-                <span>JEEP</span>
-                <span>•</span>
-                <span>TESLA</span>
-                <span>•</span>
+                <span>FORD</span><span>•</span>
+                <span>DODGE</span><span>•</span>
+                <span>CHEVROLET</span><span>•</span>
+                <span>BMW</span><span>•</span>
+                <span>AUDI</span><span>•</span>
+                <span>MERCEDES</span><span>•</span>
+                <span>PORSCHE</span><span>•</span>
+                <span>JEEP</span><span>•</span>
+                <span>TESLA</span><span>•</span>
+                <span>TOYOTA</span><span>•</span>
+                <span>LEXUS</span><span>•</span>
+                <span>CADILLAC</span><span>•</span>
+                <span>GMC</span><span>•</span>
+                <span>RAM</span><span>•</span>
+                <span>INFINITI</span><span>•</span>
+                <span>ACURA</span><span>•</span>
+                <span>LINCOLN</span><span>•</span>
+                <span>CHRYSLER</span><span>•</span>
               </div>
             ))}
           </motion.div>

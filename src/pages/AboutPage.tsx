@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import zakupWCiemno from "@/assets/zakup-w-ciemno.png";
 import ttvLogo from "@/assets/ttv-logo.png";
+import ownersPhoto from "@/assets/owners-photo.jpeg";
 
 const stats = [
   { icon: Users, value: "100+", label: "Zadowolonych klientów" },
@@ -80,13 +81,22 @@ const AboutPage = () => {
               </div>
             </motion.div>
 
-            {/* Stats */}
+            {/* Photo + Stats */}
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7 }}
-              className="grid grid-cols-2 gap-6"
+              className="space-y-6"
             >
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src={ownersPhoto}
+                  alt="Paweł i Ola Mroczkowscy – właściciele firmy Auta z Ameryki USA"
+                  className="w-full h-auto object-cover rounded-2xl"
+                  loading="lazy"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
@@ -101,6 +111,7 @@ const AboutPage = () => {
                   <span className="text-sm text-muted-foreground">{stat.label}</span>
                 </motion.div>
               ))}
+              </div>
             </motion.div>
           </div>
 

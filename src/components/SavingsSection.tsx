@@ -68,8 +68,8 @@ const SavingsSection = () => {
             className="bg-usa-red text-primary-foreground p-6 rounded-2xl text-center"
           >
             <Calculator className="w-10 h-10 mx-auto mb-3" />
-            <span className="font-heading font-bold text-3xl block">19% VAT</span>
-            <span className="text-primary-foreground/80">Zamiast 23% (przez Niemcy)</span>
+            <span className="font-heading font-bold text-3xl block">20% VAT</span>
+            <span className="text-primary-foreground/80">Zamiast 23% (przez Holandię)</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

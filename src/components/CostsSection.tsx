@@ -62,21 +62,21 @@ const CostsSection = () => {
             </div>
             <div className="bg-usa-red p-6">
               <h3 className="font-heading font-bold text-xl text-primary-foreground text-center">
-                Import przez Niemcy
+                Import przez Holandię
               </h3>
             </div>
             <div className="p-6 space-y-4">
               <div className="flex justify-between items-center pb-4 border-b">
-                <span className="text-muted-foreground">VAT Niemcy</span>
-                <span className="font-heading font-bold text-2xl text-usa-red">19%</span>
+                <span className="text-muted-foreground">VAT Holandia</span>
+                <span className="font-heading font-bold text-2xl text-usa-red">20%</span>
               </div>
               <div className="flex justify-between items-center pb-4 border-b">
-                <span className="text-muted-foreground">Cło Niemcy</span>
+                <span className="text-muted-foreground">Cło Holandia</span>
                 <span className="font-heading font-bold text-2xl text-usa-red">10%</span>
               </div>
               <div className="bg-secondary p-3 rounded-lg flex items-center gap-2 text-foreground">
                 <Info className="w-5 h-5 flex-shrink-0 text-usa-red" />
-                <span className="text-sm">Oszczędzasz 4% na VAT!</span>
+                <span className="text-sm">Oszczędzasz 3% na VAT!</span>
               </div>
             </div>
           </motion.div>
