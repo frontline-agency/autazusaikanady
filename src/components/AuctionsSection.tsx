@@ -175,7 +175,7 @@ const AuctionsSection = () => {
         >
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
             className="flex gap-8 text-primary-foreground/30 font-heading text-2xl whitespace-nowrap"
           >
             {[...Array(2)].map((_, setIndex) => (
