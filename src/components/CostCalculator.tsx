@@ -43,13 +43,13 @@ const CostCalculator = () => {
     const baseCosts = duty + vat + excise;
 
     if (commission === null) {
-      const min = (numPrice + auctionMin + transportMin + baseCosts) * USD_TO_PLN;
-      const max = (numPrice + auctionMax + transportMax + baseCosts) * USD_TO_PLN;
+      const min = (numPrice + auctionMin + transportMin + baseCosts) * USD_TO_PLN * 0.95;
+      const max = (numPrice + auctionMax + transportMax + baseCosts) * USD_TO_PLN * 1.05;
       return { min, max, individual: true };
     }
 
-    const min = (numPrice + auctionMin + transportMin + baseCosts + commission) * USD_TO_PLN;
-    const max = (numPrice + auctionMax + transportMax + baseCosts + commission) * USD_TO_PLN;
+    const min = (numPrice + auctionMin + transportMin + baseCosts + commission) * USD_TO_PLN * 0.95;
+    const max = (numPrice + auctionMax + transportMax + baseCosts + commission) * USD_TO_PLN * 1.05;
     return { min, max, individual: false };
   };
 
@@ -146,10 +146,7 @@ const CostCalculator = () => {
             <div className="flex items-start gap-2 text-xs text-muted-foreground">
               <Info className="w-4 h-4 flex-shrink-0 mt-0.5 text-usa-red" />
               <span>
-                Kalkulacja uwzględnia: opłaty aukcyjne, transport z USA, fracht
-                morski, cło 10%, VAT 20%, akcyzę 3,1% oraz naszą prowizję.
-                Przeliczono po kursie {USD_TO_PLN.toFixed(2)} PLN/USD. Podane
-                kwoty są szacunkowe — skontaktuj się z nami po dokładną wycenę.
+                Podane kwoty są szacunkowe — skontaktuj się z nami po dokładną wycenę.
               </span>
             </div>
           </div>
