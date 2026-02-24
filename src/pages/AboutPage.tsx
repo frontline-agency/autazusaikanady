@@ -11,7 +11,7 @@ import ttvLogo from "@/assets/ttv-logo.png";
 import ownersPhoto from "@/assets/owners-photo.jpeg";
 
 const stats = [
-  { icon: Users, value: "100+", label: "Zadowolonych klientów" },
+  { icon: Users, value: "1000+", label: "Zadowolonych klientów" },
   { icon: Award, value: "10+", label: "Lat doświadczenia" },
   { icon: Shield, value: "100%", label: "Bezpieczeństwo transakcji" },
   { icon: TrendingUp, value: "40%", label: "Oszczędności" },
@@ -96,23 +96,25 @@ const AboutPage = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-card p-6 rounded-xl shadow-md text-center"
-                >
-                  <stat.icon className="w-10 h-10 text-usa-red mx-auto mb-3" />
-                  <span className="block font-heading font-bold text-3xl text-primary">{stat.value}</span>
-                  <span className="text-sm text-muted-foreground">{stat.label}</span>
-                </motion.div>
-              ))}
-              </div>
             </motion.div>
+          </div>
+
+          {/* Stats as tiles */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-card p-6 rounded-xl shadow-md text-center"
+              >
+                <stat.icon className="w-10 h-10 text-usa-red mx-auto mb-3" />
+                <span className="block font-heading font-bold text-3xl text-primary">{stat.value}</span>
+                <span className="text-sm text-muted-foreground">{stat.label}</span>
+              </motion.div>
+            ))}
           </div>
 
           {/* TV Show Section - highlighted */}
@@ -194,7 +196,7 @@ const AboutPage = () => {
                 {
                   icon: Award,
                   title: "Doświadczenie",
-                  desc: "Ponad 10 lat w branży importu aut z USA i Kanady. Setki zrealizowanych importów i ponad 100 zadowolonych klientów, którzy nam zaufali.",
+                  desc: "Ponad 10 lat w branży importu aut z USA i Kanady. Setki zrealizowanych importów i ponad 1000 zadowolonych klientów, którzy nam zaufali.",
                 },
               ].map((value, index) => (
                 <motion.div
