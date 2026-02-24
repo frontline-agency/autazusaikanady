@@ -208,7 +208,6 @@ const ProcessSection = () => {
                       href="/documents/Umowa-Importu-Auta.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
-                      download
                       className="inline-flex items-center gap-1.5 mt-3 text-usa-red text-xs hover:underline"
                     >
                       <Download className="w-3 h-3" />
