@@ -111,7 +111,7 @@ export default {
         "slide-in-left": "slide-in-left 0.6s ease-out forwards",
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "scale-in": "scale-in 0.4s ease-out forwards",
-        "marquee-brands": "marquee-brands 15s linear infinite",
+        "marquee-brands": "marquee-brands 45s linear infinite",
       },
     },
   },
