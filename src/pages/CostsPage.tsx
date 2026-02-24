@@ -374,6 +374,10 @@ const CostsPage = () => {
               <CommissionRow label="Auto do 30 000 $" price="4 000 zł" />
               <CommissionRow label="Auto do 35 000 $" price="4 200 zł" />
               <CommissionRow label="Auto do 40 000 $" price="4 500 zł" />
+              <div className="flex justify-between items-center py-3 border-t border-border">
+                <span className="text-muted-foreground">Auto powyżej 20 000 $</span>
+                <span className="font-heading font-bold text-lg text-usa-red">Wycena indywidualna</span>
+              </div>
             </div>
           </motion.div>
 
