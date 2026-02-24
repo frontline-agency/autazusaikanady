@@ -35,6 +35,11 @@ const ServicesSection = () => {
       description: "Organizacja frachtu morskiego z głównych portów USA. Śledzenie przesyłki na każdym etapie.",
     },
     {
+      icon: Ship,
+      title: "Transport z Holandii do Polski",
+      description: "Odbiór pojazdu z portu w Rotterdamie i bezpieczny transport lądowy na lawecie do Polski.",
+    },
+    {
       icon: Wrench,
       title: "Naprawy i konwersja",
       description: "Naprawa powypadkowych aut, konwersja na rynek europejski, przygotowanie do homologacji.",
