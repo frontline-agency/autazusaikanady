@@ -161,7 +161,7 @@ const AuctionsSection = () => {
               transition={{ delay: 1, duration: 0.6 }}
               className="text-primary-foreground"
             >
-              Ford, Dodge, Chevrolet, BMW, Audi, Mercedes, Porsche, Jeep, Toyota, Lexus, Cadillac, GMC, RAM, Tesla, Infiniti, Acura, Lincoln, Chrysler
+              Ford, Dodge, Chevrolet, BMW, Audi, Mercedes, Porsche, Jeep, Toyota
             </motion.strong>
           </motion.p>
         </motion.div>
@@ -188,8 +188,8 @@ const AuctionsSection = () => {
                 <span>MERCEDES</span><span>•</span>
                 <span>PORSCHE</span><span>•</span>
                 <span>JEEP</span><span>•</span>
-                <span>TESLA</span><span>•</span>
                 <span>TOYOTA</span><span>•</span>
+                <span>TESLA</span><span>•</span>
                 <span>LEXUS</span><span>•</span>
                 <span>CADILLAC</span><span>•</span>
                 <span>GMC</span><span>•</span>
@@ -198,6 +198,18 @@ const AuctionsSection = () => {
                 <span>ACURA</span><span>•</span>
                 <span>LINCOLN</span><span>•</span>
                 <span>CHRYSLER</span><span>•</span>
+                <span>HONDA</span><span>•</span>
+                <span>NISSAN</span><span>•</span>
+                <span>SUBARU</span><span>•</span>
+                <span>VOLKSWAGEN</span><span>•</span>
+                <span>VOLVO</span><span>•</span>
+                <span>LAND ROVER</span><span>•</span>
+                <span>JAGUAR</span><span>•</span>
+                <span>BUICK</span><span>•</span>
+                <span>PONTIAC</span><span>•</span>
+                <span>HYUNDAI</span><span>•</span>
+                <span>KIA</span><span>•</span>
+                <span>MAZDA</span><span>•</span>
               </div>
             ))}
           </motion.div>
