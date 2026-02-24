@@ -173,13 +173,9 @@ const AuctionsSection = () => {
           transition={{ delay: 1.2, duration: 0.6 }}
           className="mt-8 overflow-hidden"
         >
-          <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-            className="flex gap-8 text-primary-foreground/30 font-heading text-2xl whitespace-nowrap"
-          >
-            {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-8">
+          <div className="inline-flex animate-marquee-brands whitespace-nowrap">
+            {[...Array(3)].map((_, setIndex) => (
+              <div key={setIndex} className="flex gap-8 mx-4 text-primary-foreground/30 font-heading text-2xl">
                 <span>FORD</span><span>•</span>
                 <span>DODGE</span><span>•</span>
                 <span>CHEVROLET</span><span>•</span>
@@ -212,7 +208,7 @@ const AuctionsSection = () => {
                 <span>MAZDA</span><span>•</span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
