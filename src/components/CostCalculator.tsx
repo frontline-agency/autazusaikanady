@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calculator, Car, Info } from "lucide-react";
+import { Calculator, Info } from "lucide-react";
 
-const formatUSD = (val: number) =>
+const USD_TO_PLN = 3.85;
+
+const formatPLN = (val: number) =>
   val.toLocaleString("pl-PL", { maximumFractionDigits: 0 });
 
 const getAuctionFees = (price: number): [number, number] => {
-  if (price <= 5000) return [800, 1000];
-  if (price <= 10000) return [900, 1200];
-  if (price <= 15000) return [1000, 1400];
-  if (price <= 20000) return [1200, 1500];
-  return [1500, 2000];
+  if (price <= 5000) return [500, 700];
+  if (price <= 10000) return [700, 900];
+  if (price <= 15000) return [900, 1100];
+  if (price <= 20000) return [1000, 1200];
+  return [1200, 1200];
 };
 
 const getCommissionUSD = (price: number): number | null => {
@@ -18,12 +20,11 @@ const getCommissionUSD = (price: number): number | null => {
   if (price <= 10000) return 2500 / rate;
   if (price <= 15000) return 3000 / rate;
   if (price <= 20000) return 3500 / rate;
-  return null; // individual
+  return null;
 };
 
 const CostCalculator = () => {
   const [price, setPrice] = useState("");
-  const [engine, setEngine] = useState<"small" | "big">("big");
 
   const numPrice = parseFloat(price.replace(/\s/g, "")) || 0;
   const isValid = numPrice >= 500 && numPrice <= 500000;
@@ -33,22 +34,22 @@ const CostCalculator = () => {
 
     const [auctionMin, auctionMax] = getAuctionFees(numPrice);
     const transportMin = 1200;
-    const transportMax = 2000;
+    const transportMax = 1500;
     const duty = numPrice * 0.1;
     const vat = (numPrice + duty) * 0.2;
-    const excise = numPrice * (engine === "small" ? 0.031 : 0.186);
+    const excise = numPrice * 0.031;
     const commission = getCommissionUSD(numPrice);
 
     const baseCosts = duty + vat + excise;
 
     if (commission === null) {
-      const min = numPrice + auctionMin + transportMin + baseCosts;
-      const max = numPrice + auctionMax + transportMax + baseCosts;
+      const min = (numPrice + auctionMin + transportMin + baseCosts) * USD_TO_PLN;
+      const max = (numPrice + auctionMax + transportMax + baseCosts) * USD_TO_PLN;
       return { min, max, individual: true };
     }
 
-    const min = numPrice + auctionMin + transportMin + baseCosts + commission;
-    const max = numPrice + auctionMax + transportMax + baseCosts + commission;
+    const min = (numPrice + auctionMin + transportMin + baseCosts + commission) * USD_TO_PLN;
+    const max = (numPrice + auctionMax + transportMax + baseCosts + commission) * USD_TO_PLN;
     return { min, max, individual: false };
   };
 
@@ -119,36 +120,6 @@ const CostCalculator = () => {
               </div>
             </div>
 
-            {/* Engine size */}
-            <div>
-              <label className="block text-sm font-semibold text-foreground mb-2">
-                <Car className="w-4 h-4 inline mr-1 -mt-0.5" />
-                Pojemność silnika
-              </label>
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  onClick={() => setEngine("small")}
-                  className={`py-3 px-4 rounded-xl border-2 font-semibold text-sm transition-all ${
-                    engine === "small"
-                      ? "border-usa-red bg-usa-red/10 text-usa-red"
-                      : "border-border text-muted-foreground hover:border-muted-foreground/40"
-                  }`}
-                >
-                  Do 2.0L
-                </button>
-                <button
-                  onClick={() => setEngine("big")}
-                  className={`py-3 px-4 rounded-xl border-2 font-semibold text-sm transition-all ${
-                    engine === "big"
-                      ? "border-usa-red bg-usa-red/10 text-usa-red"
-                      : "border-border text-muted-foreground hover:border-muted-foreground/40"
-                  }`}
-                >
-                  Powyżej 2.0L
-                </button>
-              </div>
-            </div>
-
             {/* Result */}
             {result && (
               <motion.div
@@ -161,7 +132,7 @@ const CostCalculator = () => {
                   Szacunkowy łączny koszt
                 </p>
                 <p className="font-heading font-bold text-2xl md:text-3xl text-primary-foreground">
-                  {formatUSD(result.min)} – {formatUSD(result.max)} USD
+                  {formatPLN(result.min)} – {formatPLN(result.max)} PLN
                 </p>
                 {result.individual && (
                   <p className="text-primary-foreground/60 text-xs mt-2">
@@ -176,7 +147,8 @@ const CostCalculator = () => {
               <Info className="w-4 h-4 flex-shrink-0 mt-0.5 text-usa-red" />
               <span>
                 Kalkulacja uwzględnia: opłaty aukcyjne, transport z USA, fracht
-                morski, cło 10%, VAT 20%, akcyzę oraz naszą prowizję. Podane
+                morski, cło 10%, VAT 20%, akcyzę 3,1% oraz naszą prowizję.
+                Przeliczono po kursie {USD_TO_PLN.toFixed(2)} PLN/USD. Podane
                 kwoty są szacunkowe — skontaktuj się z nami po dokładną wycenę.
               </span>
             </div>
