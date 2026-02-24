@@ -1,3 +1,4 @@
+import CostCalculator from "@/components/CostCalculator";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -100,8 +101,11 @@ const CostsPage = () => {
         </div>
       </section>
 
+      {/* Calculator */}
+      <CostCalculator />
+
       {/* Transport Costs */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-usa-light-blue">
         <div className="container mx-auto px-4">
           <motion.h2
             initial="hidden"
