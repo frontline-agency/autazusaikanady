@@ -115,7 +115,7 @@ const AboutSection = () => {
               <img
                 src={ownersPhoto}
                 alt="Paweł i Ola Mroczkowscy – właściciele firmy Auta z Ameryki USA"
-                className="w-full h-auto object-cover rounded-2xl"
+                className="w-full h-64 md:h-72 object-cover rounded-2xl"
                 loading="lazy"
               />
             </motion.div>
