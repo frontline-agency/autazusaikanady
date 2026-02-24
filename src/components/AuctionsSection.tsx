@@ -174,8 +174,8 @@ const AuctionsSection = () => {
           className="mt-8 overflow-hidden"
         >
           <motion.div
-            animate={{ x: [0, -1000] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
             className="flex gap-8 text-primary-foreground/30 font-heading text-2xl whitespace-nowrap"
           >
             {[...Array(2)].map((_, setIndex) => (
