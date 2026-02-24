@@ -321,6 +321,8 @@ const SavingsPage = () => {
             <div className="p-4 bg-muted/50 text-center text-sm text-muted-foreground">
               * Ceny orientacyjne, uzależnione od stanu pojazdu, przebiegu i kursu
               dolara. Skontaktuj się po dokładną wycenę.
+              <br />
+              🔍 Do każdego auta oferujemy <strong>darmowy raport CARFAX i AutoCheck</strong> – pełna historia pojazdu bez dodatkowych kosztów.
             </div>
           </motion.div>
         </div>
