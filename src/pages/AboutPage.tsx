@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import zakupWCiemno from "@/assets/zakup-w-ciemno.png";
 import ttvLogo from "@/assets/ttv-logo.png";
-import ownersPhoto from "@/assets/owners-photo.jpeg";
+import ownersPhoto from "@/assets/owners-photo.webp";
 
 const stats = [
   { icon: Users, value: "1000+", label: "Zadowolonych klientów" },
@@ -92,7 +92,7 @@ const AboutPage = () => {
                 <img
                   src={ownersPhoto}
                   alt="Paweł i Ola Mroczkowscy – właściciele firmy Auta z Ameryki USA"
-                  className="w-full h-72 md:h-96 object-cover object-top rounded-2xl"
+                  className="w-full h-72 md:h-96 object-cover object-center rounded-2xl"
                   loading="lazy"
                 />
               </div>
