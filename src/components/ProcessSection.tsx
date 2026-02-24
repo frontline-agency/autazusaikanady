@@ -138,7 +138,7 @@ const ProcessSection = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mt-2"
           >
-            Import w zaledwie 30 dni!
+            Import w zaledwie 30 dni!*
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -146,7 +146,15 @@ const ProcessSection = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto"
           >
-            Etapy importu krok po kroku – od wyboru auta po jego odbiór w Polsce
+            Etapy importu krok po kroku – od wyboru auta po jego odbiór w Polsce.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="text-primary-foreground/50 mt-2 text-sm max-w-2xl mx-auto"
+          >
+            * Czas realizacji zależny od lokalizacji aukcji w USA
           </motion.p>
         </motion.div>
 
