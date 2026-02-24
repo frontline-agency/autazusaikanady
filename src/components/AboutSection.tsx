@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Award, Users, Shield } from "lucide-react";
 import zakupWCiemno from "@/assets/zakup-w-ciemno.png";
 import ttvLogo from "@/assets/ttv-logo.png";
-import ownersPhoto from "@/assets/owners-photo.jpeg";
+import ownersPhoto from "@/assets/owners-photo.webp";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -115,7 +115,7 @@ const AboutSection = () => {
               <img
                 src={ownersPhoto}
                 alt="Paweł i Ola Mroczkowscy – właściciele firmy Auta z Ameryki USA"
-                className="w-full h-72 md:h-80 object-cover object-top rounded-2xl"
+                className="w-full h-72 md:h-80 object-cover object-center rounded-2xl"
                 loading="lazy"
               />
             </motion.div>
