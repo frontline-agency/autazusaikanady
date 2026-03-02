@@ -38,18 +38,18 @@ const CostCalculator = () => {
     if (!isValid) return null;
 
     const auctionFee = getAuctionFees(numPrice);
-    const transport = 1800;
+    const transport = 1100;
     const exciseRate = engine === "small" ? 0.031 : 0.186;
 
-    const duty = numPrice * 0.1;
-    const vat = (numPrice + duty) * 0.2;
+    const duty = numPrice * 0.06;
+    const vat = (numPrice + duty) * 0.17;
     const excise = numPrice * exciseRate;
     const commission = getCommissionUSD(numPrice);
 
     const baseCosts = duty + vat + excise;
 
     // Buffer — higher markup for cheaper cars, tapering off for expensive ones
-    const buffer = Math.max(200, 1200 - numPrice * 0.08);
+    const buffer = Math.max(0, 600 - numPrice * 0.06);
 
     // Damaged cars: appraiser fee + repair margin
     const damagedExtra = condition === "damaged" ? 400 + numPrice * 0.08 : 0;
