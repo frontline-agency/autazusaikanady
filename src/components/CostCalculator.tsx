@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calculator, Info, FileSearch } from "lucide-react";
 
-const USD_TO_PLN = 3.85;
+const USD_TO_PLN = 3.55;
 
 const formatPLN = (val: number) =>
   val.toLocaleString("pl-PL", { maximumFractionDigits: 0 });
