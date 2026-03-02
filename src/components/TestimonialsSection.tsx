@@ -1,7 +1,35 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Star, Quote } from "lucide-react";
+
+const ReviewWidget = () => {
+  const widgetRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://opinie.autazamerykiusa.pl/reputation/assets/review-widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div ref={widgetRef} className="mt-16">
+      <iframe
+        className="lc_reviews_widget"
+        src="https://opinie.autazamerykiusa.pl/reputation/widgets/review_widget/jZBkEuSP5b04zuOBAu16?widgetId=69a5560032ed67d8d4df1004"
+        frameBorder="0"
+        scrolling="no"
+        style={{ minWidth: "100%", width: "100%" }}
+        title="Opinie klientów"
+      />
+    </div>
+  );
+};
 
 const TestimonialsSection = () => {
   const ref = useRef(null);
@@ -146,6 +174,9 @@ const TestimonialsSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* External reviews widget */}
+        <ReviewWidget />
       </div>
     </section>
   );
