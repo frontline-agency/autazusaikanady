@@ -41,12 +41,9 @@ const CostCalculator = () => {
     const transport = 1800;
     const exciseRate = engine === "small" ? 0.031 : 0.186;
 
-    // Customs value — damaged cars are assessed lower
-    const customsValue = condition === "damaged" ? numPrice * 0.85 : numPrice;
-
-    const duty = customsValue * 0.1;
-    const vat = (customsValue + duty) * 0.2;
-    const excise = customsValue * exciseRate;
+    const duty = numPrice * 0.1;
+    const vat = (numPrice + duty) * 0.2;
+    const excise = numPrice * exciseRate;
     const commission = getCommissionUSD(numPrice);
 
     const baseCosts = duty + vat + excise;
@@ -54,8 +51,11 @@ const CostCalculator = () => {
     // Buffer — higher markup for cheaper cars, tapering off for expensive ones
     const buffer = Math.max(200, 1200 - numPrice * 0.08);
 
+    // Damaged cars: appraiser fee + repair margin
+    const damagedExtra = condition === "damaged" ? 400 + numPrice * 0.08 : 0;
+
     const totalUSD =
-      numPrice + auctionFee + transport + baseCosts + buffer + (commission ?? 0);
+      numPrice + auctionFee + transport + baseCosts + buffer + damagedExtra + (commission ?? 0);
 
     const totalPLN = totalUSD * USD_TO_PLN;
 
