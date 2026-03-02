@@ -39,8 +39,8 @@ const ProcessSection = () => {
     {
       icon: Wallet,
       step: "3",
-      title: "Zaliczka i licytacja",
-      description: "Wpłacasz zaliczkę. Bierzemy udział w licytacji w Twoim imieniu, dbając o najlepszą cenę.",
+      title: "Kaucja i licytacja",
+      description: "Wpłacasz kaucję na poczet licytacji auta. Bierzemy udział w licytacji w Twoim imieniu, dbając o najlepszą cenę.",
     },
     {
       icon: Ship,
