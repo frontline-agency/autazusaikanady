@@ -145,7 +145,7 @@ const CostsPage = () => {
             <TransportCard
               icon={MapPin}
               title="Bremerhaven / Rotterdam → Polska"
-              value="1 200 – 1 500 zł"
+              value="1 200 – 2 500 zł"
               delay={0.2}
             />
           </div>
