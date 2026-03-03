@@ -410,7 +410,7 @@ const SavingsPage = () => {
             className="text-center mt-14"
           >
             <a
-              href="/#contact"
+              href="/kontakt"
               className="inline-flex items-center gap-2 bg-usa-red text-primary-foreground font-bold text-lg px-8 py-4 rounded-lg uppercase tracking-wide hover:scale-105 transition-transform group relative overflow-hidden"
             >
               <span className="relative z-10">Sprawdź ile zaoszczędzisz</span>
