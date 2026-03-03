@@ -82,11 +82,7 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-lg mb-4">Godziny otwarcia</h4>
             <ul className="space-y-1.5 text-sm">
               {[
-                { day: "Poniedziałek", hours: "08:00–19:00" },
-                { day: "Wtorek", hours: "08:00–19:00" },
-                { day: "Środa", hours: "08:00–19:00" },
-                { day: "Czwartek", hours: "08:00–19:00" },
-                { day: "Piątek", hours: "08:00–19:00" },
+                { day: "Poniedziałek – Piątek", hours: "08:00–19:00" },
                 { day: "Sobota", hours: "09:00–16:00" },
                 { day: "Niedziela", hours: "Zamknięte" },
               ].map((item) => (
