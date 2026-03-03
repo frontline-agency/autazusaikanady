@@ -13,13 +13,13 @@ const Footer = () => {
               Import samochodów z USA i Kanady. Profesjonalnie, bezpiecznie i z pełną transparentnością kosztów.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-primary-foreground/70 hover:text-usa-red transition-colors">
+              <a href="https://www.facebook.com/autazamerykiusa/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-usa-red transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-primary-foreground/70 hover:text-usa-red transition-colors">
+              <a href="https://www.instagram.com/pawel.mroczkowski.1/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-usa-red transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://www.youtube.com/channel/UC8vZJ16STgT69Rw6RXdiiyA" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-usa-red transition-colors">
+              <a href="https://www.youtube.com/@AUTAzAmerykiUSA" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-usa-red transition-colors">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
