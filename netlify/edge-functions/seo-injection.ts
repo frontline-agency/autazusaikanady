@@ -48,7 +48,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Import aut z USA – Auta z Ameryki USA',
       description:
         'Import aut z USA – kompleksowa obsługa zakupu, transportu i rejestracji samochodów z Ameryki.',
-      image: `${origin}/og-home.jpg`,
+       image: `${origin}/og.webp`,
       type: 'website'
     },
 
@@ -56,7 +56,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'O nas – Specjaliści od importu aut z USA',
       description:
         'Poznaj firmę Auta z Ameryki USA i sprawdź, dlaczego warto nam powierzyć import aut z USA.',
-      image: `${origin}/og-o-nas.jpg`,
+     image: `${origin}/og.webp`,
       type: 'website'
     },
 
@@ -64,7 +64,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Pojazdy z USA – Aukcje i oferty',
       description:
         'Samochody z USA z aukcji Copart i IAAI. Sprawdzone oferty i pełna obsługa importu.',
-      image: `${origin}/og-pojazdy.jpg`,
+     image: `${origin}/og.webp`,
       type: 'website'
     },
 
@@ -72,7 +72,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Opłaty – Import samochodu z USA',
       description:
         'Sprawdź wszystkie koszty importu aut z USA: transport, cło, akcyza i rejestracja.',
-      image: `${origin}/og-oplaty.jpg`,
+      image: `${origin}/og.webp`,
       type: 'website'
     },
 
@@ -80,7 +80,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Oszczędności – Czy import aut z USA się opłaca?',
       description:
         'Zobacz, ile możesz zaoszczędzić wybierając import aut z USA zamiast zakupu w Polsce.',
-      image: `${origin}/og-oszczednosci.jpg`,
+      image: `${origin}/og.webp`,
       type: 'website'
     },
 
@@ -88,7 +88,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Blog – Import aut z USA poradniki',
       description:
         'Poradniki i analizy dotyczące importu aut z USA, kosztów, aukcji i formalności.',
-      image: `${origin}/og-blog.jpg`,
+     image: `${origin}/og.webp`,
       type: 'website'
     },
 
@@ -96,7 +96,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Kontakt – Import aut z USA',
       description:
         'Skontaktuj się z nami i rozpocznij bezpieczny import aut z USA.',
-      image: `${origin}/og-kontakt.jpg`,
+     image: `${origin}/og.webp`,
       type: 'website'
     },
 
@@ -106,7 +106,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Import samochodów z USA – analiza kosztów 2026',
       description:
         'Czy import aut z USA w 2026 się opłaca? Szczegółowa analiza kosztów i opłat.',
-      image: `${origin}/og-blog1.jpg`,
+     image: `${origin}/og.webp`,
       type: 'article'
     },
 
@@ -114,7 +114,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Jak wygląda aukcja Copart i IAAI?',
       description:
         'Sprawdź, jak przebiega aukcja samochodowa Copart i IAAI przy imporcie aut z USA.',
-      image: `${origin}/og-blog2.jpg`,
+     image: `${origin}/og.webp`,
       type: 'article'
     },
 
@@ -122,7 +122,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Ile trwa sprowadzenie auta z USA?',
       description:
         'Dowiedz się, ile trwa import aut z USA i jakie etapy obejmuje transport do Polski.',
-      image: `${origin}/og-blog3.jpg`,
+       image: `${origin}/og.webp`,
       type: 'article'
     },
 
@@ -130,7 +130,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Najpopularniejsze samochody z USA – Top 2026',
       description:
         'Poznaj najczęściej importowane modele aut z USA w 2026 roku.',
-      image: `${origin}/og-blog4.jpg`,
+     image: `${origin}/og.webp`,
       type: 'article'
     },
 
@@ -138,7 +138,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Jak sprawdzić historię auta z USA – VIN i Carfax',
       description:
         'Sprawdź, jak zweryfikować historię pojazdu z USA przed zakupem.',
-      image: `${origin}/og-blog5.jpg`,
+      image: `${origin}/og.webp`,
       type: 'article'
     },
 
@@ -146,7 +146,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Odprawa celna auta z USA – dokumenty i procedury',
       description:
         'Jak wygląda odprawa celna przy imporcie aut z USA? Wymagane dokumenty i koszty.',
-      image: `${origin}/og-blog6.jpg`,
+      image: `${origin}/og.webp`,
       type: 'article'
     },
 
@@ -154,7 +154,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Import samochodu z Kanady vs USA – różnice',
       description:
         'Porównanie importu auta z Kanady i USA – koszty, formalności i procedury.',
-      image: `${origin}/og-blog7.jpg`,
+      image: `${origin}/og.webp`,
       type: 'article'
     },
 
@@ -162,7 +162,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Przegląd techniczny auta z USA – homologacja',
       description:
         'Jak przygotować auto z USA do przeglądu i rejestracji w Polsce?',
-      image: `${origin}/og-blog8.jpg`,
+      image: `${origin}/og.webp`,
       type: 'article'
     },
 
@@ -170,7 +170,7 @@ function getSeoConfig(pathname: string, origin: string) {
       title: 'Transport auta z USA do Polski – koszty i metody',
       description:
         'Poznaj metody transportu samochodu z USA oraz aktualne koszty.',
-      image: `${origin}/og-blog9.jpg`,
+      image: `${origin}/og.webp`,
       type: 'article'
     },
 
@@ -199,12 +199,12 @@ function generateMetaTags(config: any): string {
     <meta property="og:url" content="${config.url}">
     <meta property="og:title" content="${escapedTitle}">
     <meta property="og:description" content="${escapedDescription}">
-    <meta property="og:image" content="/og.webp">
+    <meta property="og:image" content="${config.image}">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${escapedTitle}">
     <meta name="twitter:description" content="${escapedDescription}">
-    <meta name="twitter:image" content="/og.webp">
+    <meta name="twitter:image" content="${config.image}">
     
     <meta name="robots" content="index, follow">
   `.trim();
