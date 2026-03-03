@@ -117,7 +117,7 @@ const CostsSection = () => {
           className="text-center mt-12"
         >
           <a
-            href="#contact"
+            href="/kontakt"
             className="inline-flex items-center gap-2 text-usa-red font-semibold hover:underline"
           >
             Zapytaj o szczegółową kalkulację dla Twojego auta
