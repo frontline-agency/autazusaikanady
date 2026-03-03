@@ -475,7 +475,7 @@ const CostsPage = () => {
             className="text-center mt-12"
           >
             <a
-              href="/#contact"
+              href="/kontakt"
               className="inline-flex items-center gap-2 bg-usa-red text-primary-foreground font-bold text-lg px-8 py-4 rounded-lg uppercase tracking-wide hover:scale-105 transition-transform group relative overflow-hidden"
             >
               <span className="relative z-10">Zapytaj o kalkulację</span>
