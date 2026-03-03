@@ -199,12 +199,12 @@ function generateMetaTags(config: any): string {
     <meta property="og:url" content="${config.url}">
     <meta property="og:title" content="${escapedTitle}">
     <meta property="og:description" content="${escapedDescription}">
-    <meta property="og:image" content="${config.image}">
+    <meta property="og:image" content="/og.webp">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${escapedTitle}">
     <meta name="twitter:description" content="${escapedDescription}">
-    <meta name="twitter:image" content="${config.image}">
+    <meta name="twitter:image" content="/og.webp">
     
     <meta name="robots" content="index, follow">
   `.trim();
