@@ -50,7 +50,7 @@ const ContactPage = () => {
     {
       icon: Clock,
       label: "Godziny pracy",
-      value: "Pon–Pt: 8:00–18:00, Sob: 9:00–14:00",
+      value: "Pon–Pt: 08:00–19:00, Sob: 09:00–16:00, Ndz: Zamknięte",
       href: null,
     },
   ];
