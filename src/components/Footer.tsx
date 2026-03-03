@@ -80,17 +80,21 @@ const Footer = () => {
           {/* Opening Hours */}
           <div>
             <h4 className="font-heading font-semibold text-lg mb-4">Godziny otwarcia</h4>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-3 text-sm">
-                <Clock className="w-5 h-5 text-usa-red flex-shrink-0" />
-                <div className="text-primary-foreground/70">
-                  <span className="block">Poniedziałek - Piątek</span>
-                  <span className="font-semibold text-primary-foreground">8:00 - 18:00</span>
-                </div>
-              </li>
-              <li className="text-primary-foreground/70 text-sm mt-4">
-                Sobota - Niedziela: po umówieniu
-              </li>
+            <ul className="space-y-1.5 text-sm">
+              {[
+                { day: "Poniedziałek", hours: "08:00–19:00" },
+                { day: "Wtorek", hours: "08:00–19:00" },
+                { day: "Środa", hours: "08:00–19:00" },
+                { day: "Czwartek", hours: "08:00–19:00" },
+                { day: "Piątek", hours: "08:00–19:00" },
+                { day: "Sobota", hours: "09:00–16:00" },
+                { day: "Niedziela", hours: "Zamknięte" },
+              ].map((item) => (
+                <li key={item.day} className="flex justify-between text-primary-foreground/70">
+                  <span>{item.day}</span>
+                  <span className="font-semibold text-primary-foreground">{item.hours}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
