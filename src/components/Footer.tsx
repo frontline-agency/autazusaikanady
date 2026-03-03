@@ -32,7 +32,7 @@ const Footer = () => {
               {[
                 { name: "Strona główna", href: "/" },
                 { name: "O nas", href: "/o-nas" },
-                { name: "Pojazdy", href: "/pojazdy" },
+                
                 { name: "Opłaty", href: "/oplaty" },
                 { name: "Oszczędności", href: "/oszczednosci" },
                 { name: "Blog", href: "/blog" },

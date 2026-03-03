@@ -123,7 +123,7 @@ const HeroSection = () => {
               size="lg"
               className="bg-usa-red hover:bg-usa-red text-primary-foreground font-bold text-xl px-8 py-6 uppercase tracking-wide shadow-glow-red group relative overflow-hidden"
             >
-              <a href="/pojazdy">
+              <a href="/kontakt">
                 <span className="relative z-10">ZOBACZ AUKCJE</span>
                 <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
               </a>

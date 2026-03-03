@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import AboutPage from "./pages/AboutPage";
-import VehiclesPage from "./pages/VehiclesPage";
+
 import CostsPage from "./pages/CostsPage";
 import SavingsPage from "./pages/SavingsPage";
 import ContactPage from "./pages/ContactPage";
@@ -23,7 +23,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/pojazdy" element={<VehiclesPage />} />
+          
           <Route path="/blog" element={<Blog />} />
           <Route path="/o-nas" element={<AboutPage />} />
           <Route path="/oplaty" element={<CostsPage />} />
