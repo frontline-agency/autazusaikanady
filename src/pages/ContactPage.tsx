@@ -175,12 +175,12 @@ const ContactPage = () => {
                     src="https://opinie.autazamerykiusa.pl/widget/form/nhKwH5USALdxbH7lZeXz"
                     style={{
                       width: "100%",
-                      height: "683px",
+                      height: "600px",
                       border: "none",
                       borderRadius: "8px",
                     }}
                     id="inline-nhKwH5USALdxbH7lZeXz"
-                    data-layout="{'id':'INLINE'}"
+                    data-layout='{"id":"INLINE"}'
                     data-trigger-type="alwaysShow"
                     data-trigger-value=""
                     data-activation-type="alwaysActivated"
@@ -188,7 +188,7 @@ const ContactPage = () => {
                     data-deactivation-type="neverDeactivate"
                     data-deactivation-value=""
                     data-form-name="Website Form"
-                    data-height="683"
+                    data-height="undefined"
                     data-layout-iframe-id="inline-nhKwH5USALdxbH7lZeXz"
                     data-form-id="nhKwH5USALdxbH7lZeXz"
                     title="Website Form"
