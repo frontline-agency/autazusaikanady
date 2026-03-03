@@ -124,20 +124,8 @@ const HeroSection = () => {
               className="bg-usa-red hover:bg-usa-red text-primary-foreground font-bold text-xl px-8 py-6 uppercase tracking-wide shadow-glow-red group relative overflow-hidden"
             >
               <a href="/kontakt">
-                <span className="relative z-10">ZOBACZ AUKCJE</span>
+                <span className="relative z-10">SKONTAKTUJ SIĘ</span>
                 <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-              </a>
-            </Button>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              asChild
-              size="lg"
-              className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 font-bold text-xl px-8 py-6 uppercase tracking-wide group relative overflow-hidden"
-            >
-              <a href="/kontakt">
-                <span className="relative z-10">KONTAKT</span>
-                <span className="absolute inset-0 bg-primary-foreground/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               </a>
             </Button>
           </motion.div>

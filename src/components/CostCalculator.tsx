@@ -224,7 +224,7 @@ const CostCalculator = () => {
               <FileSearch className="w-4 h-4 flex-shrink-0 mt-0.5 text-usa-red" />
               <span>
                 Świadczymy dokładne wyceny przez rzeczoznawcę z uprawnieniami —{" "}
-                <a href="#contact" className="text-usa-red font-semibold hover:underline">
+                <a href="/kontakt" className="text-usa-red font-semibold hover:underline">
                   zapytaj o wycenę
                 </a>
               </span>
