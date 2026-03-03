@@ -266,19 +266,6 @@ const AboutPage = () => {
               </motion.div>
             </div>
 
-            {/* Contact Cards */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="bg-primary-foreground/5 backdrop-blur-sm rounded-xl p-6 border border-primary-foreground/10"
-              >
-                <h3 className="font-heading font-semibold text-lg text-primary-foreground mb-2">Zadzwoń do nas</h3>
-                <a href="tel:+48502441033" className="text-usa-red hover:underline">+48 502 441 033</a>
-              </motion.div>
-            </div>
           </motion.div>
         </div>
       </section>
