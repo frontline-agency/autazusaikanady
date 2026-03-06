@@ -90,7 +90,7 @@ const SavingsSection = () => {
           >
             <Calculator className="w-10 h-10 mx-auto mb-3" />
             <span className="font-heading font-bold text-3xl block">20% VAT</span>
-            <span className="text-primary-foreground/80">Zamiast 23% (przez Holandię)</span>
+            <span className="text-primary-foreground/80">Odprawa celna w Holandii</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

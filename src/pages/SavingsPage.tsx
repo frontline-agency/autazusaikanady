@@ -171,7 +171,7 @@ const SavingsPage = () => {
               <Calculator className="w-10 h-10 mx-auto mb-3" />
               <span className="font-heading font-bold text-4xl block">20% VAT</span>
               <span className="text-primary-foreground/80 mt-1 block">
-                Zamiast 23% (przez Holandię)
+                Niższy podatek w Holandii
               </span>
             </motion.div>
             <motion.div
