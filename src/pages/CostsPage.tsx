@@ -209,12 +209,9 @@ const CostsPage = () => {
               animate={taxInView ? "visible" : "hidden"}
               variants={fadeUp}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="bg-card rounded-2xl overflow-hidden shadow-xl border-2 border-usa-red relative"
+              className="bg-card rounded-2xl overflow-hidden shadow-lg"
             >
-              <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-usa-red text-primary-foreground px-4 py-1 rounded-b-lg font-semibold text-sm">
-                POLECAMY
-              </div>
-              <div className="bg-usa-red p-6">
+              <div className="bg-usa-navy p-6">
                 <h3 className="font-heading font-bold text-xl text-primary-foreground text-center">
                   Import przez Holandię
                 </h3>
@@ -222,19 +219,15 @@ const CostsPage = () => {
               <div className="p-6 space-y-4">
                 <div className="flex justify-between items-center pb-4 border-b">
                   <span className="text-muted-foreground">VAT Holandia</span>
-                  <span className="font-heading font-bold text-2xl text-usa-red">
+                  <span className="font-heading font-bold text-2xl text-usa-navy">
                     20%
                   </span>
                 </div>
-                <div className="flex justify-between items-center pb-4 border-b">
+                <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Cło Holandia</span>
-                  <span className="font-heading font-bold text-2xl text-usa-red">
+                  <span className="font-heading font-bold text-2xl text-usa-navy">
                     10%
                   </span>
-                </div>
-                <div className="bg-secondary p-3 rounded-lg flex items-center gap-2 text-foreground">
-                  <Info className="w-5 h-5 flex-shrink-0 text-usa-red" />
-                  <span className="text-sm">Oszczędzasz 3% na VAT!</span>
                 </div>
               </div>
             </motion.div>
