@@ -81,8 +81,8 @@ const whySavings = [
   },
   {
     icon: Calculator,
-    title: "Optymalizacja podatkowa przez Holandię",
-    desc: "Odprawiając auto w Holandii płacisz 20% VAT zamiast 23% w Polsce. Przy aucie o wartości celnej 100 000 zł oszczędzasz ok. 3 000 zł tylko na różnicy VAT.",
+    title: "Szeroki wybór na aukcjach",
+    desc: "Na platformach takich jak Copart, IAA czy SalvageNow znajdziesz tysiące pojazdów każdego dnia. Możesz porównywać oferty i wybierać najlepsze okazje bez presji czasu.",
   },
   {
     icon: Car,
@@ -359,9 +359,9 @@ const SavingsPage = () => {
                   "Transport lądowy z New Jersey czy Houston do portu to 250–400 $, ale z Montany czy Dakoty nawet 800–1 000 $.",
               },
               {
-                tip: "Odprawiaj celnie przez Holandię",
+                tip: "Sprawdzaj historię pojazdu przed zakupem",
                 detail:
-                  "Dzięki 20% VAT zamiast 23% w Polsce oszczędzasz 3% wartości celnej auta. Przy droższych pojazdach to konkretne tysiące złotych.",
+                  "Raporty CARFAX i AutoCheck pozwalają uniknąć aut z ukrytymi wadami. Dokładna weryfikacja to klucz do udanego zakupu.",
               },
               {
                 tip: "Rozważ pojazdy zabytkowe (25+ lat)",
