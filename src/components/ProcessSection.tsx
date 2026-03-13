@@ -213,7 +213,7 @@ const ProcessSection = () => {
                   {/* Download button for step 2 */}
                   {step.step === "2" && (
                     <a
-                      href="/documents/Umowa-Importu-Auta.pdf"
+                      href="/documents/Umowa-Importu-Auta.pdf?v=2"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 mt-3 text-usa-red text-xs hover:underline"

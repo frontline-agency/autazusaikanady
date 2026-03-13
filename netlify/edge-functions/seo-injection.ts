@@ -6,34 +6,44 @@ export default async (request: Request, context: Context) => {
   const url = new URL(request.url);
   const pathname = url.pathname;
 
-  if (
+  const isStaticAsset =
     pathname.startsWith('/assets/') ||
     pathname.startsWith('/documents/') ||
-    pathname.match(/\.(js|css|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|webp|avif|pdf|map|txt|xml|webmanifest)$/i)
-  ) {
-    return;
+    pathname.match(/\.(js|css|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|webp|avif|pdf|map|txt|xml|webmanifest)$/i);
+
+  if (isStaticAsset) {
+    return context.next();
   }
 
-  const seoConfig = getSeoConfig(pathname, url.origin);
   const response = await context.next();
   const contentType = response.headers.get("content-type")?.toLowerCase() ?? "";
 
-  if (!seoConfig || !contentType.includes("text/html")) {
+  if (!contentType.includes("text/html")) {
+    return response;
+  }
+
+  const seoConfig = getSeoConfig(pathname, url.origin);
+  if (!seoConfig) {
     return response;
   }
 
   const originalHtml = await response.text();
-
   const metaTags = generateMetaTags(seoConfig);
 
-  let cleanedHtml = originalHtml
+  const cleanedHtml = originalHtml
     .replace(/<title>.*?<\/title>/gi, '')
     .replace(/<meta\s+name=["']description["'].*?>/gi, '');
 
   const enhancedHtml = cleanedHtml.replace('</head>', `${metaTags}</head>`);
+  const headers = new Headers(response.headers);
+
+  headers.delete('content-length');
+  headers.delete('content-encoding');
 
   return new Response(enhancedHtml, {
-    headers: response.headers,
+    status: response.status,
+    statusText: response.statusText,
+    headers,
   });
 };
 
