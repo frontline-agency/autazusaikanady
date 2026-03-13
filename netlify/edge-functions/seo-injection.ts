@@ -8,19 +8,21 @@ export default async (request: Request, context: Context) => {
 
   if (
     pathname.startsWith('/assets/') ||
-    pathname.match(/\.(js|css|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot)$/i)
+    pathname.startsWith('/documents/') ||
+    pathname.match(/\.(js|css|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|webp|avif|pdf|map|txt|xml|webmanifest)$/i)
   ) {
     return;
   }
 
-  const response = await context.next();
-  const originalHtml = await response.text();
-
   const seoConfig = getSeoConfig(pathname, url.origin);
+  const response = await context.next();
+  const contentType = response.headers.get("content-type")?.toLowerCase() ?? "";
 
-  if (!seoConfig) {
-    return new Response(originalHtml, response);
+  if (!seoConfig || !contentType.includes("text/html")) {
+    return response;
   }
+
+  const originalHtml = await response.text();
 
   const metaTags = generateMetaTags(seoConfig);
 
