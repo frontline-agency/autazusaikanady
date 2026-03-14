@@ -141,7 +141,7 @@ const CostCalculator = () => {
                 className="bg-usa-navy rounded-xl p-6 text-center"
               >
                 <p className="text-primary-foreground/70 text-sm mb-1">
-                  Szacunkowy łączny koszt
+                  Szacunkowy łączny koszt sprowadzenia auta pod dom
                 </p>
                 <p className="font-heading font-bold text-2xl md:text-3xl text-primary-foreground">
                   {formatPLN(result.min)} – {formatPLN(result.max)} PLN
