@@ -28,8 +28,6 @@ type Condition = "damaged" | "clean";
 
 const CostCalculator = () => {
   const [price, setPrice] = useState("");
-  const [engine, setEngine] = useState<EngineSize>("small");
-  const [condition, setCondition] = useState<Condition>("damaged");
 
   const numPrice = parseFloat(price.replace(/\s/g, "")) || 0;
   const isValid = numPrice >= 500 && numPrice <= 500000;
@@ -39,23 +37,18 @@ const CostCalculator = () => {
 
     const auctionFee = getAuctionFees(numPrice);
     const transport = 1100;
-    const exciseRate = engine === "small" ? 0.031 : 0.186;
 
     const duty = numPrice * 0.06;
     const vat = (numPrice + duty) * 0.17;
-    const excise = numPrice * exciseRate;
     const commission = getCommissionUSD(numPrice);
 
-    const baseCosts = duty + vat + excise;
+    const baseCosts = duty + vat;
 
     // Buffer — higher markup for cheaper cars, tapering off for expensive ones
     const buffer = Math.max(0, 600 - numPrice * 0.06);
 
-    // Damaged cars: appraiser fee + repair margin
-    const damagedExtra = condition === "damaged" ? 400 + numPrice * 0.08 : 0;
-
     const totalUSD =
-      numPrice + auctionFee + transport + baseCosts + buffer + damagedExtra + (commission ?? 0);
+      numPrice + auctionFee + transport + baseCosts + buffer + (commission ?? 0);
 
     const totalPLN = totalUSD * USD_TO_PLN;
 
