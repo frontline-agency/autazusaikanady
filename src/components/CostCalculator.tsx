@@ -133,54 +133,6 @@ const CostCalculator = () => {
               </div>
             </div>
 
-            {/* Engine size toggle */}
-            <div>
-              <label className="block text-sm font-semibold text-foreground mb-2">
-                Pojemność silnika
-              </label>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setEngine("small")}
-                  className={toggleBtnClass(engine === "small")}
-                >
-                  Do 2.0L
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setEngine("big")}
-                  className={toggleBtnClass(engine === "big")}
-                >
-                  Powyżej 2.0L
-                </button>
-              </div>
-              <p className="text-xs text-muted-foreground mt-1.5">
-                Akcyza: {engine === "small" ? "3,1%" : "18,6%"}
-              </p>
-            </div>
-
-            {/* Condition toggle */}
-            <div>
-              <label className="block text-sm font-semibold text-foreground mb-2">
-                Stan pojazdu
-              </label>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setCondition("damaged")}
-                  className={toggleBtnClass(condition === "damaged")}
-                >
-                  Uszkodzone
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCondition("clean")}
-                  className={toggleBtnClass(condition === "clean")}
-                >
-                  Nieuszkodzone
-                </button>
-              </div>
-            </div>
 
             {/* Result */}
             {result && (
