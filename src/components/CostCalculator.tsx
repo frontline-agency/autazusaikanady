@@ -23,8 +23,6 @@ const getCommissionUSD = (price: number): number | null => {
   return null;
 };
 
-type EngineSize = "small" | "big";
-type Condition = "damaged" | "clean";
 
 const CostCalculator = () => {
   const [price, setPrice] = useState("");
