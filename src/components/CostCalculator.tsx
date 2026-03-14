@@ -80,7 +80,7 @@ const CostCalculator = () => {
             Kalkulator
           </span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2">
-            Oblicz koszt sprowadzenia auta
+            Oblicz koszt sprowadzenia auta pod dom
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Wpisz kwotę, za którą planujesz wylicytować auto, a pokażemy Ci
