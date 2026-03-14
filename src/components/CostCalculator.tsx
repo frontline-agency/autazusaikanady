@@ -23,13 +23,9 @@ const getCommissionUSD = (price: number): number | null => {
   return null;
 };
 
-type EngineSize = "small" | "big";
-type Condition = "damaged" | "clean";
 
 const CostCalculator = () => {
   const [price, setPrice] = useState("");
-  const [engine, setEngine] = useState<EngineSize>("small");
-  const [condition, setCondition] = useState<Condition>("damaged");
 
   const numPrice = parseFloat(price.replace(/\s/g, "")) || 0;
   const isValid = numPrice >= 500 && numPrice <= 500000;
@@ -39,23 +35,18 @@ const CostCalculator = () => {
 
     const auctionFee = getAuctionFees(numPrice);
     const transport = 1100;
-    const exciseRate = engine === "small" ? 0.031 : 0.186;
 
     const duty = numPrice * 0.06;
     const vat = (numPrice + duty) * 0.17;
-    const excise = numPrice * exciseRate;
     const commission = getCommissionUSD(numPrice);
 
-    const baseCosts = duty + vat + excise;
+    const baseCosts = duty + vat;
 
     // Buffer — higher markup for cheaper cars, tapering off for expensive ones
     const buffer = Math.max(0, 600 - numPrice * 0.06);
 
-    // Damaged cars: appraiser fee + repair margin
-    const damagedExtra = condition === "damaged" ? 400 + numPrice * 0.08 : 0;
-
     const totalUSD =
-      numPrice + auctionFee + transport + baseCosts + buffer + damagedExtra + (commission ?? 0);
+      numPrice + auctionFee + transport + baseCosts + buffer + (commission ?? 0);
 
     const totalPLN = totalUSD * USD_TO_PLN;
 
@@ -140,54 +131,6 @@ const CostCalculator = () => {
               </div>
             </div>
 
-            {/* Engine size toggle */}
-            <div>
-              <label className="block text-sm font-semibold text-foreground mb-2">
-                Pojemność silnika
-              </label>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setEngine("small")}
-                  className={toggleBtnClass(engine === "small")}
-                >
-                  Do 2.0L
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setEngine("big")}
-                  className={toggleBtnClass(engine === "big")}
-                >
-                  Powyżej 2.0L
-                </button>
-              </div>
-              <p className="text-xs text-muted-foreground mt-1.5">
-                Akcyza: {engine === "small" ? "3,1%" : "18,6%"}
-              </p>
-            </div>
-
-            {/* Condition toggle */}
-            <div>
-              <label className="block text-sm font-semibold text-foreground mb-2">
-                Stan pojazdu
-              </label>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setCondition("damaged")}
-                  className={toggleBtnClass(condition === "damaged")}
-                >
-                  Uszkodzone
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCondition("clean")}
-                  className={toggleBtnClass(condition === "clean")}
-                >
-                  Nieuszkodzone
-                </button>
-              </div>
-            </div>
 
             {/* Result */}
             {result && (
