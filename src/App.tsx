@@ -11,6 +11,7 @@ import AboutPage from "./pages/AboutPage";
 import CostsPage from "./pages/CostsPage";
 import SavingsPage from "./pages/SavingsPage";
 import ContactPage from "./pages/ContactPage";
+import VehiclesPage from "./pages/VehiclesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
