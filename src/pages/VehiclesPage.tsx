@@ -1,7 +1,7 @@
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Car, Search, Timer, Bell } from "lucide-react";
+import { Car, Search, Timer, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const VehiclesPage = () => {
@@ -61,10 +61,10 @@ const VehiclesPage = () => {
               </p>
             </div>
             <div className="bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 rounded-2xl p-6 text-left">
-              <Bell className="w-10 h-10 text-usa-red mb-4" />
-              <h3 className="text-primary-foreground font-bold text-lg mb-2">Powiadomienia o okazjach</h3>
+              <History className="w-10 h-10 text-usa-red mb-4" />
+              <h3 className="text-primary-foreground font-bold text-lg mb-2">Pełna historia pojazdów</h3>
               <p className="text-primary-foreground/60 text-sm">
-                Ustaw alert i otrzymaj powiadomienie, gdy pojawi się auto spełniające Twoje kryteria.
+                Dostęp do szczegółowych raportów i setek zdjęć każdego pojazdu. Znajdź najlepsze okazje.
               </p>
             </div>
           </div>
