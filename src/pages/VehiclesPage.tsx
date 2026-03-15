@@ -70,12 +70,15 @@ const VehiclesPage = () => {
           </div>
 
           {/* CTA */}
+          <p className="text-primary-foreground/80 text-lg mb-4">
+            Szukasz auta już teraz?
+          </p>
           <Button
             asChild
             className="bg-usa-red hover:bg-usa-red text-primary-foreground font-bold uppercase tracking-wide text-lg px-10 py-4 h-auto group relative overflow-hidden"
           >
             <a href="/kontakt">
-              <span className="relative z-10">Szukasz auta już teraz? Wypełnij formularz</span>
+              <span className="relative z-10">Wypełnij formularz</span>
               <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] border border-usa-red -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
             </a>
           </Button>
