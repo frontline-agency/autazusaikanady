@@ -1,7 +1,7 @@
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Car, Search, Timer, Bell } from "lucide-react";
+import { Car, Search, Timer, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const VehiclesPage = () => {
