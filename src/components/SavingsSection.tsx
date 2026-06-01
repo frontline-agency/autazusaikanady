@@ -8,45 +8,46 @@ const savingsExamples = [
     car: "Ford Mustang 2.3 EcoBoost (2018–2021)",
     engine: "2.3 Turbo, 310 KM",
     auctionUsd: "4 000 – 7 500 USD",
-    plPrice: "85 000 – 120 000 zł",
+    plPrice: "65 000 – 90 000 zł",
     note: "Bardzo chodliwy model – szybka sprzedaż",
   },
   {
     car: "Dodge Challenger 3.6 V6 (2017–2020)",
     engine: "3.6 V6, 305 KM",
     auctionUsd: "5 000 – 8 000 USD",
-    plPrice: "95 000 – 130 000 zł",
+    plPrice: "70 000 – 95 000 zł",
     note: "Bardzo popularny wśród młodszych klientów",
   },
   {
     car: "Tesla Model 3 (2019–2022)",
     engine: "Elektryczny, 283–346 KM",
     auctionUsd: "8 000 – 13 000 USD",
-    plPrice: "110 000 – 160 000 zł",
+    plPrice: "85 000 – 120 000 zł",
     note: "Duże zainteresowanie, uwaga na baterię",
   },
   {
     car: "BMW 330i G20 (2019–2021)",
     engine: "2.0 Turbo, 258 KM",
     auctionUsd: "6 000 – 10 000 USD",
-    plPrice: "110 000 – 150 000 zł",
+    plPrice: "85 000 – 115 000 zł",
     note: "Premium, łatwo sprzedać",
   },
   {
     car: "Audi A4 B9 (2018–2021)",
     engine: "2.0 TFSI, 252 KM",
     auctionUsd: "5 000 – 8 500 USD",
-    plPrice: "95 000 – 135 000 zł",
+    plPrice: "70 000 – 100 000 zł",
     note: "",
   },
   {
     car: "Jeep Grand Cherokee (2018–2021)",
     engine: "3.6 V6, 295 KM",
     auctionUsd: "6 000 – 11 000 USD",
-    plPrice: "100 000 – 150 000 zł",
+    plPrice: "75 000 – 115 000 zł",
     note: "",
   },
 ];
+
 
 const SavingsSection = () => {
   const ref = useRef(null);
