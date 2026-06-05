@@ -9,7 +9,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Strona główna", href: "/" },
     { name: "O nas", href: "/o-nas" },
-    { name: "Pojazdy", href: "/pojazdy" },
+    { name: "Pojazdy", href: "https://pojazdy.autazamerykiusa.pl/", external: true },
     { name: "Opłaty", href: "/oplaty" },
     { name: "Oszczędności", href: "/oszczednosci" },
     { name: "Blog", href: "/blog" },
@@ -33,6 +33,8 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                   className="text-[16px] font-normal text-foreground hover:text-usa-red transition-colors"
                 >
                   {link.name}
@@ -70,6 +72,8 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                   className="block py-3 text-foreground hover:text-usa-red transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
