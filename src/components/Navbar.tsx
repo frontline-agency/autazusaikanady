@@ -9,7 +9,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Strona główna", href: "/" },
     { name: "O nas", href: "/o-nas" },
-    { name: "Pojazdy", href: "/pojazdy" },
+    { name: "Pojazdy", href: "https://pojazdy.autazamerykiusa.pl/", external: true },
     { name: "Opłaty", href: "/oplaty" },
     { name: "Oszczędności", href: "/oszczednosci" },
     { name: "Blog", href: "/blog" },

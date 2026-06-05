@@ -123,8 +123,8 @@ const HeroSection = () => {
               size="lg"
               className="bg-usa-red hover:bg-usa-red text-primary-foreground font-bold text-xl px-8 py-6 uppercase tracking-wide shadow-glow-red group relative overflow-hidden"
             >
-              <a href="/kontakt">
-                <span className="relative z-10">SKONTAKTUJ SIĘ</span>
+              <a href="https://pojazdy.autazamerykiusa.pl/" target="_blank" rel="noopener noreferrer">
+                <span className="relative z-10">ZOBACZ POJAZDY</span>
                 <span className="absolute inset-0 bg-[hsl(var(--usa-navy))] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
               </a>
             </Button>
