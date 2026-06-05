@@ -10,3 +10,5 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+    [[redirects]] from = "/pojazdy" to = "http://pojazdy.autazamerykiusa.pl/" status = 200 force = true  [[redirects]] from = "/pojazdy/" to = "http://pojazdy.autazamerykiusa.pl/:splat" status = 200 force = true  [[redirects]] from = "/cars/" to = "http://pojazdy.autazamerykiusa.pl/cars/:splat" status = 200 force = true  [[redirects]] from = "/livewire/*" to = "http://pojazdy.autazamerykiusa.pl/livewire/:splat" status = 200 force = true  [[redirects]] from = "/dziekujemy" to = "http://pojazdy.autazamerykiusa.pl/dziekujemy" status = 200 force = true"
