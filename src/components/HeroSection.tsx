@@ -53,22 +53,22 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-full pl-2 pr-4 py-2 mb-8"
+          className="flex items-center gap-2.5 bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-full pl-1.5 pr-3 py-1.5 mb-8"
         >
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-0.5">
             {"107".padStart(3, "0").split("").map((d, i) => (
               <span
                 key={i}
-                className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded-md bg-white text-usa-dark font-heading font-black text-lg sm:text-xl tabular-nums shadow-sm"
+                className="w-5 h-6 sm:w-5.5 sm:h-6.5 flex items-center justify-center rounded bg-white/90 text-usa-dark font-heading font-bold text-xs sm:text-sm tabular-nums"
               >
                 {d}
               </span>
             ))}
           </div>
-          <span className="text-primary-foreground/90 text-sm sm:text-base font-medium">
+          <span className="text-primary-foreground/70 text-xs sm:text-sm font-normal">
             Pojazdów sprowadzonych w
           </span>
-          <span className="bg-white/10 border border-white/15 rounded-full px-3 py-1 text-primary-foreground font-semibold text-sm sm:text-base">
+          <span className="text-primary-foreground/90 font-medium text-xs sm:text-sm">
             2026
           </span>
         </motion.div>
