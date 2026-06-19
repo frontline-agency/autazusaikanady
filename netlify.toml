@@ -7,24 +7,19 @@
   path = "/*"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
   from = "/pojazdy"
   to = "http://pojazdy.autazamerykiusa.pl/"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/pojazdy/"
+  from = "/pojazdy/*"
   to = "http://pojazdy.autazamerykiusa.pl/:splat"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/cars/"
+  from = "/cars/*"
   to = "http://pojazdy.autazamerykiusa.pl/cars/:splat"
   status = 200
   force = true
@@ -38,4 +33,11 @@
 [[redirects]]
   from = "/dziekujemy"
   to = "http://pojazdy.autazamerykiusa.pl/dziekujemy"
+  status = 200
+  force = true
+
+# ten musi być na samym końcu — łapie wszystko, co nie pasowało wyżej
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200
