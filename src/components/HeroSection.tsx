@@ -48,6 +48,31 @@ const HeroSection = () => {
         style={{ opacity: contentOpacity, y: contentY }}
         className="relative z-[5] min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32 pb-24"
       >
+        {/* Counter */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-full pl-2 pr-4 py-2 mb-8"
+        >
+          <div className="flex items-center gap-1">
+            {"107".padStart(3, "0").split("").map((d, i) => (
+              <span
+                key={i}
+                className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded-md bg-white text-usa-dark font-heading font-black text-lg sm:text-xl tabular-nums shadow-sm"
+              >
+                {d}
+              </span>
+            ))}
+          </div>
+          <span className="text-primary-foreground/90 text-sm sm:text-base font-medium">
+            Pojazdów sprowadzonych w
+          </span>
+          <span className="bg-white/10 border border-white/15 rounded-full px-3 py-1 text-primary-foreground font-semibold text-sm sm:text-base">
+            2026
+          </span>
+        </motion.div>
+
         {/* TV Badge */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
