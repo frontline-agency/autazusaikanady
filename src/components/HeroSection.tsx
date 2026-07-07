@@ -56,7 +56,7 @@ const HeroSection = () => {
           className="flex items-center gap-2.5 bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-full pl-1.5 pr-3 py-1.5 mb-8"
         >
           <div className="flex items-center gap-0.5">
-            {"107".padStart(3, "0").split("").map((d, i) => (
+            {"130".padStart(3, "0").split("").map((d, i) => (
               <span
                 key={i}
                 className="w-5 h-6 sm:w-5.5 sm:h-6.5 flex items-center justify-center rounded bg-white/90 text-usa-dark font-heading font-bold text-xs sm:text-sm tabular-nums"
