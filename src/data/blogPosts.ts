@@ -15,6 +15,7 @@ import szczesliwyKlient from "@/assets/blog/szczesliwy-klient.webp";
 import naprawaBlacharnia from "@/assets/blog/naprawa-blacharnia.webp";
 import historiaPojazdu from "@/assets/blog/historia-pojazdu.webp";
 import elektrykiUsa from "@/assets/blog/elektryki-usa.webp";
+import importZdalny from "@/assets/blog/import-zdalny.webp";
 
 export interface BlogPost {
   slug: string;
@@ -29,6 +30,61 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "jak-kupic-auto-z-usa-bez-wyjazdu-z-polski-import-zdalny",
+    title: "Jak kupić auto z USA bez wyjazdu z Polski? Import zdalny krok po kroku",
+    excerpt: "Nie musisz lecieć do Stanów, żeby sprowadzić wymarzone auto. Poznaj proces zdalnego importu samochodu z USA – od wyboru pojazdu po dostawę pod drzwi.",
+    date: "2026-07-07",
+    image: importZdalny,
+    images: [
+      { src: importZdalny, alt: "Samochód z USA załadowany do kontenera w amerykańskim porcie" },
+      { src: aukcjaOnline, alt: "Platforma aukcyjna Copart na ekranie komputera w Polsce" },
+      { src: szczesliwyKlient, alt: "Klient odbierający kluczyki do sprowadzonego auta z USA" },
+    ],
+    metaDescription: "Import zdalny auta z USA – jak kupić samochód bez wyjazdu z Polski? Pełny przewodnik po aukcjach, wycenie, transporcie i odbiorze. Skontaktuj się z nami.",
+    keywords: ["import zdalny auta z USA", "kupno auta z USA z Polski", "import samochodu bez wyjazdu", "aukcje Copart z Polski", "sprowadzenie auta zdalnie"],
+    content: `## Czym jest import zdalny samochodu z USA?
+
+Import zdalny to proces sprowadzenia samochodu z USA do Polski, w którym klient nie musi osobiście pojawiać się za oceanem. Wszystkie formalności – wybór pojazdu, licytacja, wycena, transport, odprawa celna i rejestracja – realizuje polska firma importowa w imieniu zleceniodawcy. Dzięki temu możesz kupić wymarzone auto z Ameryki, siedząc w domu.
+
+W 2026 roku zdalny import jest standardem w branży. Firmy takie jak Auta z Ameryki USA dysponują kontami na aukcjach Copart i IAA, doświadczonymi brokerami, siecią agentów w Stanach i ustalonymi procesami logistycznymi. Dla klienta oznacza to przede wszystkim oszczędność czasu, pieniędzy i eliminację ryzyka związanego z samodzielnym zakupem na nieznanym rynku.
+
+### Dlaczego warto skorzystać z importu zdalnego?
+
+Największą zaletą jest **komfort**. Nie musisz organizować wizy w USA, rezerwować lotów, wynajmować samochodu, jeździć po placach aukcyjnych ani negocjować z dealerami. Profesjonalny broker sprawdzi dla Ciebie historię pojazdu, oceni uszkodzenia, doradzi w kwestii opłacalności i przeprowadzi całą licytację.
+
+Kolejna zaleta to **bezpieczeństwo finansowe**. Samodzielna licytacja na aukcjach amerykańskich wymaga m.in. depozytu, specjalnych uprawnień i znajomości regulaminu. Polska firma importowa zna te procedury i minimalizuje ryzyko utraty zaliczki czy zakupu niewłaściwego pojazdu.
+
+Trzecim argumentem jest **oszczędność czasu**. Cały proces – od wyboru auta po rejestrację w Polsce – trwa zazwyczaj 4–8 tygodni. Klient otrzymuje regularne aktualizacje i na końcu gotowy, zarejestrowany pojazd.
+
+### Jak wygląda proces zdalnego importu krok po kroku?
+
+**Etap 1: Konsultacja i określenie budżetu.** Na początku omawiamy Twoje oczekiwania – markę, model, rocznik, stan techniczny, maksymalny budżet. Na tej podstawie przygotowujemy wstępną kalkulację kosztów i szacunkowy czas realizacji.
+
+**Etap 2: Wyszukiwanie i weryfikacja pojazdu.** Przeglądamy aukcje Copart, IAA i inne platformy w poszukiwaniu pojazdów spełniających Twoje kryteria. Każdy kandydat jest weryfikowany pod kątem historii (AutoCheck, Carfax), stanu technicznego, szacunku napraw i opłacalności importu.
+
+**Etap 3: Licytacja i zakup.** Po akceptacji wybranego auta składamy ofertę na aukcji. Po wygranej licytacji opłacamy pojazd, a następnie organizujemy transport z placu aukcyjnego do portu oraz transport morski do Europy.
+
+**Etap 4: Odprawa celna i transport do Polski.** Po dotarciu do portu europejskiego (najczęściej Bremerhaven) przeprowadzamy odprawę celną, płacimy cło, akcyzę i VAT, a następnie transportujemy auto do Polski.
+
+**Etap 5: Rejestracja i odbiór.** Ostatni etap to badanie techniczne, tłumaczenia dokumentów, ewentualne naprawy i rejestracja w wydziale komunikacji. Klient odbiera gotowy pojazd lub może skorzystać z transportu door-to-door.
+
+### Ile kosztuje import zdalny z firmą?
+
+Koszt usługi brokerskiej zależy od wartości pojazdu i zakresu. W standardzie obejmuje on wyszukiwanie, weryfikację, licytację, koordynację transportu, odprawę celną i rejestrację. Warto traktować go jako inwestycję w bezpieczeństwo i pewność, że cały proces przebiegnie zgodnie z prawem.
+
+Dodatkowo klient pokrywa koszty bezpośrednie: cenę zakupu auta, transport morski i lądowy, cło (6,5%), akcyzę (3,1% lub 18,6%), VAT (23%), ubezpieczenie, przegląd, tłumaczenia i rejestrację. Dla pojazdów o wartości powyżej 80 000 zł różnica cenowa w stosunku do rynku polskiego rekompensuje te koszty wielokrotnie.
+
+### Czy można kupić auto z USA bez podróży i znajomości języka?
+
+Tak, to właśnie główna idea importu zdalnego. Wszystkie rozmowy, aukcje, dokumenty i płatności po stronie amerykańskiej obsługuje firma brokerska. Klient komunikuje się po polsku, otrzymuje przejrzyste raporty i zdjęcia, a decyzje podejmuje na podstawie rekomendacji ekspertów.
+
+Warto jednak pamiętać, że **dobry broker nie zastąpi świadomego klienta**. Im bardziej precyzyjnie określisz swoje oczekiwania i budżet, tym lepszy wybór pojazdu uda się zrealizować. Zaufaj doświadczeniu, ale bądź aktywny na etapie wyboru.
+
+### Podsumowanie
+
+Import zdalny auta z USA to wygodna, bezpieczna i coraz popularniejsza forma sprowadzenia wymarzonego pojazdu. Dzięki wsparciu profesjonalnej firmy nie musisz lecieć do Stanów, znać regulaminów aukcji ani samodzielnie prowadzić skomplikowanej logistyki. Skontaktuj się z nami, a przeprowadzimy Cię przez cały proces – od pierwszej rozmowy po odbiór gotowego auta pod domem.`
+  },
   {
     slug: "import-samochodow-z-usa-czy-warto-analiza-kosztow-2026",
     title: "Import samochodów z USA – czy warto? Pełna analiza kosztów w 2026 roku",
