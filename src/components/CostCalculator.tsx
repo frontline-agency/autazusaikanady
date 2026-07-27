@@ -48,7 +48,10 @@ const CostCalculator = () => {
     const totalUSD =
       numPrice + auctionFee + transport + baseCosts + buffer + (commission ?? 0);
 
-    const totalPLN = totalUSD * USD_TO_PLN;
+    // Podbicie szacunkowego kosztu sprowadzenia auta pod dom o 12%
+    const adjustedTotalUSD = totalUSD * 1.12;
+
+    const totalPLN = adjustedTotalUSD * USD_TO_PLN;
 
     // Slight spread for range display
     const min = totalPLN * 0.97;
