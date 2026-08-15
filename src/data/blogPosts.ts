@@ -1,4 +1,5 @@
 // Blog post images
+import titleUsa from "@/assets/blog/title-usa.webp";
 import transportMorski from "@/assets/blog/transport-morski.webp";
 import aukcjeUsa from "@/assets/blog/aukcje-usa.webp";
 import odprawaCelna from "@/assets/blog/odprawa-celna.webp";
@@ -30,6 +31,51 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "co-to-jest-title-samochodu-z-usa-rodzaje-tytulow",
+    title: "Co to jest title samochodu z USA? Rodzaje tytułów na aukcjach Copart i IAAI",
+    excerpt: "Poznaj rodzaje tytułów własnościowych samochodów sprzedawanych na aukcjach w USA. Salvage, Clean, Junk, Certificate of Destruction – czym się różnią i które można legalnie sprowadzić do Polski.",
+    date: "2026-08-15",
+    image: titleUsa,
+    images: [
+      { src: titleUsa, alt: "Dokument Certificate of Title na biurku w amerykańskim biurze aukcyjnym" },
+      { src: historiaPojazdu, alt: "Raport historii pojazdu i dokumenty title w trakcie weryfikacji" },
+      { src: aukcjaOnline, alt: "Platforma aukcyjna z listą samochodów i oznaczeniami tytułów" },
+    ],
+    metaDescription: "Co to jest title samochodu z USA? Wyjaśniamy rodzaje tytułów: Salvage, Clean, Junk, Certificate of Destruction. Sprawdź, które auta można legalnie importować do Polski.",
+    keywords: ["title samochodu z USA", "salvage title", "clean title", "junk title", "certificate of destruction", "rodzaje tytułów USA"],
+    content: `## Czym jest title samochodu?
+
+Każdy samochód sprzedawany na aukcjach Copart, IAAI, Manheim ma swój unikalny paszport zawierający podstawowe informacje o pojeździe i nazywa się **title**.
+
+W tym artykule zebraliśmy główne rodzaje certyfikatów, z którymi sprzedawane są samochody na amerykańskich aukcjach. Przedstawiamy je w kolejności popularności i rozpowszechnienia.
+
+### Salvage Title
+
+Najczęściej spotykany tytuł: około 90% samochodów na aukcjach w USA jest sprzedawanych z tym dokumentem. Jeśli w opisie samochodu widnieje napis **Salvage**, oznacza to, że samochód nadaje się do użytku w całych Stanach Zjednoczonych, oraz może być legalnie przewożony do innych krajów. Wszystkie samochody z Salvage Title są w dość dobrym stanie, nie mają zbyt dużego przebiegu. Zgodnie z tym tytułem, koszt naprawy wynosi 50% lub więcej jego wartości. Możesz kupić samochód z certyfikatem Salvage po okazyjnej cenie na aukcji, a następnie naprawić go za 2–3 tysiące dolarów w warsztacie.
+
+### Certificate of Destruction / Nonrepairable
+
+Certyfikat ten oznacza, że samochód nie może być zarejestrowany ani ubezpieczony w Ameryce. Są to samochody spisane na straty, których nie można odrestaurować. Można je jedynie zdemontować na części zamienne lub wyeksportować. Ale to wszystko według amerykańskich firm ubezpieczeniowych. W praktyce samochody z takim tytułem mogą być w całkiem dobrym stanie. Po naprawach potrafią wrócić do doskonałej formy i w niczym nie ustępować samochodom z salonu.
+
+### Bill of Sale / Parts Only / No Title
+
+Jeśli pojazd ma taki tytuł, oznacza to, że nie ma dokumentów. Samochód może być całkiem przyzwoity pod względem jakości i stanu, wystarczy zadbać o przywrócenie dokumentów. Na życzenie klienta zawsze pracujemy nad takimi samochodami. Jeśli ten samochód sprosta twoim oczekiwaniom i nie ma żadnych przeciwskazań, to zajmiemy się wszystkim, co związane z jego zakupem.
+
+### Junk Title
+
+Uszkodzone samochody są sprzedawane na aukcjach w USA z tym tytułem, w przypadku których stwierdzono, że koszt naprawy uszkodzeń wynosi 75% lub więcej kosztu nowego samochodu. Nie można ich używać na amerykańskich drogach, ani ponownie rejestrować lub użytkować. Czasami jednak znajdują się wśród nich doskonałe samochody, więc jeśli klient jest zainteresowany, zawsze jesteśmy gotowi zapewnić w 100% legalny import takiego samochodu. Więcej informacji można uzyskać od naszych menedżerów.
+
+### Clear Title / Original
+
+Najlepszy tytuł, jaki może mieć samochód. Oznacza on, że pojazd może być swobodnie przemieszczany i eksploatowany w Ameryce. I że nie został skradziony, nie brał udziału w wypadku i nie ma innej negatywnej historii ubezpieczeniowej. Jednocześnie samochód może mieć niewielkie uszkodzenia. Jedynym minusem tego tytułu jest to, że samochody bez uszkodzeń są dość drogie, a ich ilość na aukcjach wynosi zwykle 5–10%.
+
+### Który title wybrać?
+
+Wybór tytułu zależy od twojego budżetu, umiejętności warsztatowych i oczekiwań co do stanu auta. **Salvage Title** to najlepszy kompromis między ceną a stanem technicznym. **Clear Title** daje największe poczucie bezpieczeństwa, ale kosztuje więcej. **Certificate of Destruction** oraz **Junk Title** wymagają dokładnej analizy, ale mogą okazać się prawdziwymi okazjami.
+
+Niezależnie od rodzaju tytułu, kluczowe jest sprawdzenie historii pojazdu, dokumentów aukcyjnych oraz realna ocena kosztów naprawy. Jeśli masz wątpliwości, skontaktuj się z nami – pomożemy Ci wybrać bezpieczny i opłacalny samochód z USA.`
+  },
   {
     slug: "jak-kupic-auto-z-usa-bez-wyjazdu-z-polski-import-zdalny",
     title: "Jak kupić auto z USA bez wyjazdu z Polski? Import zdalny krok po kroku",
