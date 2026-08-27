@@ -17,6 +17,7 @@ import naprawaBlacharnia from "@/assets/blog/naprawa-blacharnia.webp";
 import historiaPojazdu from "@/assets/blog/historia-pojazdu.webp";
 import elektrykiUsa from "@/assets/blog/elektryki-usa.webp";
 import importZdalny from "@/assets/blog/import-zdalny.webp";
+import ograniczeniaElektryczne from "@/assets/blog/ograniczenia-elektryczne.webp";
 
 export interface BlogPost {
   slug: string;
@@ -31,6 +32,31 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "aktualne-ograniczenia-import-aut-elektrycznych-usa",
+    title: "Aktualne ograniczenia: co musisz wiedzieć przed zakupem auta z USA?",
+    excerpt: "Sprawdź aktualne ograniczenia dotyczące importu pojazdów elektrycznych ze statusem Flood, Storm Damage i Burn oraz zasady dotyczące nowych części zamiennych w samochodzie.",
+    date: "2026-08-27",
+    image: ograniczeniaElektryczne,
+    images: [
+      { src: ograniczeniaElektryczne, alt: "Uszkodzony samochód elektryczny z ostrzeżeniem o zagrożeniach na aukcji w USA" },
+    ],
+    metaDescription: "Aktualne ograniczenia w imporcie aut z USA. Sprawdź, dlaczego pojazdy elektryczne ze statusem Flood, Storm Damage i Burn są objęte zakazem transportu.",
+    keywords: ["ograniczenia import aut z USA", "samochody elektryczne Flood", "Storm Damage import", "Burn title ograniczenia", "części zamienne w aucie"],
+    content: `## Aktualne ograniczenia w imporcie aut z USA
+
+### Ograniczenia dotyczące zakupu pojazdów elektrycznych ze statusem: Flood, Storm Damage, Burn nadal obowiązują
+
+Należy pamiętać, że nadal obowiązują ograniczenia dotyczące zakupu pojazdów elektrycznych ze statusem Powódź, Uszkodzenie w wyniku burzy, Spalenie.
+
+Ten tymczasowy środek bezpieczeństwa jest spowodowany wysokim ryzykiem zapalenia się akumulatorów podczas transportu.
+
+### Prosimy, aby ostrzec o obecności nowych części zamiennych w samochodzie
+
+Przy zakupie pojazdu na aukcjach amerykańskich należy zwracać uwagę na obecność nowych części zamiennych w samochodzie. Szczegóły ustalane są indywidualnie z menedżerem podczas wyceny i weryfikacji pojazdu.
+
+Jeśli masz wątpliwości dotyczące konkretnego auta lub jego statusu, skontaktuj się z nami – pomożemy Ci bezpiecznie przeprowadzić cały proces importu.`
+  },
   {
     slug: "co-to-jest-title-samochodu-z-usa-rodzaje-tytulow",
     title: "Co to jest title samochodu z USA? Rodzaje tytułów na aukcjach Copart i IAAI",
