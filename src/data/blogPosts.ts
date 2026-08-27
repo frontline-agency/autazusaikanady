@@ -17,6 +17,7 @@ import naprawaBlacharnia from "@/assets/blog/naprawa-blacharnia.webp";
 import historiaPojazdu from "@/assets/blog/historia-pojazdu.webp";
 import elektrykiUsa from "@/assets/blog/elektryki-usa.webp";
 import importZdalny from "@/assets/blog/import-zdalny.webp";
+import ograniczeniaElektryczne from "@/assets/blog/ograniczenia-elektryczne.webp";
 
 export interface BlogPost {
   slug: string;
