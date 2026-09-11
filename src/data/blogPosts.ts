@@ -34,6 +34,64 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "uruchomilismy-nowe-narzedzie-do-kontroli-samochodow-window-sticker",
+    title: "Window Sticker – nowe narzędzie do kontroli samochodów",
+    excerpt: "Sprawdź, co potrafi Window Sticker – darmowe narzędzie do odczytu fabrycznej naklejki na szybie samochodu z USA. Wersja wyposażenia, opcje, cena i spalanie w jednym miejscu.",
+    date: "2026-09-11",
+    image: windowSticker,
+    images: [
+      { src: windowSticker, alt: "Fabryczna naklejka Monroney na szybie nowego samochodu z USA" },
+    ],
+    metaDescription: "Window Sticker – bezpłatne narzędzie do kontroli samochodów z USA. Sprawdź wersję wyposażenia, dodatkowe opcje, cenę i spalanie auta na podstawie fabrycznej naklejki.",
+    keywords: ["Window Sticker", "naklejka na szybie samochodu z USA", "Monroney sticker", "wyposażenie auta z USA", "raport Window Sticker"],
+    content: `## Czym jest Window Sticker?
+
+Window Sticker, czyli fabryczna naklejka na szybie, to oficjalny dokument, który znajduje się na wszystkich nowych samochodach sprzedawanych w Stanach Zjednoczonych. Zawiera komplet informacji o pojeździe – od wersji wyposażenia, przez dodatkowe opcje i ich ceny, aż po dane techniczne i ocenę bezpieczeństwa.
+
+Dzięki raportowi Window Sticker możesz w kilka chwil zweryfikować, czy auto oferowane na aukcji lub ogłoszeniu faktycznie odpowiada deklarowanej specyfikacji. To jedno z najskuteczniejszych narzędzi do kontroli auta z USA przed zakupem.
+
+### Co zawiera naklejka na szybie?
+
+Window Sticker zawiera m.in.:
+
+- **Wersję wyposażenia** – dokładną specyfikację modelu i pakietów.
+- **Dodatkowe opcje i ich ceny** – lista wszystkich opcji fabrycznych wraz z kosztami.
+- **Całkowity koszt samochodu** – cena bazowa plus opcje i opłaty.
+- **Główne informacje o samochodzie** – silnik, skrzynia biegów, napęd, kraj pochodzenia.
+- **Średnie spalanie samochodu** – dane EPA w milach na galon.
+- **Ocenę bezpieczeństwa samochodu** – wyniki testów NHTSA i dostępne systemy bezpieczeństwa.
+
+Wszystkie te dane pochodzą bezpośrednio od producenta, więc są dużo bardziej wiarygodne niż opis sprzedającego.
+
+### Dla których marek dostarczamy bezpłatny raport Window Sticker?
+
+Posiadamy bezpłatną bazę raportów naklejek na szybę dla następujących marek:
+
+- Alfa Romeo
+- Buick 2019+
+- Chrysler
+- Dodge
+- Fiat
+- Jeep
+- Cadillac 2019+
+- Chevrolet 2019+
+- GMC 2019+
+- Subaru 2020+
+- Hyundai
+
+Jeśli interesuje Cię konkretny model, napisz do nas – sprawdzimy, czy dla danego auta możemy pobrać oryginalny Window Sticker.
+
+### Dlaczego warto sprawdzić Window Sticker przed zakupem?
+
+Aukcje amerykańskie i ogłoszenia prywatne często zawierają niepełne lub nieaktualne informacje. Window Sticker pozwala porównać deklarowaną specyfikację z danymi producenta, uniknąć przepłacania za opcje, które auta nie posiada, oraz ocenić realne koszty eksploatacji.
+
+To narzędzie jest szczególnie przydatne przy samochodach z silnikami wysokoprężnymi, hybrydami i elektrykami, gdzie wyposażenie ma kluczowy wpływ na cenę i spalanie.
+
+### Jak uzyskać raport Window Sticker?
+
+Wystarczy skontaktować się z nami i podać VIN lub dane pojazdu. W ramach bezpłatnej konsultacji sprawdzimy dostępność raportu i przeanalizujemy specyfikację auta, które Cię interesuje. Window Sticker to kolejny krok w kierunku bezpiecznego i transparentnego importu samochodu z USA.`
+  },
+  {
     slug: "aktualne-ograniczenia-import-aut-elektrycznych-usa",
     title: "Aktualne ograniczenia: co musisz wiedzieć przed zakupem auta z USA?",
     excerpt: "Sprawdź aktualne ograniczenia dotyczące importu pojazdów elektrycznych ze statusem Flood, Storm Damage i Burn oraz zasady dotyczące nowych części zamiennych w samochodzie.",
