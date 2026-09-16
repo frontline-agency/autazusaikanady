@@ -43,7 +43,7 @@ const WhatsAppModal = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative pointer-events-auto w-full max-w-sm md:max-w-3xl max-h-[90vh] overflow-hidden rounded-xl shadow-2xl border border-black/5 bg-white"
+              className="relative pointer-events-auto w-full max-w-sm md:max-w-4xl max-h-[90vh] overflow-hidden rounded-xl shadow-2xl border border-black/5 bg-white"
             >
               <button
                 onClick={handleClose}
