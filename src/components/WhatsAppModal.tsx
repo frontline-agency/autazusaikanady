@@ -23,8 +23,7 @@ const WhatsAppModal = () => {
 
   const handleJoin = () => {
     localStorage.setItem(STORAGE_KEY, "true");
-    // TODO: Replace with the real WhatsApp group invite link
-    window.open("https://chat.whatsapp.com/REPLACE_WITH_GROUP_LINK", "_blank", "noopener,noreferrer");
+    window.open("https://chat.whatsapp.com/KRYDgN90ak42HjPTX1pYMC", "_blank", "noopener,noreferrer");
   };
 
   return (
