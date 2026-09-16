@@ -95,6 +95,7 @@ const WhatsAppModal = () => {
               </button>
             </div>
           </motion.div>
+          </div>
         </>
       )}
     </AnimatePresence>
