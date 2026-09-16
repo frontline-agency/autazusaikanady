@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import whatsappGrupa from "@/assets/whatsapp-grupa.webp.asset.json";
+import whatsappGrupa from "@/assets/whatsapp-grupa.webp";
 
 const STORAGE_KEY = "autazusa-whatsapp-modal-shown";
 
