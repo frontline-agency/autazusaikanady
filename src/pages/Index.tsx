@@ -14,6 +14,7 @@ import BlogSection from "@/components/BlogSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import ScrollingCar from "@/components/ScrollingCar";
+import WhatsAppModal from "@/components/WhatsAppModal";
 
 const Index = () => {
   return (
