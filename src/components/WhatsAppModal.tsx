@@ -37,12 +37,13 @@ const WhatsAppModal = () => {
             className="fixed inset-0 z-[60] bg-white/60 backdrop-blur-md"
             onClick={handleClose}
           />
+          <div className="fixed inset-0 z-[61] flex items-center justify-center p-4 pointer-events-none">
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[61] w-[calc(100%-2rem)] max-w-md rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-white"
+            className="relative pointer-events-auto w-full max-w-sm max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl border border-black/5 bg-white"
           >
             {/* Close button */}
             <button
