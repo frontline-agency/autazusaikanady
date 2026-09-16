@@ -23,8 +23,7 @@ const WhatsAppModal = () => {
 
   const handleJoin = () => {
     localStorage.setItem(STORAGE_KEY, "true");
-    // TODO: Replace with the real WhatsApp group invite link
-    window.open("https://chat.whatsapp.com/REPLACE_WITH_GROUP_LINK", "_blank", "noopener,noreferrer");
+    window.open("https://chat.whatsapp.com/KRYDgN90ak42HjPTX1pYMC", "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -35,7 +34,7 @@ const WhatsAppModal = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-usa-navy/90 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] bg-white/60 backdrop-blur-md"
             onClick={handleClose}
           />
           <motion.div
