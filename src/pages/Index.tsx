@@ -19,6 +19,7 @@ import WhatsAppModal from "@/components/WhatsAppModal";
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <WhatsAppModal />
       <TopBar />
       <Navbar />
       <HeroSection />
