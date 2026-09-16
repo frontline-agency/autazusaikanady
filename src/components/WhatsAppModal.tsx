@@ -55,7 +55,7 @@ const WhatsAppModal = () => {
 
               <div className="flex flex-col md:flex-row">
                 {/* Image */}
-                <div className="relative w-full md:w-1/2 bg-gray-100 flex items-center justify-center overflow-hidden">
+                <div className="relative w-full md:w-5/12 bg-gray-100 flex items-center justify-center overflow-hidden">
                   <img
                     src={whatsappGrupa}
                     alt="Dołącz do grupy WhatsApp Auta z Ameryki USA"
@@ -64,7 +64,7 @@ const WhatsAppModal = () => {
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col w-full md:w-1/2">
+                <div className="flex flex-col w-full md:w-7/12">
                   {/* Header */}
                   <div className="bg-usa-navy px-6 pt-6 pb-4 text-center md:text-left">
                     <span className="inline-block bg-usa-red text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
