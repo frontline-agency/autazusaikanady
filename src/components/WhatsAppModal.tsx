@@ -65,11 +65,11 @@ const WhatsAppModal = () => {
             </div>
 
             {/* Image */}
-            <div className="relative w-full aspect-square bg-gray-100">
+            <div className="relative w-full bg-gray-100">
               <img
-                src={whatsappGrupa.url}
+                src={whatsappGrupa}
                 alt="Dołącz do grupy WhatsApp Auta z Ameryki USA"
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain"
               />
             </div>
 
