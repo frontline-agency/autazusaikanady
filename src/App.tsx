@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import AboutPage from "./pages/AboutPage";
+import WhatsAppLandingPage from "./pages/WhatsAppLandingPage";
 
 import CostsPage from "./pages/CostsPage";
 import SavingsPage from "./pages/SavingsPage";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/oszczednosci" element={<SavingsPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/pojazdy" element={<VehiclesPage />} />
+          <Route path="/grupa-whatsapp" element={<WhatsAppLandingPage />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
