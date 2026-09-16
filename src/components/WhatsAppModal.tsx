@@ -55,7 +55,7 @@ const WhatsAppModal = () => {
 
               <div className="flex flex-col md:flex-row">
                 {/* Image */}
-                <div className="relative w-full md:w-5/12 bg-gray-100 flex items-center justify-center overflow-hidden">
+                <div className="relative w-full md:w-1/2 bg-gray-100 flex items-center justify-center overflow-hidden">
                   <img
                     src={whatsappGrupa}
                     alt="Dołącz do grupy WhatsApp Auta z Ameryki USA"
@@ -64,13 +64,13 @@ const WhatsAppModal = () => {
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col w-full md:w-7/12">
+                <div className="flex flex-col w-full md:w-1/2">
                   {/* Header */}
-                  <div className="bg-usa-navy px-6 pt-6 pb-4 text-center md:text-left">
-                    <span className="inline-block bg-usa-red text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                  <div className="bg-usa-navy px-4 md:px-5 pt-5 pb-3 text-center md:text-left">
+                    <span className="inline-block bg-usa-red text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
                       NOWOŚĆ
                     </span>
-                    <h2 className="font-heading text-lg md:text-xl font-black text-white uppercase leading-tight whitespace-nowrap">
+                    <h2 className="font-heading text-sm md:text-base font-black text-white uppercase leading-tight whitespace-nowrap">
                       OTWIERAMY NASZĄ GRUPĘ WHATSAPP!
                     </h2>
                   </div>
