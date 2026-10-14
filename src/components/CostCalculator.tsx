@@ -123,13 +123,14 @@ const CostCalculator = () => {
                   type="text"
                   inputMode="numeric"
                   placeholder="np. 12 000"
-                  value={price}
+                  value={price ? Number(price).toLocaleString("pl-PL") : ""}
                   onChange={(e) => {
-                    const raw = e.target.value.replace(/[^\d]/g, "");
-                    if (raw.length <= 6) setPrice(raw);
+                    // Drop decimal part like ",00" / ".50" so "14 000,00" is 14000, not 1400000
+                    const noDecimals = e.target.value.replace(/[.,]\d{1,2}$/, "");
+                    const raw = noDecimals.replace(/[^\d]/g, "").replace(/^0+/, "");
+                    setPrice(raw.slice(0, 6));
                   }}
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground font-heading text-xl font-bold focus:outline-none focus:ring-2 focus:ring-usa-red/50 transition-shadow"
-                  maxLength={10}
                 />
               </div>
             </div>
