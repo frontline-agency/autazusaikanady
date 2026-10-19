@@ -1,6 +1,7 @@
 // netlify/edge-functions/seo-injection.ts
 
 import { Context } from "https://edge.netlify.com/";
+import { faqItems } from "../../src/data/faq.ts";
 
 export default async (request: Request, context: Context) => {
   const url = new URL(request.url);
@@ -34,7 +35,19 @@ export default async (request: Request, context: Context) => {
     .replace(/<title>.*?<\/title>/gi, '')
     .replace(/<meta\s+name=["']description["'].*?>/gi, '');
 
-  const enhancedHtml = cleanedHtml.replace('</head>', `${metaTags}</head>`);
+  const faqJsonLd = (seoConfig.path === '/' || seoConfig.path === '/oplaty')
+    ? `<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      }).replace(/</g, '\\u003c')}</script>`
+    : '';
+
+  const enhancedHtml = cleanedHtml.replace('</head>', `${metaTags}${faqJsonLd}</head>`);
   const headers = new Headers(response.headers);
 
   headers.delete('content-length');
@@ -190,7 +203,7 @@ function getSeoConfig(pathname: string, origin: string) {
 
   const config = configs[path];
   if (config) {
-    return { ...config, url: `${origin}${pathname}`, origin };
+    return { ...config, url: `${origin}${pathname}`, origin, path };
   }
 
   return null;

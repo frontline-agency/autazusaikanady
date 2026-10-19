@@ -1,3 +1,4 @@
+import FAQSection from "@/components/FAQSection";
 import CostCalculator from "@/components/CostCalculator";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -479,6 +480,7 @@ const CostsPage = () => {
         </div>
       </section>
 
+      <FAQSection />
       <Footer />
     </div>
   );
