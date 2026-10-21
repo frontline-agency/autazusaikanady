@@ -10,7 +10,7 @@ const Navbar = () => {
     { name: "Strona główna", href: "/" },
     { name: "O nas", href: "/o-nas" },
     { name: "Pojazdy", href: "https://pojazdy.autazamerykiusa.pl/", external: true },
-    { name: "Opłaty", href: "/oplaty" },
+    { name: "Opłaty", href: "/oplaty", highlight: true },
     { name: "Oszczędności", href: "/oszczednosci" },
     { name: "Blog", href: "/blog" },
     { name: "Kontakt", href: "/kontakt" },
