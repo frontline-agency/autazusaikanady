@@ -24,7 +24,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <a href="/" className="flex items-center">
-              <img src={logo} alt="AUTA z Ameryki USA" className="w-[180px] h-auto" />
+              <img src={logo} alt="AUTA z Ameryki USA" className="w-[118px] sm:w-[150px] lg:w-[180px] h-auto" />
             </a>
 
             {/* Desktop Navigation */}
@@ -55,14 +55,29 @@ const Navbar = () => {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Menu"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* Mobile CTA + Menu Button */}
+            <div className="flex items-center gap-1.5 lg:hidden">
+              <a
+                href="https://pojazdy.autazamerykiusa.pl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-usa-red text-primary-foreground rounded-md px-2.5 py-1.5 flex flex-col items-center leading-none"
+              >
+                <span className="text-[11px] font-extrabold uppercase tracking-wide whitespace-nowrap">
+                  Zobacz pojazdy
+                </span>
+                <span className="text-[9px] font-semibold uppercase tracking-wide opacity-90 whitespace-nowrap mt-1">
+                  120.000+ aukcji
+                </span>
+              </a>
+              <button
+                className="p-2"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Menu"
+              >
+                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
