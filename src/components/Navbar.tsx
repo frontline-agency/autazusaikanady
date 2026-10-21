@@ -63,10 +63,10 @@ const Navbar = () => {
                 rel="noopener noreferrer"
                 className="bg-usa-red text-primary-foreground rounded-md px-2.5 py-1.5 flex flex-col items-center leading-none"
               >
-                <span className="text-[11px] font-extrabold uppercase tracking-wide whitespace-nowrap">
+                <span className="text-[16px] font-extrabold uppercase tracking-wide whitespace-nowrap">
                   Zobacz pojazdy
                 </span>
-                <span className="text-[9px] font-semibold uppercase tracking-wide opacity-90 whitespace-nowrap mt-1">
+                <span className="text-[10px] font-semibold uppercase tracking-wide opacity-90 whitespace-nowrap mt-1">
                   120.000+ aukcji
                 </span>
               </a>
