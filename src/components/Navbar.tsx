@@ -89,10 +89,19 @@ const Navbar = () => {
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
-                  className="block py-3 text-foreground hover:text-usa-red transition-colors"
+                  className={
+                    link.highlight
+                      ? "my-1 flex items-center justify-between rounded-md border-l-4 border-usa-red bg-[hsl(var(--usa-navy))] px-4 py-3 text-[17px] font-bold uppercase tracking-wide text-primary-foreground"
+                      : "block py-3 pl-1 text-foreground hover:text-usa-red transition-colors"
+                  }
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.name}
+                  <span>{link.name}</span>
+                  {link.highlight && (
+                    <span className="text-[11px] font-semibold uppercase tracking-wide opacity-90">
+                      kalkulator kosztów
+                    </span>
+                  )}
                 </a>
               ))}
               <Button
