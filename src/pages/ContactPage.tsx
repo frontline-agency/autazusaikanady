@@ -1,9 +1,10 @@
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const fadeUp = {
@@ -16,17 +17,6 @@ const ContactPage = () => {
   const heroInView = useInView(heroRef, { once: true });
   const infoRef = useRef(null);
   const infoInView = useInView(infoRef, { once: true, margin: "-80px" });
-
-  useEffect(() => {
-    // Load external form embed script
-    const script = document.createElement("script");
-    script.src = "https://opinie.autazamerykiusa.pl/js/form_embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   const contactInfo = [
     {
@@ -161,7 +151,7 @@ const ContactPage = () => {
               </motion.div>
             </div>
 
-            {/* Right — embedded form */}
+            {/* Right — formularz kontaktowy */}
             <motion.div
               initial="hidden"
               animate={infoInView ? "visible" : "hidden"}
@@ -169,32 +159,7 @@ const ContactPage = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="lg:col-span-3"
             >
-              <div className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden max-w-[450px] mx-auto">
-                <div className="p-1">
-                  <iframe
-                    src="https://opinie.autazamerykiusa.pl/widget/form/nhKwH5USALdxbH7lZeXz"
-                    style={{
-                      width: "100%",
-                      height: "600px",
-                      border: "none",
-                      borderRadius: "8px",
-                    }}
-                    id="inline-nhKwH5USALdxbH7lZeXz"
-                    data-layout='{"id":"INLINE"}'
-                    data-trigger-type="alwaysShow"
-                    data-trigger-value=""
-                    data-activation-type="alwaysActivated"
-                    data-activation-value=""
-                    data-deactivation-type="neverDeactivate"
-                    data-deactivation-value=""
-                    data-form-name="Website Form"
-                    data-height="undefined"
-                    data-layout-iframe-id="inline-nhKwH5USALdxbH7lZeXz"
-                    data-form-id="nhKwH5USALdxbH7lZeXz"
-                    title="Website Form"
-                  />
-                </div>
-              </div>
+              <ContactForm />
             </motion.div>
           </div>
         </div>
