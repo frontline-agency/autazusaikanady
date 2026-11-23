@@ -1,9 +1,23 @@
 // netlify/functions/send-contact.mts
 // Obsługa formularza kontaktowego z /kontakt — wysyłka powiadomienia mailem przez Resend.
 
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "autazamerykiusa@gmail.com";
-const FROM_EMAIL =
-  process.env.CONTACT_FROM_EMAIL || "Formularz <formularz@autazamerykiusa.pl>";
+const DEFAULT_TO_EMAIL = "autazamerykiusa@gmail.com";
+const DEFAULT_FROM_EMAIL = "Formularz <formularz@autazamerykiusa.pl>";
+
+/**
+ * Adresy, na które trafia powiadomienie o nowym zgłoszeniu.
+ * Ustawiane zmienną środowiskową CONTACT_TO_EMAIL w panelu Netlify.
+ * Można podać kilka adresów po przecinku, np.:
+ *   CONTACT_TO_EMAIL="autazamerykiusa@gmail.com, biuro@autazamerykiusa.pl"
+ */
+const getRecipients = (): string[] => {
+  const configured = (process.env.CONTACT_TO_EMAIL || "")
+    .split(",")
+    .map((address) => address.trim())
+    .filter((address) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address));
+
+  return configured.length > 0 ? configured : [DEFAULT_TO_EMAIL];
+};
 
 type Payload = {
   name?: unknown;
@@ -74,6 +88,7 @@ export default async (request: Request): Promise<Response> => {
     return json(422, { error: "Podaj poprawny numer telefonu." });
   }
 
+  const recipients = getRecipients();
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("send-contact: brak zmiennej środowiskowej RESEND_API_KEY");
@@ -138,8 +153,8 @@ export default async (request: Request): Promise<Response> => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: FROM_EMAIL,
-        to: [TO_EMAIL],
+        from: process.env.CONTACT_FROM_EMAIL || DEFAULT_FROM_EMAIL,
+        to: recipients,
         subject: `Nowe zapytanie: ${name} — ${phone}`,
         text,
         html,
