@@ -42,6 +42,12 @@ const clean = (value: unknown, maxLength = 200): string => {
   return value.replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, maxLength);
 };
 
+/** Maskuje adres e-mail na potrzeby diagnostyki: jan.kowalski@x.pl -> ja***@x.pl */
+const maskEmail = (address: string): string => {
+  const [local = "", domain = ""] = address.split("@");
+  return `${local.slice(0, 2)}***@${domain}`;
+};
+
 const escapeHtml = (value: string): string =>
   value
     .replace(/&/g, "&amp;")
@@ -57,6 +63,18 @@ const row = (label: string, value: string): string =>
    </tr>`;
 
 export default async (request: Request): Promise<Response> => {
+  // GET /.netlify/functions/send-contact — diagnostyka konfiguracji.
+  // Zwraca wyłącznie informację, czy zmienne są ustawione; nigdy ich wartości.
+  if (request.method === "GET") {
+    return json(200, {
+      resendApiKeyConfigured: Boolean(process.env.RESEND_API_KEY),
+      fromEmail: process.env.CONTACT_FROM_EMAIL || DEFAULT_FROM_EMAIL,
+      fromEmailFromEnv: Boolean(process.env.CONTACT_FROM_EMAIL),
+      recipients: getRecipients().map(maskEmail),
+      recipientsFromEnv: Boolean(process.env.CONTACT_TO_EMAIL),
+    });
+  }
+
   if (request.method !== "POST") {
     return json(405, { error: "Method not allowed" });
   }
